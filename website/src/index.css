@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --orange: #FF6A1A;
+  --orange-light: #FF8C4A;
+  --orange-dark: #cc5414;
+  --orange-glow: rgba(255, 106, 26, 0.15);
+  
+  --bg-main: #FFFBF9;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  
+  --border: rgba(255, 106, 26, 0.1);
+  --border-glow: rgba(255, 106, 26, 0.25);
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  
+  --gradient-hero: linear-gradient(135deg, #FFF4ED 0%, #FFFFFF 50%, #FFF8F5 100%);
+  --gradient-orange: linear-gradient(135deg, #FF6A1A, #FF4500);
+  --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #FFFBF9 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: var(--orange-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+.glass {
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 106, 26, 0.08);
+  box-shadow: 0 4px 24px -8px rgba(255, 106, 26, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  border-radius: 16px;
+}
+.glass:hover {
+  box-shadow: 0 12px 32px -8px rgba(255, 106, 26, 0.15), 0 2px 6px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.glass-orange {
+  background: linear-gradient(135deg, rgba(255,106,26,0.05), rgba(255,106,26,0.01));
+  border: 1px solid rgba(255, 106, 26, 0.15);
+  box-shadow: 0 8px 32px -8px rgba(255, 106, 26, 0.12);
+  border-radius: 16px;
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(255, 107, 26, 0.2);
+}
+
+.glow-box {
+  box-shadow: 0 0 30px rgba(255, 107, 26, 0.1), 0 10px 40px rgba(0,0,0,0.03);
+}
+
+section {
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.gradient-text {
+  background: var(--gradient-orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 106, 26, 0.08);
+  border: 1px solid rgba(255, 106, 26, 0.2);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+}

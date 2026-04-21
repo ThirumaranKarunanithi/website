@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(cp \"D:/Magizhchi SOftware/Magizhchi All Logos/Magizhchi All Logos/MagizhchiSoftware_Logo/PNG/MagizhchiSoftware_Logo_Orange.png\" \"D:/Magizhchi SOftware/Source/website/src/assets/logo-software-orange.png\")",
+      "Bash(cp \"D:/Magizhchi SOftware/Magizhchi All Logos/Magizhchi All Logos/MagizhchiSoftware_Logo/PNG/MagizhchiSoftware_Logo_Black.png\" \"D:/Magizhchi SOftware/Source/website/src/assets/logo-software-black.png\")",
+      "Bash(cp \"D:/Magizhchi SOftware/Magizhchi All Logos/Magizhchi All Logos/MagizhchiTechAcademy_Logo/PNG/MagizhchiTechAcademy_LogoOrange.png\" \"D:/Magizhchi SOftware/Source/website/src/assets/logo-academy-orange.png\")",
+      "Bash(cp \"D:/Magizhchi SOftware/Magizhchi All Logos/Magizhchi All Logos/Magizhchi_Logo/PNG/Magizhchi_Logo_Orange.png\" \"D:/Magizhchi SOftware/Source/website/src/assets/logo-magizhchi-orange.png\")",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
