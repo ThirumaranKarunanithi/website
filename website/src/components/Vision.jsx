@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import logoMagizhchi from '../assets/logo-magizhchi-orange.png';
+import visionImage from '../assets/vision_future.png';
 
 export default function Vision() {
   const [ref, inView] = useInView(0.2);
@@ -95,76 +96,46 @@ export default function Vision() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            style={{ display: 'flex', justifyContent: 'center' }}
+            style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}
           >
             <div style={{
               position: 'relative',
-              width: 380,
-              height: 380,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              borderRadius: 24,
+              overflow: 'hidden',
+              boxShadow: '0 30px 60px rgba(0,0,0,0.08), 0 0 40px rgba(255, 107, 26, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.6)',
+              borderTop: '2px solid #FFFFFF',
+              borderLeft: '2px solid #FFFFFF',
             }}>
-              {/* Rotating rings */}
-              {[1, 1.3, 1.6].map((scale, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                  transition={{ repeat: Infinity, duration: 20 + i * 5, ease: 'linear' }}
-                  style={{
-                    position: 'absolute',
-                    width: 200 * scale,
-                    height: 200 * scale,
-                    borderRadius: '50%',
-                    border: `1px solid rgba(255,107,26,${0.15 - i * 0.04})`,
-                    borderTopColor: `rgba(255,107,26,${0.4 - i * 0.1})`,
-                  }}
-                />
-              ))}
-
-              {/* Center logo */}
+              <img 
+                src={visionImage} 
+                alt="Visionary Future" 
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  transform: 'scale(1.02)' 
+                }} 
+              />
               <div style={{
-                width: 140, height: 140,
-                borderRadius: '50%',
-                background: '#FFFFFF',
-                border: '1px solid rgba(255,107,26,0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 8px 32px rgba(255,107,26,0.15)',
-              }}>
-                <img src={logoMagizhchi} alt="Magizhchi" style={{ width: 80, height: 'auto', filter: 'drop-shadow(0 0 15px rgba(255,107,26,0.6))' }} />
-              </div>
-
-              {/* Orbiting dots */}
-              {[0, 60, 120, 180, 240, 300].map((deg, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}
-                  style={{
-                    position: 'absolute',
-                    width: 260,
-                    height: 260,
-                    borderRadius: '50%',
-                    transformOrigin: 'center',
-                  }}
-                >
-                  <div style={{
-                    position: 'absolute',
-                    width: 6,
-                    height: 6,
-                    borderRadius: '50%',
-                    background: '#FF6B1A',
-                    top: '50%',
-                    left: '50%',
-                    transform: `translate(-50%, -50%) rotate(${deg}deg) translateX(130px)`,
-                    opacity: 0.7,
-                    boxShadow: '0 0 8px rgba(255,107,26,0.8)',
-                  }} />
-                </motion.div>
-              ))}
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(135deg, rgba(255,107,26,0.15) 0%, transparent 100%)',
+                pointerEvents: 'none'
+              }}/>
             </div>
+            {/* Glow dot */}
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '100%',
+              height: '100%',
+              background: 'rgba(255, 107, 26, 0.15)',
+              filter: 'blur(80px)',
+              zIndex: -1,
+            }} />
           </motion.div>
         </div>
       </div>

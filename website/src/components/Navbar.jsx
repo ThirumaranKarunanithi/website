@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Solutions', href: '#solutions' },
   { label: 'Products', href: '#products' },
   { label: 'Why Us', href: '#why' },
+  { label: 'Contact Us', href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -60,10 +61,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               style={{
-                color: 'var(--text-secondary)',
+                color: '#0F172A',
                 textDecoration: 'none',
                 fontSize: 14,
-                fontWeight: 500,
+                fontWeight: 600,
                 padding: '8px 16px',
                 borderRadius: 8,
                 transition: 'all 0.2s',
@@ -73,7 +74,7 @@ export default function Navbar() {
                 e.target.style.background = 'rgba(255,107,26,0.08)';
               }}
               onMouseLeave={e => {
-                e.target.style.color = 'var(--text-secondary)';
+                e.target.style.color = '#0F172A';
                 e.target.style.background = 'transparent';
               }}
             >
@@ -137,10 +138,10 @@ export default function Navbar() {
                 style={{
                   display: 'block',
                   padding: '12px 0',
-                  color: 'var(--text-secondary)',
+                  color: '#0F172A',
                   textDecoration: 'none',
                   fontSize: 16,
-                  fontWeight: 500,
+                  fontWeight: 600,
                   borderBottom: '1px solid var(--border)',
                 }}
               >

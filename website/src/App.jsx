@@ -5,6 +5,7 @@ import Vision from './components/Vision';
 import CurrentSolution from './components/CurrentSolution';
 import UpcomingProducts from './components/UpcomingProducts';
 import WhyUs from './components/WhyUs';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <CurrentSolution />
         <UpcomingProducts />
         <WhyUs />
+        <ContactUs />
       </main>
       <Footer />
     </>

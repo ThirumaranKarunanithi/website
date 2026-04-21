@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import TiltCard from './TiltCard';
+import dashboardImage from '../assets/business_dashboard.png';
+import imgDental from '../assets/img_dental.png';
+import imgForms from '../assets/img_forms.png';
+import imgCrm from '../assets/img_crm.png';
+import imgAccounting from '../assets/img_accounting.png';
+import imgHrms from '../assets/img_hrms.png';
 
 const products = [
   {
@@ -9,8 +15,8 @@ const products = [
     subtitle: 'Dental Management Software',
     tagline: 'Modern Dental Practice, Fully Digitized',
     icon: '🦷',
-    color: '#00B4D8',
-    colorGlow: 'rgba(0, 180, 216, 0.15)',
+    color: '#F97316',
+    colorGlow: 'rgba(249, 115, 22, 0.15)',
     features: [
       'Patient record management',
       'Appointment scheduling',
@@ -18,6 +24,7 @@ const products = [
       'Billing and financial reports',
     ],
     badge: 'Healthcare',
+    img: imgDental,
   },
   {
     id: 2,
@@ -25,8 +32,8 @@ const products = [
     subtitle: 'Forms',
     tagline: 'Create. Customize. Collect. Analyze.',
     icon: '📝',
-    color: '#7C3AED',
-    colorGlow: 'rgba(124, 58, 237, 0.15)',
+    color: '#EA580C',
+    colorGlow: 'rgba(234, 88, 12, 0.15)',
     features: [
       'Drag-and-drop form builder',
       'Custom branding (colors, fonts, layout)',
@@ -34,6 +41,7 @@ const products = [
       'Auto data collection to spreadsheets',
     ],
     badge: 'Data Collection',
+    img: imgForms,
   },
   {
     id: 3,
@@ -41,8 +49,8 @@ const products = [
     subtitle: 'CRM',
     tagline: 'Smart Sales Management Made Simple',
     icon: '🎯',
-    color: '#FF6B1A',
-    colorGlow: 'rgba(255, 107, 26, 0.15)',
+    color: '#F59E0B',
+    colorGlow: 'rgba(245, 158, 11, 0.15)',
     features: [
       'Lead management and tracking',
       'Team & individual lead assignment',
@@ -50,6 +58,7 @@ const products = [
       'Call recording and history',
     ],
     badge: 'Sales & CRM',
+    img: imgCrm,
   },
   {
     id: 4,
@@ -57,8 +66,8 @@ const products = [
     subtitle: 'Books — Accounting',
     tagline: 'Complete Financial Control',
     icon: '📊',
-    color: '#10B981',
-    colorGlow: 'rgba(16, 185, 129, 0.15)',
+    color: '#D97706',
+    colorGlow: 'rgba(217, 119, 6, 0.15)',
     features: [
       'End-to-end accounting management',
       'GST-ready compliance system',
@@ -66,6 +75,7 @@ const products = [
       'Expense and income tracking',
     ],
     badge: 'Finance',
+    img: imgAccounting,
   },
   {
     id: 5,
@@ -73,8 +83,8 @@ const products = [
     subtitle: 'People — HRMS',
     tagline: 'Your People, Managed with Clarity',
     icon: '👤',
-    color: '#F59E0B',
-    colorGlow: 'rgba(245, 158, 11, 0.15)',
+    color: '#FB923C',
+    colorGlow: 'rgba(251, 146, 60, 0.15)',
     features: [
       'Employee records management',
       'Attendance tracking system',
@@ -82,6 +92,7 @@ const products = [
       'Leave and performance management',
     ],
     badge: 'HR Management',
+    img: imgHrms,
   },
 ];
 
@@ -96,31 +107,66 @@ function ProductCard({ product, index, inView }) {
       intensity={10}
       gloss={true}
       style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        background: 'linear-gradient(135deg, rgba(255, 237, 213, 0.8) 0%, rgba(253, 186, 116, 0.5) 100%)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        border: '1px solid rgba(251, 146, 60, 0.3)',
+        borderTop: '1px solid #FFFFFF',
+        borderLeft: '1px solid #FFFFFF',
         borderRadius: 20,
-        padding: 32,
         overflow: 'hidden',
-        transition: 'border-color 0.3s',
+        transition: 'all 0.3s',
         height: '100%',
+        boxShadow: '0 12px 32px rgba(234, 88, 12, 0.08)',
+        display: 'flex',
+        flexDirection: 'column',
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = `${product.color}44`;
+        e.currentTarget.style.borderColor = product.color;
+        e.currentTarget.style.background = 'linear-gradient(135deg, rgba(254, 215, 170, 0.9) 0%, rgba(251, 146, 60, 0.8) 100%)';
+        e.currentTarget.style.transform = 'translateY(-6px)';
+        e.currentTarget.style.boxShadow = `0 20px 48px ${product.colorGlow}, inset 0 0 10px rgba(255,255,255,0.7)`;
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
+        e.currentTarget.style.borderColor = 'rgba(251, 146, 60, 0.3)';
+        e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 237, 213, 0.8) 0%, rgba(253, 186, 116, 0.5) 100%)';
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = '0 12px 32px rgba(234, 88, 12, 0.08)';
       }}
     >
-      {/* Background glow */}
+      {/* Dynamic Image Header */}
       <div style={{
-        position: 'absolute',
-        top: 0, right: 0,
-        width: 200, height: 200,
-        borderRadius: '50%',
-        background: `radial-gradient(circle, ${product.colorGlow} 0%, transparent 70%)`,
-        transform: 'translate(30%, -30%)',
-        pointerEvents: 'none',
-      }} />
+        height: 220,
+        width: '100%',
+        position: 'relative',
+        overflow: 'hidden',
+        borderBottom: `2px solid ${product.color}40`,
+        flexShrink: 0
+      }}>
+        <img 
+          src={product.img} 
+          alt={product.name} 
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }} 
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: `linear-gradient(to top, ${product.color}25, transparent)`,
+          pointerEvents: 'none'
+        }} />
+      </div>
+
+      <div style={{ padding: 28, flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
+        {/* Background glow */}
+        <div style={{
+          position: 'absolute',
+          top: 0, right: 0,
+          width: 200, height: 200,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${product.colorGlow} 0%, transparent 70%)`,
+          transform: 'translate(30%, -30%)',
+          pointerEvents: 'none',
+        }} />
 
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 20 }}>
@@ -157,7 +203,7 @@ function ProductCard({ product, index, inView }) {
           fontFamily: 'Poppins, sans-serif',
           fontSize: 20,
           fontWeight: 700,
-          color: 'var(--text-primary)',
+          color: '#000000',
           marginBottom: 2,
         }}>
           {product.name}
@@ -167,7 +213,7 @@ function ProductCard({ product, index, inView }) {
         </span>
       </div>
 
-      <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', marginBottom: 24, fontStyle: 'italic' }}>
+      <p style={{ fontSize: 14, color: '#0F172A', fontWeight: 600, marginBottom: 24, fontStyle: 'italic' }}>
         "{product.tagline}"
       </p>
 
@@ -188,7 +234,7 @@ function ProductCard({ product, index, inView }) {
               flexShrink: 0,
               fontWeight: 700,
             }}>✓</div>
-            <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.4 }}>{f}</span>
+            <span style={{ fontSize: 13, color: '#0F172A', fontWeight: 600, lineHeight: 1.4 }}>{f}</span>
           </div>
         ))}
       </div>
@@ -200,14 +246,16 @@ function ProductCard({ product, index, inView }) {
         alignItems: 'center',
         gap: 6,
         fontSize: 12,
-        color: 'rgba(255,255,255,0.35)',
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        color: '#A16207',
+        background: 'rgba(250, 204, 21, 0.2)',
+        border: '1px solid rgba(250, 204, 21, 0.5)',
         borderRadius: 100,
         padding: '5px 14px',
+        fontWeight: 600,
       }}>
         <span style={{ width: 5, height: 5, borderRadius: '50%', background: product.color, display: 'inline-block' }} />
         Coming Soon
+      </div>
       </div>
     </TiltCard>
     </motion.div>
@@ -222,23 +270,51 @@ export default function UpcomingProducts() {
       id="products"
       ref={ref}
       style={{
-        background: 'linear-gradient(180deg, var(--bg-main) 0%, var(--bg-card) 100%)',
+        backgroundColor: '#FFF7ED',
         position: 'relative',
+        padding: '120px 0',
+        overflow: 'hidden'
       }}
     >
-      <div className="container">
+      {/* Blended high-def background image */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 0,
+        backgroundImage: `url(${dashboardImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        opacity: 0.25,
+      }} />
+      {/* Texture mask overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 0,
+        backgroundImage: `
+          repeating-linear-gradient(45deg, rgba(249, 115, 22, 0.04) 0px, rgba(249, 115, 22, 0.04) 1px, transparent 1px, transparent 12px),
+          linear-gradient(135deg, rgba(255, 247, 237, 0.9) 0%, rgba(255, 237, 213, 0.8) 100%)
+        `,
+      }} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: 64 }}
         >
-          <div className="section-tag" style={{ margin: '0 auto 20px' }}>Upcoming Products</div>
-          <h2 className="section-title">
+          <div className="section-tag" style={{ margin: '0 auto 20px', color: '#EA580C', background: '#FFEDD5', border: '1px solid #FDBA74' }}>Upcoming Products</div>
+          <h2 className="section-title" style={{ color: '#000000' }}>
             The Complete{' '}
-            <span className="gradient-text">Business Ecosystem</span>
+            <span style={{ 
+              background: 'linear-gradient(90deg, #F97316, #EA580C)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>Business Ecosystem</span>
           </h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>
+          <p className="section-subtitle" style={{ margin: '0 auto', color: '#0F172A', fontWeight: 600 }}>
             Five powerful products, one unified vision — covering every aspect of your business operations.
           </p>
         </motion.div>

@@ -4,8 +4,8 @@ import logoOrange from '../assets/logo-software-orange.png';
 export default function Footer() {
   return (
     <footer style={{
-      background: '#060608',
-      borderTop: '1px solid rgba(255,255,255,0.06)',
+      background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 100%)',
+      borderTop: '1px solid rgba(255, 107, 26, 0.15)',
       padding: '60px 24px 32px',
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -19,10 +19,11 @@ export default function Footer() {
         >
           {/* Brand */}
           <div>
-            <img src={logoOrange} alt="Magizhchi Software" style={{ height: 44, marginBottom: 16 }} />
+            <img src={logoOrange} alt="Magizhchi Software" style={{ height: 60, marginBottom: 20 }} />
             <p style={{
-              fontSize: 14,
-              color: 'rgba(255,255,255,0.45)',
+              fontSize: 15,
+              fontWeight: 600,
+              color: '#0F172A',
               lineHeight: 1.8,
               maxWidth: 320,
               marginBottom: 20,
@@ -38,22 +39,22 @@ export default function Footer() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
-                background: 'rgba(255,107,26,0.1)',
-                border: '1px solid rgba(255,107,26,0.2)',
+                background: '#0F172A',
+                border: '1px solid #0F172A',
                 borderRadius: 10,
                 padding: '10px 20px',
                 textDecoration: 'none',
-                color: '#FF8C42',
+                color: '#FFFFFF',
                 fontSize: 14,
                 fontWeight: 600,
                 transition: 'all 0.2s',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(255,107,26,0.18)';
+                e.currentTarget.style.background = '#020617';
                 e.currentTarget.style.transform = 'translateY(-1px)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,107,26,0.1)';
+                e.currentTarget.style.background = '#0F172A';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
@@ -63,7 +64,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.5)', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>
+            <h4 style={{ fontSize: 13, fontWeight: 800, color: '#000000', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>
               Products
             </h4>
             {[
@@ -76,13 +77,14 @@ export default function Footer() {
             ].map(item => (
               <div key={item} style={{
                 fontSize: 14,
-                color: 'rgba(255,255,255,0.45)',
+                fontWeight: 600,
+                color: '#475569',
                 marginBottom: 10,
                 transition: 'color 0.2s',
                 cursor: 'default',
               }}
-              onMouseEnter={e => e.target.style.color = '#FF8C42'}
-              onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.45)'}
+              onMouseEnter={e => e.target.style.color = '#F97316'}
+              onMouseLeave={e => e.target.style.color = '#475569'}
               >
                 {item}
               </div>
@@ -91,7 +93,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.5)', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>
+            <h4 style={{ fontSize: 13, fontWeight: 800, color: '#000000', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 20 }}>
               Company
             </h4>
             {[
@@ -104,13 +106,14 @@ export default function Footer() {
               <a key={item.label} href={item.href} style={{
                 display: 'block',
                 fontSize: 14,
-                color: 'rgba(255,255,255,0.45)',
+                fontWeight: 600,
+                color: '#475569',
                 textDecoration: 'none',
                 marginBottom: 10,
                 transition: 'color 0.2s',
               }}
-              onMouseEnter={e => e.target.style.color = '#FF8C42'}
-              onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.45)'}
+              onMouseEnter={e => e.target.style.color = '#F97316'}
+              onMouseLeave={e => e.target.style.color = '#475569'}
               >
                 {item.label}
               </a>
@@ -120,7 +123,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div style={{
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderTop: '1px solid rgba(15, 23, 42, 0.1)',
           paddingTop: 28,
           display: 'flex',
           alignItems: 'center',
@@ -128,10 +131,10 @@ export default function Footer() {
           flexWrap: 'wrap',
           gap: 12,
         }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)' }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: '#475569' }}>
             © {new Date().getFullYear()} Magizhchi Software. All rights reserved.
           </p>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)' }}>
+          <p style={{ fontSize: 13, fontWeight: 600, color: '#64748B' }}>
             Built with passion for better business
           </p>
         </div>
