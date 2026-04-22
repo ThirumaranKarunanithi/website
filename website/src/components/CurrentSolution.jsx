@@ -85,14 +85,14 @@ export default function CurrentSolution() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
             {/* Left side content */}
             <div style={{ minWidth: 0 }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 20,
-                marginBottom: 32,
-                flexWrap: 'wrap',
-              }}>
-            <div style={{
+            <div className="current-solution-header" style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+              marginBottom: 32,
+              flexWrap: 'wrap',
+            }}>
+            <div className="cs-logo-container" style={{
               background: 'rgba(255, 255, 255, 0.5)',
               border: '1px solid rgba(255, 255, 255, 0.8)',
               borderRadius: 16,
@@ -103,7 +103,7 @@ export default function CurrentSolution() {
             }}>
               <img src={logoAcademy} alt="Tech Academy" style={{ height: 'auto', maxHeight: 80, maxWidth: '100%', objectFit: 'contain' }} />
             </div>
-            <div style={{ flex: '1 1 min-content', minWidth: '200px' }}>
+            <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
               <h3 style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: 'clamp(22px, 3vw, 30px)',
@@ -118,7 +118,7 @@ export default function CurrentSolution() {
                 Powering training institutes with end-to-end management
               </p>
             </div>
-            <div style={{ marginLeft: 'auto', marginTop: 8 }}>
+            <div className="cs-button-container" style={{ marginTop: 8 }}>
               <a
                 href="https://magizhchi.academy/"
                 target="_blank"
@@ -213,6 +213,24 @@ export default function CurrentSolution() {
           </div>
         </motion.div>
       </div>
+      <style>{`
+        .current-solution-header {
+          justify-content: center;
+          text-align: center;
+        }
+        .cs-button-container {
+          margin-left: 0;
+        }
+        @media (min-width: 768px) {
+          .current-solution-header {
+            justify-content: flex-start;
+            text-align: left;
+          }
+          .cs-button-container {
+            margin-left: auto;
+          }
+        }
+      `}</style>
     </section>
   );
 }

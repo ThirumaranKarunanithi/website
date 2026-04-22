@@ -266,6 +266,8 @@ export default function Hero() {
                   boxShadow: '0 8px 32px rgba(255,107,26,0.4)',
                   transition: 'all 0.3s',
                   display: 'inline-block',
+                  minWidth: 190,
+                  textAlign: 'center',
                 }}
                 onMouseEnter={e => {
                   e.target.style.transform = 'translateY(-3px)';
@@ -294,6 +296,8 @@ export default function Hero() {
                   border: '1px solid rgba(255,107,26,0.15)',
                   transition: 'all 0.3s',
                   display: 'inline-block',
+                  minWidth: 190,
+                  textAlign: 'center',
                 }}
                 onMouseEnter={e => {
                   e.target.style.transform = 'translateY(-3px)';

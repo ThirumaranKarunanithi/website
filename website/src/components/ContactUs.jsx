@@ -21,7 +21,7 @@ export default function ContactUs() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
           gap: 32,
         }}>
           {/* Left Side */}
@@ -46,9 +46,9 @@ export default function ContactUs() {
                 height: '100%',
                 boxShadow: '0 20px 40px rgba(234, 88, 12, 0.1)',
                 display: 'flex',
-                flexDirection: 'column',
                 justifyContent: 'center'
               }}
+              className="contact-card-left"
             >
               <h2 style={{
                 fontFamily: 'Poppins, sans-serif',
@@ -73,7 +73,7 @@ export default function ContactUs() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
                 {/* Call */}
-                <div style={{ display: 'flex', gap: 20 }}>
+                <div className="contact-item" style={{ display: 'flex', gap: 20 }}>
                   <div style={{
                     width: 48, height: 48,
                     borderRadius: 12,
@@ -90,7 +90,7 @@ export default function ContactUs() {
                 </div>
 
                 {/* Email */}
-                <div style={{ display: 'flex', gap: 20 }}>
+                <div className="contact-item" style={{ display: 'flex', gap: 20 }}>
                   <div style={{
                     width: 48, height: 48,
                     borderRadius: 12,
@@ -107,7 +107,7 @@ export default function ContactUs() {
                 </div>
 
                 {/* Location */}
-                <div style={{ display: 'flex', gap: 20 }}>
+                <div className="contact-item" style={{ display: 'flex', gap: 20 }}>
                   <div style={{
                     width: 48, height: 48,
                     borderRadius: 12,
@@ -174,7 +174,7 @@ export default function ContactUs() {
                 marginBottom: 40,
                 maxWidth: 380
               }}>
-                Book a free demo class and discover how we can transform your career in just 139 days.
+                Book a free demo class and discover how we can transform your business.
               </p>
 
               <motion.a
@@ -213,6 +213,22 @@ export default function ContactUs() {
           </motion.div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 767px) {
+          .contact-card-left {
+            align-items: center;
+            text-align: center;
+          }
+          .contact-card-left > div {
+            align-items: center;
+          }
+          .contact-card-left .contact-item {
+            flex-direction: column;
+            text-align: center;
+            gap: 12px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
