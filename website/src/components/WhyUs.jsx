@@ -96,7 +96,7 @@ export default function WhyUs() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
           gap: 24,
           marginBottom: 80,
         }}>
@@ -182,7 +182,7 @@ export default function WhyUs() {
             overflow: 'hidden',
             boxShadow: '0 20px 40px -10px rgba(234, 88, 12, 0.15)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
           }}
         >
           {/* Left Frame: Text Core */}

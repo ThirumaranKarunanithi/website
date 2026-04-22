@@ -75,14 +75,16 @@ export default function CurrentSolution() {
             backgroundSize: '24px 24px, 100% 100%',
             color: '#020617',
             borderRadius: 24,
-            padding: 'clamp(24px, 3vw, 40px)',
+            padding: 'clamp(20px, 4vw, 40px)',
             marginBottom: 0,
             boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.3), 0 8px 24px -4px rgba(249, 115, 22, 0.1)',
+            width: '100%',
+            boxSizing: 'border-box'
           }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 40, alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
             {/* Left side content */}
-            <div>
+            <div style={{ minWidth: 0 }}>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -94,18 +96,21 @@ export default function CurrentSolution() {
               background: 'rgba(255, 255, 255, 0.5)',
               border: '1px solid rgba(255, 255, 255, 0.8)',
               borderRadius: 16,
-              padding: 20,
+              padding: '16px',
               boxShadow: '0 4px 12px rgba(15, 23, 42, 0.05)',
+              maxWidth: '100%',
+              boxSizing: 'border-box'
             }}>
-              <img src={logoAcademy} alt="Tech Academy" style={{ height: 80, width: 'auto' }} />
+              <img src={logoAcademy} alt="Tech Academy" style={{ height: 'auto', maxHeight: 80, maxWidth: '100%', objectFit: 'contain' }} />
             </div>
-            <div>
+            <div style={{ flex: '1 1 min-content', minWidth: '200px' }}>
               <h3 style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: 'clamp(22px, 3vw, 30px)',
                 fontWeight: 800,
                 marginBottom: 8,
                 color: '#000000',
+                wordBreak: 'break-word'
               }}>
                 Magizhchi Tech Academy Platform
               </h3>
@@ -113,7 +118,7 @@ export default function CurrentSolution() {
                 Powering training institutes with end-to-end management
               </p>
             </div>
-            <div style={{ marginLeft: 'auto' }}>
+            <div style={{ marginLeft: 'auto', marginTop: 8 }}>
               <a
                 href="https://magizhchi.academy/"
                 target="_blank"
@@ -141,7 +146,7 @@ export default function CurrentSolution() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
             gap: 20,
           }}>
             {features.map((feat, i) => (
