@@ -263,7 +263,7 @@ function ProductCard({ product, index, inView }) {
 }
 
 export default function UpcomingProducts() {
-  const [ref, inView] = useInView(0.1);
+  const [ref, inView] = useInView(0.02);
 
   return (
     <section

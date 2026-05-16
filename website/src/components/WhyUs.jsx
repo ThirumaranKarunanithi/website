@@ -49,7 +49,7 @@ const reasons = [
 ];
 
 export default function WhyUs() {
-  const [ref, inView] = useInView(0.1);
+  const [ref, inView] = useInView(0.02);
 
   return (
     <section

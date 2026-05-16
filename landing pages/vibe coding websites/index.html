@@ -1,0 +1,3073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2 Days · 6 Hrs Vibe Coding Website Workshop with Certificate — by Magizhchi Software & Magizhchi Tech Academy. Learn to build your own website hands-on with Thirumaran Karunanithi." />
+  <title>2 Days 6 Hrs Vibe Coding Website Workshop with Certificate — Magizhchi</title>
+  <link rel="icon" type="image/png" href="https://magizhchi.software/assets/logo-software-orange-BSjNedGZ.png" />
+  <link rel="apple-touch-icon" href="https://magizhchi.software/assets/logo-software-orange-BSjNedGZ.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6A1A;
+      --orange-light: #FF8C4A;
+      --orange-dark: #cc5414;
+      --yellow: #FFC857;
+      --yellow-soft: #FFE08A;
+      --peach: #FFD9B8;
+      --peach-soft: #FFE8D1;
+      --peach-light: #FFF1E0;
+
+      --bg-base: #FFFBF6;
+      --bg-elev: #FFFFFF;
+
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #7C8597;
+
+      --border-soft: rgba(15, 23, 42, 0.06);
+      --border-orange: rgba(255, 106, 26, 0.30);
+
+      --gradient-orange: linear-gradient(135deg, #FF6A1A 0%, #FF4500 100%);
+      --gradient-warm: linear-gradient(135deg, #FF6A1A 0%, #FFB347 60%, #FFC857 100%);
+      --gradient-peach: linear-gradient(135deg, #FFD9B8 0%, #FFE5C9 50%, #FFEBD3 100%);
+      --gradient-yellow: linear-gradient(135deg, #FFE08A 0%, #FFD9B8 100%);
+
+      --shadow-soft: 0 14px 40px rgba(255, 138, 60, 0.10), 0 4px 12px rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 30px 60px rgba(255, 138, 60, 0.12), 0 8px 18px rgba(15, 23, 42, 0.05);
+
+      --dot-color: rgba(255, 106, 26, 0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      position: relative;
+      --mx: 50%;
+      --my: 50%;
+    }
+
+    /* Static dotted texture — fallback before canvas takes over */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, var(--dot-color) 1.2px, transparent 1.2px);
+      background-size: 22px 22px;
+      opacity: .85;
+      transition: opacity .5s ease;
+    }
+    body.canvas-ready::before { opacity: 0; }
+
+    /* Antigravity dot canvas — replaces static layer once JS runs */
+    #dot-field {
+      position: fixed !important;
+      inset: 0;
+      z-index: 0 !important;
+      pointer-events: none;
+    }
+
+    body > * { position: relative; z-index: 1; }
+    body > #dot-field { z-index: 0 !important; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-base); }
+    ::-webkit-scrollbar-thumb { background: var(--orange-light); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 48px 0;
+      position: relative;
+      min-height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section > .container { width: 100%; }
+
+    .gradient-text {
+      background: var(--gradient-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 106, 26, 0.10);
+      border: 1px solid rgba(255, 106, 26, 0.28);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      letter-spacing: -0.6px;
+    }
+
+    .section-subtitle {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      max-width: 640px;
+    }
+
+    .section-head { text-align: center; margin: 0 auto 20px; max-width: 720px; }
+    .section-head .section-subtitle { margin: 0 auto; }
+
+    /* Decorative top stripe */
+    .stripe-top {
+      height: 4px;
+      background: var(--gradient-warm);
+      width: 100%;
+    }
+
+    /* ============ NAVBAR ============ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 251, 246, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-primary);
+      text-decoration: none;
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+    .nav-logo {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      min-width: 0;
+    }
+    .nav-brand-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 14.5px;
+      letter-spacing: -0.2px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav-brand-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--orange-dark);
+      letter-spacing: 0.2px;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: color .25s ease;
+      white-space: nowrap;
+    }
+    .nav-links a.nav-internal:hover { color: var(--orange-dark); }
+    .nav-cta {
+      background: var(--gradient-orange);
+      color: #fff !important;
+      padding: 11px 22px;
+      border-radius: 100px;
+      font-size: 13px !important;
+      box-shadow: 0 8px 22px rgba(255,106,26,0.32);
+      transition: transform .25s ease, box-shadow .25s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,106,26,0.45); }
+    @media (max-width: 1240px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 13px; }
+    }
+    @media (max-width: 1080px) {
+      .nav-links { gap: 14px; }
+      .nav-internal { display: none; }
+      .nav-brand-title { font-size: 13.5px; }
+    }
+    @media (max-width: 820px) {
+      .nav-brand-sub { display: none; }
+      .nav-brand-title { white-space: normal; font-size: 13px; line-height: 1.2; }
+    }
+    @media (max-width: 480px) {
+      .nav-brand-title { font-size: 12px; }
+      .nav-logo { width: 36px; height: 36px; }
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      min-height: calc(100vh - 72px); /* viewport minus the sticky navbar */
+      max-height: calc(100vh - 72px); /* prevent the hero from pushing past the fold */
+      display: flex;
+      align-items: center;
+      padding: 24px 0 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 720px) {
+      .hero { max-height: none; }
+    }
+    .hero-bg-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      animation: float 12s ease-in-out infinite;
+    }
+    .glow-1 {
+      top: -10%; left: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,200,87,0.30) 0%, transparent 70%);
+    }
+    .glow-2 {
+      bottom: -10%; right: -8%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,138,60,0.22) 0%, transparent 70%);
+      animation-delay: -4s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: .8; }
+      50% { transform: translateY(-30px) scale(1.05); opacity: 1; }
+    }
+
+    .hero-grid {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 44px;
+      align-items: stretch;
+      justify-items: center;
+      width: 100%;
+    }
+    .hero-text {
+      width: 100%; max-width: 620px;
+      justify-self: start;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 100px;
+      background: #FFFFFF;
+      border: 1px solid rgba(255, 106, 26, 0.25);
+      color: var(--orange-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 20px rgba(255, 138, 60, 0.12);
+      width: fit-content;
+      align-self: flex-start;
+    }
+    @media (max-width: 960px) { .pill { align-self: center; } }
+    .pill .pulse {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 0 rgba(255,106,26,0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,106,26,0.6); }
+      70% { box-shadow: 0 0 0 14px rgba(255,106,26,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,106,26,0); }
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(26px, 3.6vw, 42px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.7px;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    .hero .lead {
+      font-size: clamp(13.5px, 1.2vw, 15.5px);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      max-width: 540px;
+      margin-bottom: 10px;
+    }
+    .hero .lead.lead-secondary { margin-top: 0; margin-bottom: 14px; }
+    @media (max-width: 960px) { .hero .lead { margin-left: auto; margin-right: auto; } }
+
+    .hero-meta {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      margin-bottom: 16px;
+      color: var(--text-secondary); font-size: 13px; font-weight: 500;
+    }
+    @media (max-width: 960px) { .hero-meta { justify-content: center; } }
+    .hero-meta .item { display: flex; align-items: center; gap: 8px; }
+    .hero-meta .item svg { color: var(--orange); flex-shrink: 0; }
+
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    @media (max-width: 960px) { .btn-row { justify-content: center; } }
+
+    /* Hero price pill */
+    .hero-price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 16px;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #FFE0CC, #FFD0B0);
+      border: 1px solid rgba(255, 106, 26, 0.30);
+      border-radius: 999px;
+      align-self: flex-start;
+      width: fit-content;
+      box-shadow: 0 6px 16px rgba(255, 138, 60, 0.18);
+    }
+    .hero-price-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+    }
+    .hero-price-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.4px;
+      line-height: 1;
+    }
+    .hero-price-cur {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 16px;
+      margin-right: 1px;
+    }
+    .hero-price-note {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    @media (max-width: 960px) {
+      .hero-price { align-self: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-price { gap: 8px; padding: 7px 14px; flex-wrap: wrap; justify-content: center; }
+      .hero-price-amount { font-size: 20px; }
+      .hero-price-note { display: none; }
+    }
+
+    /* "Explore more from Magizhchi" — sits inside the mentor card */
+    .mentor-visit {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .mentor-visit-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+      opacity: .85;
+    }
+    .mentor-visit-row {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+    .mentor-visit-btn {
+      flex: 1;
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      transition: background .2s ease, transform .2s ease, box-shadow .2s ease, color .2s ease;
+      text-decoration: none;
+    }
+    .mentor-visit-btn:hover {
+      background: var(--gradient-orange);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(255, 122, 47, 0.30);
+    }
+    .mentor-visit-btn .mentor-visit-icon { font-size: 14px; line-height: 1; }
+    .mentor-visit-btn .ext { opacity: .7; }
+    .mentor-visit-btn:hover .ext { opacity: 1; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      background: var(--gradient-orange);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 32px rgba(255,106,26,0.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+      font-family: inherit;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 44px rgba(255,106,26,0.5);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 22px;
+      background: #FFFFFF;
+      color: var(--text-primary);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .25s ease;
+      font-family: inherit;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+    .btn-secondary:hover {
+      border-color: var(--orange-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(255, 138, 60, 0.18);
+    }
+
+    /* ============ HERO MENTOR CARD ============ */
+    .mentor-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 18px;
+      background: var(--gradient-peach);
+      box-shadow: var(--shadow-card);
+      transition: transform .4s ease;
+      max-width: 460px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch;
+    }
+    .mentor-card:hover { transform: translateY(-4px); }
+    .mentor-card::after {
+      content: '';
+      position: absolute; bottom: -16px; right: -16px;
+      width: 110px; height: 110px;
+      background: var(--gradient-yellow);
+      border-radius: 50%;
+      filter: blur(2px);
+      z-index: -1;
+      opacity: .85;
+    }
+    .mentor-img-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      /* Cap the image side by viewport height so the whole card stays in
+         a single fold even on shorter laptop screens. */
+      width: min(100%, 40vh);
+      max-height: 40vh;
+      margin: 0 auto;
+      background: #FFE8D1;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
+      flex-shrink: 0;
+    }
+    .mentor-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .mentor-img-fallback {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--orange-dark); padding: 24px; text-align: center;
+      font-family: 'Inter', sans-serif; font-size: 14px;
+      gap: 8px;
+    }
+    .mentor-img-fallback .big { font-size: 56px; }
+    .mentor-img-fallback b { color: var(--orange); font-family: monospace; font-size: 13px; }
+
+    .mentor-badges {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .mentor-badge {
+      flex: 1; min-width: 90px;
+      padding: 9px 10px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .mentor-badge .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px; font-weight: 800; color: var(--orange-dark);
+      display: block; line-height: 1;
+    }
+    .mentor-badge .lab {
+      font-size: 9.5px; color: var(--text-secondary); text-transform: uppercase;
+      letter-spacing: 1px; margin-top: 4px; font-weight: 600;
+    }
+    .mentor-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px; font-weight: 800;
+      margin-top: 12px;
+      color: var(--text-primary);
+    }
+    .mentor-role {
+      font-size: 12.5px; color: var(--orange-dark);
+      font-weight: 700; margin-top: 3px;
+    }
+
+    /* ============ MENTOR SECTION ============ */
+    .mentor-section { background: var(--bg-base); position: relative; }
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 44px;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 960px) { .mentor-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+    .mentor-photo {
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      max-height: 56vh;
+      max-width: 440px;
+      width: 100%;
+      margin: 0 auto;
+      background: var(--gradient-peach);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      padding: 0;
+    }
+    .mentor-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .mentor-photo .accent {
+      position: absolute;
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--gradient-yellow);
+      filter: blur(2px);
+      bottom: -20px; left: -20px;
+      z-index: -1;
+    }
+
+    .feature-list { list-style: none; margin-top: 18px; display: grid; gap: 10px; }
+    .feature-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      color: var(--text-secondary); font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .feature-list li .check {
+      flex-shrink: 0;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--gradient-orange);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(255, 106, 26, 0.30);
+    }
+    .feature-list li strong { color: var(--text-primary); font-weight: 700; }
+
+    /* ============ WORKSHOP DETAILS ============ */
+    .details {
+      background:
+        radial-gradient(800px 400px at 20% 0%, rgba(255, 224, 138, 0.35), transparent 60%),
+        radial-gradient(700px 400px at 100% 100%, rgba(255, 217, 184, 0.4), transparent 60%),
+        var(--bg-base);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+    .detail-card {
+      padding: 22px 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .detail-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--orange-light);
+      box-shadow: 0 24px 50px rgba(255, 138, 60, 0.18);
+    }
+    .detail-card .icon {
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      background: var(--gradient-yellow);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange-dark);
+      margin-bottom: 12px;
+      box-shadow: 0 6px 18px rgba(255, 200, 87, 0.4);
+    }
+    .detail-card .icon svg { width: 22px; height: 22px; }
+    .detail-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+    .detail-card p { color: var(--text-secondary); font-size: 13.5px; line-height: 1.55; }
+
+    .curriculum {
+      margin-top: 28px;
+      padding: 24px 24px 22px;
+      background: var(--gradient-peach);
+      border-radius: 22px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .curriculum h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px; font-weight: 800;
+      margin-bottom: 16px; text-align: center;
+      color: var(--text-primary);
+      letter-spacing: -0.4px;
+    }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .curr-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+    }
+    .curr-num {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      background: var(--gradient-orange);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800; color: #fff; font-size: 13.5px;
+      box-shadow: 0 6px 14px rgba(255, 106, 26, 0.35);
+    }
+    .curr-item h4 {
+      font-size: 14px; font-weight: 700; margin-bottom: 2px;
+      color: var(--text-primary);
+    }
+    .curr-item p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ============ WHY JOIN ============ */
+    .why { background: var(--bg-base); position: relative; overflow: hidden; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      position: relative; z-index: 1;
+    }
+    .why-card {
+      padding: 24px 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease;
+      box-shadow: var(--shadow-soft);
+    }
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(255, 138, 60, 0.20);
+    }
+    .why-card .emoji {
+      font-size: 30px; margin-bottom: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--gradient-peach);
+      box-shadow: 0 6px 18px rgba(255, 138, 60, 0.18);
+    }
+    .why-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px; font-weight: 700; margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+    .why-card p { color: var(--text-secondary); font-size: 13.5px; line-height: 1.5; }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials {
+      background:
+        radial-gradient(800px 400px at 0% 50%, rgba(255, 217, 184, 0.45), transparent 60%),
+        radial-gradient(600px 350px at 100% 0%, rgba(255, 224, 138, 0.35), transparent 60%),
+        var(--bg-base);
+      padding-top: 40px;
+      padding-bottom: 40px;
+      justify-content: flex-start;
+      /* Allow the section to grow taller than one viewport when the
+         full-reel videos demand it — testimonials is a content-driven
+         section, not a single-fold one. */
+      min-height: 0;
+    }
+    .testimonials .section-head { margin-bottom: 18px; }
+    .test-swiper {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 70px 36px;
+      --card-w: 380px;
+      --card-gap: 32px;
+    }
+    @media (max-width: 1100px) {
+      .test-swiper { --card-w: 340px; --card-gap: 28px; padding: 0 60px 36px; }
+    }
+    @media (max-width: 860px) {
+      .test-swiper { --card-w: 300px; --card-gap: 22px; padding: 0 50px 34px; }
+    }
+    @media (max-width: 600px) {
+      .test-swiper { --card-w: 80vw; --card-gap: 16px; padding: 0 28px 32px; }
+    }
+    .test-track-viewport {
+      overflow: hidden;
+      padding: 14px 0;
+      margin: -14px 0;
+      touch-action: pan-y;
+    }
+    .test-track {
+      display: flex;
+      gap: var(--card-gap);
+      transition: transform .65s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    .test-track.is-dragging { transition: none; }
+    .test-card {
+      flex: 0 0 var(--card-w);
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 22px;
+      padding: 16px 16px 20px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: scale(0.88);
+      filter: blur(5px);
+      opacity: 0.55;
+      cursor: pointer;
+      transition:
+        transform .55s cubic-bezier(0.22, 1, 0.36, 1),
+        filter .45s ease,
+        opacity .45s ease,
+        box-shadow .45s ease;
+      user-select: none;
+    }
+    .test-card.is-active {
+      transform: scale(1);
+      filter: none;
+      opacity: 1;
+      cursor: default;
+      box-shadow: 0 30px 60px rgba(255, 138, 60, 0.20), var(--shadow-card);
+      z-index: 2;
+    }
+    /* Block interactions on blurred peek cards (clicks on the card itself still
+       bubble up and trigger the navigation handler). */
+    .test-card:not(.is-active) > * { pointer-events: none; }
+    .test-card::before {
+      content: '';
+      position: absolute; top: -1px; left: 24px; right: 24px; height: 3px;
+      background: var(--gradient-warm);
+      border-radius: 0 0 6px 6px;
+    }
+    .test-meta-text { min-width: 0; }
+    .test-site-caption {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      padding: 9px 13px;
+      background: var(--peach-light);
+      border: 1px dashed rgba(255, 106, 26, 0.30);
+      border-radius: 12px;
+      margin: 0;
+    }
+    .test-site-caption strong { color: var(--orange-dark); font-weight: 800; }
+    .test-site-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      background: rgba(255, 122, 47, 0.10);
+      border: 1px solid rgba(255, 122, 47, 0.22);
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .test-site-link:hover {
+      background: rgba(255, 122, 47, 0.18);
+      border-color: rgba(255, 122, 47, 0.40);
+      transform: translateY(-1px);
+    }
+    .test-site-link .ext { opacity: .75; }
+
+    /* Arrows */
+    .swiper-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 0;
+      background: #fff;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      z-index: 4;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .swiper-arrow:hover { background: var(--gradient-orange); color: #fff; transform: translateY(-50%) scale(1.06); }
+    .swiper-prev { left: -10px; }
+    .swiper-next { right: -10px; }
+    @media (max-width: 480px) {
+      .swiper-prev { left: -6px; }
+      .swiper-next { right: -6px; }
+      .swiper-arrow { width: 38px; height: 38px; }
+    }
+
+    /* Dots */
+    .swiper-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 4;
+    }
+    .swiper-dots .dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      border: 0;
+      cursor: pointer;
+      background: rgba(255, 106, 26, 0.30);
+      transition: background .2s ease, width .35s ease;
+      padding: 0;
+    }
+    .swiper-dots .dot.is-active {
+      width: 26px;
+      border-radius: 999px;
+      background: var(--gradient-orange);
+    }
+    .swiper-dots .dot:hover { background: rgba(255, 106, 26, 0.55); }
+    .swiper-dots .dot.is-active:hover { background: var(--gradient-orange); }
+    .test-video-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0F172A;
+      aspect-ratio: 9 / 16; /* Full Instagram/YouTube reel aspect ratio */
+      width: 100%;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+    }
+    .test-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      background: #0F172A;
+      display: block;
+    }
+    .test-meta {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 6px 2px;
+    }
+    .test-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--gradient-orange);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: 17px;
+      box-shadow: 0 6px 16px rgba(255, 106, 26, 0.32);
+      flex-shrink: 0;
+    }
+    .test-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: var(--text-primary); }
+    .test-role { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+    .test-quote-mark {
+      position: absolute; top: 14px; right: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 56px; font-weight: 900;
+      color: var(--orange);
+      opacity: .14;
+      line-height: 0.6;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ============ REGISTRATION ============ */
+    .payment {
+      position: relative;
+      background:
+        radial-gradient(900px 500px at 50% 0%, rgba(255, 200, 87, 0.30), transparent 60%),
+        var(--bg-base);
+    }
+    .form-card {
+      max-width: 820px; margin: 0 auto;
+      padding: 44px 48px 40px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: var(--gradient-warm);
+    }
+    .form-card::after {
+      content: '';
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: var(--gradient-yellow);
+      filter: blur(60px);
+      opacity: .25;
+      bottom: -80px; right: -80px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .form-card > * { position: relative; z-index: 1; }
+
+    /* ---- Register CTA card (replaces inline form) ---- */
+    .register-cta {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 32px 32px 28px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .register-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: var(--gradient-warm);
+    }
+    .register-cta::after {
+      content: '';
+      position: absolute;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: var(--gradient-yellow);
+      filter: blur(60px);
+      opacity: .28;
+      bottom: -80px; right: -80px;
+      pointer-events: none;
+    }
+    .register-cta > * { position: relative; z-index: 1; }
+    .register-cta-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      background: linear-gradient(135deg, #FFE0CC, #FFD0B0);
+      box-shadow: 0 14px 32px rgba(255, 122, 47, 0.22);
+    }
+    .register-cta-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .register-cta-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 440px;
+      margin: 0 auto 24px;
+    }
+    .register-cta-btn {
+      gap: 10px;
+      padding: 16px 32px;
+      font-size: 15px;
+    }
+    .register-cta-help {
+      margin-top: 18px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 540px) {
+      .register-cta { padding: 32px 22px 28px; border-radius: 22px; }
+      .register-cta-icon { width: 60px; height: 60px; font-size: 28px; }
+      .register-cta-btn { width: 100%; justify-content: center; padding: 14px 22px; }
+    }
+
+    /* ---- Slide-in registration panel ---- */
+    .form-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 12, 6, 0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+      z-index: 998;
+    }
+    .form-overlay.active { opacity: 1; pointer-events: auto; }
+    .form-panel {
+      position: fixed;
+      top: 0; right: 0;
+      width: 75vw;
+      max-width: 1200px;
+      height: 100vh;
+      background: #FFFFFF;
+      box-shadow: -24px 0 60px rgba(20, 12, 6, 0.25);
+      transform: translateX(100%);
+      transition: transform .55s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .form-panel.active { transform: translateX(0); pointer-events: auto; }
+    .form-panel-head {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--peach-light);
+      border-bottom: 1px solid var(--border-soft);
+      gap: 12px;
+    }
+    .form-panel-title { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .form-panel-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: var(--gradient-orange);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px;
+      box-shadow: 0 8px 18px rgba(255, 122, 47, 0.28);
+      flex-shrink: 0;
+    }
+    .form-panel-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .form-panel-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-top: 2px;
+    }
+    .form-panel-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .panel-pay-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      background: var(--gradient-orange);
+      box-shadow: 0 8px 18px rgba(255, 106, 26, 0.30);
+      transition: transform .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+    .panel-pay-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(255, 106, 26, 0.40);
+    }
+    .panel-pay-btn:active { transform: translateY(0); }
+    @media (max-width: 480px) {
+      .panel-pay-btn { padding: 8px 12px; font-size: 12px; }
+      .panel-pay-btn svg { display: none; }
+    }
+    .form-panel-link {
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      background: rgba(255, 122, 47, 0.10);
+      transition: background .2s ease;
+    }
+    .form-panel-link:hover { background: rgba(255, 122, 47, 0.20); }
+    .form-panel-close {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 0;
+      background: #fff;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+      flex-shrink: 0;
+    }
+    .form-panel-close:hover {
+      transform: rotate(90deg);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+    .form-panel-body {
+      flex: 1 1 auto;
+      position: relative;
+      background: #fff;
+      overflow: hidden;
+    }
+    .form-panel-body iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+      z-index: 1;
+    }
+    .form-panel-loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: #fff;
+      z-index: 2;
+      transition: opacity .35s ease;
+    }
+    .form-panel-loader.hidden { opacity: 0; pointer-events: none; }
+    .loader-spinner {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 122, 47, 0.18);
+      border-top-color: var(--orange-dark);
+      animation: spin .9s linear infinite;
+    }
+    .loader-text { font-size: 14px; color: var(--text-secondary); font-weight: 600; }
+    body.form-panel-open { overflow: hidden; }
+    @media (max-width: 1024px) {
+      .form-panel { width: 85vw; }
+    }
+    @media (max-width: 600px) {
+      .form-panel { width: 100vw; max-width: none; }
+      .form-panel-head { padding: 14px 16px; }
+      .form-panel-icon { width: 38px; height: 38px; font-size: 17px; }
+      .form-panel-name { font-size: 14px; }
+      .form-panel-link { padding: 6px 10px; font-size: 11.5px; }
+      .form-panel-close { width: 34px; height: 34px; }
+    }
+
+    @media (max-width: 760px) {
+      .form-card { padding: 28px 22px 32px; border-radius: 22px; }
+    }
+
+    /* ============ CTA SPLIT (BUILD/JOURNEY) ============ */
+    .cta-split { background: var(--bg-base); }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 860px) { .cta-grid { grid-template-columns: 1fr; } }
+    .cta-card {
+      padding: 36px 32px;
+      border-radius: 26px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card.peach { background: var(--gradient-peach); }
+    .cta-card.white { background: #FFFFFF; border: 1px solid var(--border-soft); }
+    .cta-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    .cta-card p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      max-width: 380px;
+    }
+    .cta-card .contact-block {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .cta-card.white .contact-block { background: var(--peach-light); }
+    .contact-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--gradient-orange);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(255, 106, 26, 0.30);
+    }
+    .contact-info .lab {
+      font-size: 11px; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 1.2px;
+      font-weight: 700; margin-bottom: 2px;
+    }
+    .contact-info .val {
+      font-size: 15px; font-weight: 700; color: var(--text-primary);
+    }
+
+    /* ============ REGISTRATION FORM ============ */
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---- Custom registration form ---- */
+    .reg-form { display: flex; flex-direction: column; gap: 22px; }
+    .reg-intro { margin-bottom: 4px; }
+    .reg-intro-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -.3px;
+      margin-bottom: 6px;
+    }
+    .reg-intro-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .reg-intro-sub .req,
+    .field-label .req { color: #e0432a; font-weight: 800; }
+    .field-label .optional { color: var(--text-muted); font-weight: 500; font-size: 12px; }
+
+    .form-field { display: flex; flex-direction: column; gap: 8px; }
+    .field-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.45;
+    }
+    .field-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: .2px;
+      margin-top: -2px;
+    }
+    .field-input {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: #fff;
+      border: 1.5px solid var(--border-soft);
+      border-radius: 10px;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      outline: none;
+    }
+    .field-input::placeholder { color: var(--text-muted); }
+    .field-input:hover { border-color: rgba(255, 122, 47, 0.45); }
+    .field-input:focus {
+      border-color: var(--orange);
+      background: #FFFCF8;
+      box-shadow: 0 0 0 4px rgba(255, 122, 47, 0.12);
+    }
+    .field-textarea { resize: vertical; min-height: 92px; line-height: 1.55; }
+
+    .option-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .opt-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border-soft);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.5;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .opt-row:hover { border-color: rgba(255, 122, 47, 0.45); background: #FFFAF4; }
+    .opt-row input[type="radio"],
+    .opt-row input[type="checkbox"] {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--orange);
+      cursor: pointer;
+    }
+    .opt-row:has(input:checked) {
+      border-color: var(--orange);
+      background: #FFF4EA;
+      box-shadow: 0 4px 14px rgba(255, 122, 47, 0.10);
+    }
+
+    /* Skill scale 1-10 */
+    .scale-wrap {
+      display: grid;
+      grid-template-columns: minmax(80px, 1fr) auto minmax(80px, 1fr);
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .scale-anchor {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .scale-anchor-sub { font-weight: 500; color: var(--text-muted); font-size: 11px; }
+    .scale-grid {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(34px, 1fr));
+      gap: 6px;
+    }
+    .scale-cell {
+      position: relative;
+      cursor: pointer;
+    }
+    .scale-cell input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+    .scale-cell span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 38px;
+      border: 1.5px solid var(--border-soft);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: #fff;
+      transition: all .15s ease;
+    }
+    .scale-cell:hover span { border-color: rgba(255, 122, 47, 0.45); color: var(--orange-dark); }
+    .scale-cell input:checked + span {
+      background: var(--gradient-orange);
+      border-color: var(--orange);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(255, 122, 47, 0.30);
+    }
+    .scale-cell input:focus-visible + span {
+      box-shadow: 0 0 0 3px rgba(255, 122, 47, 0.30);
+    }
+
+    /* Topic matrix */
+    .matrix-table {
+      border: 1.5px solid var(--border-soft);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      margin-top: 4px;
+    }
+    .matrix-head, .matrix-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      align-items: center;
+    }
+    .matrix-head {
+      background: var(--peach-light);
+      border-bottom: 1.5px solid var(--border-soft);
+    }
+    .matrix-head .matrix-col {
+      padding: 12px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .matrix-row + .matrix-row { border-top: 1px solid var(--border-soft); }
+    .matrix-row-label {
+      padding: 14px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .matrix-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 6px;
+      cursor: pointer;
+      position: relative;
+    }
+    .matrix-cell input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+    .matrix-cell span {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #cbd5e1;
+      background: #fff;
+      transition: all .15s ease;
+      position: relative;
+    }
+    .matrix-cell:hover span { border-color: var(--orange); }
+    .matrix-cell input:checked + span {
+      border-color: var(--orange);
+      background: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255, 122, 47, 0.18);
+    }
+    .matrix-cell input:checked + span::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      transform: translate(-50%, -50%);
+    }
+    /* Live-highlight an unanswered matrix row so users can spot it */
+    .matrix-row.is-empty { background: rgba(192, 57, 43, 0.06); }
+    .matrix-row.is-empty .matrix-row-label { color: #c0392b; }
+    .matrix-row.is-empty .matrix-cell span { border-color: rgba(192, 57, 43, 0.55); }
+
+    /* Brief attention pulse when a missing field is jumped to */
+    @keyframes attention-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55); }
+      40%  { box-shadow: 0 0 0 12px rgba(192, 57, 43, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+    }
+    .form-field.is-attention {
+      border-radius: 14px;
+      animation: attention-pulse 1.1s ease-out 2;
+      outline: 2px solid rgba(192, 57, 43, 0.55);
+      outline-offset: 6px;
+    }
+
+    /* Submit row */
+    .form-submit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+      padding-top: 8px;
+    }
+    .form-error {
+      color: #c0392b;
+      font-size: 13px;
+      font-weight: 600;
+      min-height: 0;
+      line-height: 1.55;
+      white-space: pre-line;
+      padding: 10px 14px;
+      background: rgba(192, 57, 43, 0.08);
+      border: 1px solid rgba(192, 57, 43, 0.20);
+      border-radius: 10px;
+    }
+    .form-error:empty { display: none; }
+    .form-submit-btn {
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 28px;
+      font-size: 15px;
+    }
+    .form-submit-btn[disabled] {
+      opacity: .55;
+      cursor: not-allowed;
+      background: #cbd5e1;
+      box-shadow: none;
+      filter: grayscale(0.4);
+    }
+    .form-submit-btn[disabled]:hover { transform: none; }
+    .form-submit-btn .submit-lock { display: none; font-size: 14px; line-height: 1; }
+    .form-submit-btn[disabled] .submit-lock { display: inline-flex; }
+    .form-submit-btn.is-loading[disabled] {
+      opacity: .9;
+      cursor: progress;
+      filter: none;
+      background: var(--gradient-orange);
+    }
+    .form-submit-btn.is-loading .submit-lock { display: none; }
+    .submit-spinner {
+      display: none;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      animation: spin .8s linear infinite;
+    }
+    .form-submit-btn.is-loading .submit-spinner { display: inline-block; }
+    .form-submit-btn.is-loading .submit-label::after { content: '…'; }
+
+    /* ---- Payment block ---- */
+    .pay-block { margin-top: 4px; }
+    .pay-box {
+      border: 1.5px solid var(--border-orange);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #FFFAF4 0%, #FFFFFF 100%);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(255, 122, 47, 0.08);
+    }
+    .pay-amount-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(255, 106, 26, 0.25);
+    }
+    .pay-amount-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+    }
+    .pay-amount-val {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text-primary);
+    }
+    .pay-cur { color: var(--orange); font-weight: 700; font-size: 22px; margin-right: 2px; vertical-align: middle; }
+
+    .pay-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pay-gpay-btn {
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      font-size: 15px;
+    }
+    .pay-gpay-btn .gpay-icon { flex: 0 0 auto; }
+    .pay-gpay-btn .pay-btn-lock { display: none; font-size: 14px; line-height: 1; }
+    .pay-gpay-btn.is-locked {
+      background: #cbd5e1;
+      color: #475569;
+      cursor: not-allowed;
+      box-shadow: none;
+      filter: grayscale(0.4);
+      opacity: .85;
+    }
+    .pay-gpay-btn.is-locked:hover { transform: none; box-shadow: none; }
+    .pay-gpay-btn.is-locked .pay-btn-lock { display: inline-flex; }
+    .pay-gpay-btn.is-locked .gpay-icon { display: none; }
+    .pay-hint {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+    .pay-hint.is-warning {
+      color: var(--orange-dark);
+      font-weight: 600;
+    }
+
+    /* Missing-fields list shown under the locked pay button */
+    .pay-missing {
+      background: rgba(192, 57, 43, 0.06);
+      border: 1px solid rgba(192, 57, 43, 0.20);
+      border-radius: 12px;
+      padding: 10px 14px 12px;
+    }
+    .pay-missing-head {
+      font-size: 12px;
+      font-weight: 800;
+      color: #c0392b;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin-bottom: 6px;
+    }
+    .pay-missing-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pay-missing-jump {
+      background: transparent;
+      border: 0;
+      padding: 4px 0;
+      color: #c0392b;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      text-decoration: underline dotted;
+      text-underline-offset: 3px;
+    }
+    .pay-missing-jump::before {
+      content: '•';
+      margin-right: 8px;
+      color: #c0392b;
+    }
+    .pay-missing-jump:hover { color: #922b21; }
+
+    .pay-confirm-row { background: #FFF; }
+    .pay-confirm-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    /* Locked state for the "I've completed the payment" row */
+    .opt-row.is-locked {
+      opacity: 0.55;
+      cursor: not-allowed;
+      background: #f1f5f9 !important;
+      border-color: var(--border-soft) !important;
+      box-shadow: none !important;
+    }
+    .opt-row.is-locked input { cursor: not-allowed; }
+    .opt-row.is-locked:hover {
+      border-color: var(--border-soft) !important;
+      background: #f1f5f9 !important;
+    }
+
+    @media (max-width: 540px) {
+      .pay-amount-val { font-size: 28px; }
+    }
+
+    /* Success */
+    .form-success[hidden] { display: none !important; }
+    .form-success {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      min-height: 60vh;
+    }
+    .form-success .form-cta-icon-big {
+      background: linear-gradient(135deg, #d6f5e3, #a8e9c4);
+      box-shadow: 0 14px 32px rgba(46, 204, 113, 0.22);
+    }
+
+    /* Registration status pill */
+    .reg-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 7px 14px 7px 12px;
+      background: rgba(255, 200, 87, 0.20);
+      border: 1px solid rgba(255, 138, 60, 0.30);
+      color: var(--orange-dark);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      margin-bottom: 14px;
+    }
+    .reg-status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255, 122, 47, 0.18);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(255, 122, 47, 0.18); }
+      50%      { box-shadow: 0 0 0 7px rgba(255, 122, 47, 0.05); }
+    }
+
+    .form-cta-inner {
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+    }
+    .form-cta-icon-big {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      background: linear-gradient(135deg, #FFE0CC, #FFD0B0);
+      box-shadow: 0 14px 32px rgba(255, 122, 47, 0.22);
+      animation: float-icon 3s ease-in-out infinite;
+    }
+    @keyframes float-icon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .form-cta-heading {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .form-cta-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .form-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-size: 16px;
+    }
+    .form-cta-checklist {
+      list-style: none;
+      margin: 28px auto 0;
+      padding: 20px 22px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      text-align: left;
+      max-width: 380px;
+      box-shadow: 0 4px 14px rgba(20, 12, 6, 0.04);
+    }
+    .form-cta-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-primary);
+      padding: 6px 0;
+      line-height: 1.5;
+    }
+    .form-cta-checklist .check {
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(46, 204, 113, 0.14);
+      color: #1f8a4c;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+    .form-cta-help {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .form-cta-help a {
+      color: var(--orange-dark);
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .form-cta-icon-big { width: 64px; height: 64px; font-size: 30px; }
+      .form-cta-heading { font-size: 22px; }
+      .form-cta-sub { font-size: 14px; }
+      .form-cta-btn { padding: 14px 24px; font-size: 15px; width: 100%; justify-content: center; }
+      .reg-intro-title { font-size: 19px; }
+      .scale-wrap { grid-template-columns: 1fr; gap: 10px; }
+      .scale-anchor { text-align: left; }
+      .scale-anchor:last-child { text-align: right; }
+      .scale-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+      .scale-cell span { height: 34px; font-size: 12px; }
+      .matrix-head, .matrix-row { grid-template-columns: 1fr; }
+      .matrix-head { display: none; }
+      .matrix-row { padding: 10px 0; }
+      .matrix-row-label { padding: 6px 12px 4px; font-weight: 700; }
+      .matrix-cell { justify-content: flex-start; padding: 8px 14px; }
+      .matrix-cell::after {
+        content: attr(data-label);
+        margin-left: 12px;
+        font-size: 13px;
+        color: var(--text-secondary);
+      }
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: #FFF6EE;
+      border-top: 1px solid var(--border-soft);
+      padding: 56px 0 32px;
+      text-align: center;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gradient-warm);
+    }
+    .foot-logo {
+      width: 72px; height: 72px;
+      object-fit: contain;
+      margin: 0 auto 18px;
+      display: block;
+    }
+    .foot-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: 22px;
+      margin-bottom: 12px;
+      letter-spacing: -0.4px;
+      color: var(--text-primary);
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.25;
+    }
+    .foot-tag { color: var(--text-secondary); font-size: 14.5px; margin-bottom: 28px; }
+    .foot-contact {
+      display: inline-flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+      color: var(--text-secondary); font-size: 14px;
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+    .foot-contact a:hover { color: var(--orange-dark); }
+    .foot-copy {
+      color: var(--text-muted); font-size: 13px;
+      padding-top: 24px; border-top: 1px solid var(--border-soft);
+      max-width: 800px; margin: 0 auto;
+    }
+
+    /* ============ FADE-IN ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ====================================================== */
+    /* ============   RESPONSIVE  BREAKPOINTS    ============ */
+    /* ====================================================== */
+
+    /* ===== Large laptop / desktop (≤1180px) ===== */
+    @media (max-width: 1180px) {
+      .container { padding: 0 28px; }
+      section { padding: 40px 0; }
+    }
+
+    /* ===== iPad landscape / small laptop (≤1024px) ===== */
+    @media (max-width: 1024px) {
+      section { padding: 36px 0; }
+      .section-head { margin-bottom: 24px; }
+      .hero-grid { gap: 44px; }
+      .mentor-grid { gap: 44px; }
+      .cta-card { padding: 48px 36px; }
+      .form-card { padding: 40px; }
+    }
+
+    /* ===== iPad portrait / tablet (≤960px) — hero + mentor + cta stack ===== */
+    @media (max-width: 960px) {
+      .mentor-card,
+      .mentor-photo {
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero h1 br { display: none; }
+      .hero-meta { gap: 18px; }
+      .feature-list { max-width: 560px; margin-left: auto; margin-right: auto; }
+      .feature-list li { text-align: left; }
+    }
+
+    /* ===== Small tablet (≤860px) ===== */
+    @media (max-width: 860px) {
+      .cta-card { padding: 44px 32px; border-radius: 28px; }
+      .cta-card h3 br { display: none; }
+      .curriculum { padding: 32px 24px; }
+      .form-card { padding: 32px; }
+    }
+
+    /* ===== Mobile (≤720px) ===== */
+    @media (max-width: 720px) {
+      section { padding: 32px 0; min-height: auto; }
+      .hero { padding: 36px 0 40px; min-height: auto; }
+      .container { padding: 0 20px; }
+      .section-head { margin-bottom: 22px; }
+
+      .nav-inner { padding: 12px 18px; }
+      .nav-brand { font-size: 16px; }
+
+      .hero h1 { letter-spacing: -0.7px; }
+      .hero .lead { font-size: 16px; margin-bottom: 26px; }
+      .hero-meta { gap: 14px 22px; font-size: 13.5px; margin-bottom: 28px; }
+
+      .mentor-card { padding: 18px; border-radius: 24px; }
+      .mentor-card::after { display: none; }
+      .mentor-name { font-size: 20px; margin-top: 14px; }
+      .mentor-role { font-size: 13.5px; }
+      .mentor-badges { gap: 8px; margin-top: 14px; }
+      .mentor-badge { padding: 10px 8px; min-width: 90px; }
+      .mentor-badge .num { font-size: 19px; }
+      .mentor-badge .lab { font-size: 9.5px; }
+
+      .detail-card { padding: 26px; }
+      .detail-card h3 { font-size: 18px; }
+
+      .curriculum { padding: 28px 20px; border-radius: 24px; }
+      .curriculum h3 { font-size: 22px; margin-bottom: 22px; }
+      .curr-item { padding: 16px; }
+
+      .why-card { padding: 30px 22px; }
+      .why-card .emoji { width: 64px; height: 64px; font-size: 34px; }
+
+      .test-card { padding: 14px 14px 18px; border-radius: 22px; }
+      .test-quote-mark { font-size: 44px; right: 14px; top: 12px; }
+      .test-meta { padding: 14px 6px 4px; gap: 12px; }
+
+      .form-card { padding: 26px 22px; border-radius: 26px; }
+
+      .cta-card { padding: 40px 26px; border-radius: 24px; }
+      .cta-card h3 { font-size: clamp(26px, 6vw, 34px); }
+      .cta-card .contact-block { padding: 14px 16px; }
+
+      .foot-contact { gap: 18px 22px; }
+      .foot-contact a { font-size: 13.5px; }
+    }
+
+    /* ===== Small mobile (≤480px) ===== */
+    @media (max-width: 480px) {
+      section { padding: 28px 0; }
+      .container { padding: 0 16px; }
+
+      .nav-inner { padding: 11px 16px; }
+      .nav-cta { padding: 9px 16px; font-size: 12.5px !important; }
+      .nav-brand { font-size: 15px; }
+      .nav-brand .dot { width: 9px; height: 9px; }
+
+      .stripe-top { height: 3px; }
+
+      .hero h1 { font-size: clamp(28px, 8.4vw, 38px); }
+      .hero .lead { font-size: 15px; }
+      .hero-meta { font-size: 13px; gap: 12px 18px; }
+      .hero-meta .item svg { width: 16px; height: 16px; }
+
+      .pill { font-size: 11px; padding: 7px 14px; }
+      .section-tag { font-size: 11px; padding: 6px 14px; letter-spacing: 1.2px; }
+      .section-title { font-size: clamp(26px, 7vw, 36px); letter-spacing: -0.4px; }
+      .section-subtitle { font-size: 15px; }
+
+      .btn-row { width: 100%; flex-direction: column; gap: 12px; }
+      .btn-row > a, .btn-row > button { width: 100%; justify-content: center; }
+      .btn-primary, .btn-secondary { padding: 14px 22px; font-size: 14.5px; }
+
+      .mentor-card { padding: 14px; border-radius: 20px; }
+      .mentor-img-wrap { border-radius: 16px; }
+
+      .detail-card { padding: 22px; border-radius: 18px; }
+      .detail-card .icon { width: 48px; height: 48px; border-radius: 14px; }
+
+      .curriculum { padding: 22px 16px; border-radius: 20px; }
+      .curriculum h3 { font-size: 20px; }
+      .curr-item { padding: 14px; gap: 12px; }
+      .curr-num { width: 30px; height: 30px; font-size: 13px; }
+
+      .why-card { padding: 26px 20px; border-radius: 18px; }
+      .why-card .emoji { width: 58px; height: 58px; font-size: 30px; }
+      .why-card h3 { font-size: 16.5px; }
+
+      .test-card { padding: 12px; border-radius: 20px; }
+      .test-card::before { left: 18px; right: 18px; }
+      .test-name { font-size: 15px; }
+      .test-avatar { width: 40px; height: 40px; font-size: 15px; }
+
+      .form-card { padding: 22px 18px; border-radius: 22px; }
+
+      .cta-card { padding: 32px 22px; border-radius: 22px; }
+      .cta-card p { font-size: 14.5px; margin-bottom: 22px; }
+      .cta-card h3 { font-size: clamp(24px, 7vw, 30px); margin-bottom: 12px; }
+      .cta-card .contact-block { padding: 12px 14px; gap: 12px; }
+      .contact-icon { width: 40px; height: 40px; }
+
+      .foot-brand { font-size: 19px; }
+      .foot-tag { font-size: 13.5px; }
+      .foot-contact { gap: 14px 18px; }
+      .foot-copy { font-size: 12px; padding: 18px 8px 0; }
+
+      .feature-list li { font-size: 14.5px; }
+    }
+
+    /* ===== Tiny phones (≤360px) ===== */
+    @media (max-width: 360px) {
+      .container { padding: 0 14px; }
+      .hero h1 { font-size: clamp(26px, 9vw, 32px); }
+      .hero-meta { flex-direction: column; align-items: center; gap: 10px; }
+      .nav-cta { padding: 8px 14px; font-size: 12px !important; }
+      .mentor-badges { flex-wrap: wrap; }
+      .mentor-badge { min-width: calc(50% - 4px); }
+    }
+
+    /* ===== Landscape phone — keep hero compact ===== */
+    @media (max-height: 520px) and (orientation: landscape) {
+      .hero { min-height: auto; padding: 40px 0; }
+    }
+
+    /* ===== Reduced motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-bg-glow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stripe-top"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#" aria-label="Magizhchi">
+        <img class="nav-logo" src="https://magizhchi.software/assets/logo-software-orange-BSjNedGZ.png" alt="Magizhchi logo" />
+        <span class="nav-brand-text">
+          <span class="nav-brand-title">2 Days 6 Hrs Vibe Coding Website Workshop</span>
+          <span class="nav-brand-sub">with Certificate · by Magizhchi</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#top" class="nav-internal">Home</a>
+        <a href="#mentor" class="nav-internal">Mentor</a>
+        <a href="#details" class="nav-internal">Workshop</a>
+        <a href="#why" class="nav-internal">Why Join</a>
+        <a href="#testimonials" class="nav-internal">Testimonial</a>
+        <a href="#payment" class="nav-cta">Register Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero-bg-glow glow-1"></div>
+    <div class="hero-bg-glow glow-2"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="pill">
+          <span class="pulse"></span>
+          Limited Seats Available
+        </div>
+        <h1>
+          Join the <span class="gradient-text">2-Day Website Creation and Hosting</span> Workshop
+        </h1>
+        <p class="lead">
+          Learn to build your own beautiful website in a simple, practical, and friendly way —
+          guided step by step by an experienced AI coach.
+          <strong style="color: var(--text-primary);">No coding experience required.</strong>
+        </p>
+        <p class="lead lead-secondary">
+          By the end of the workshop, you'll be able to <strong style="color: var(--text-primary);">create and host your own website confidently — with certificate.</strong>
+        </p>
+
+        <div class="hero-meta">
+          <div class="item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2-Day Live Workshop
+          </div>
+          <div class="item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Hands-on, Beginner Friendly
+          </div>
+          <div class="item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Online / Offline Mode
+          </div>
+        </div>
+
+        <div class="hero-price">
+          <span class="hero-price-label">Workshop Fee</span>
+          <span class="hero-price-amount"><span class="hero-price-cur">₹</span>2,499</span>
+          <span class="hero-price-note">one-time · all inclusive</span>
+        </div>
+
+        <div class="btn-row">
+          <a href="#payment" class="btn-primary">
+            Register Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#details" class="btn-secondary">See What You'll Learn</a>
+        </div>
+      </div>
+
+      <div class="mentor-card reveal">
+        <div class="mentor-img-wrap">
+          <img
+            src="mentor.jpg"
+            alt="Thirumaran Karunanithi - AI Coach"
+            onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=&quot;mentor-img-fallback&quot;><div class=&quot;big&quot;>👤</div><div>Add your mentor photo as<br/><b>mentor.jpg</b><br/>in this folder</div></div>');"
+          />
+        </div>
+        <div class="mentor-name">Thirumaran Karunanithi</div>
+        <div class="mentor-role">AI Coach &amp; Vibe Coding Specialist</div>
+        <div class="mentor-badges">
+          <div class="mentor-badge">
+            <span class="num">2</span>
+            <div class="lab">Day Workshop</div>
+          </div>
+          <div class="mentor-badge">
+            <span class="num">100%</span>
+            <div class="lab">Hands-on</div>
+          </div>
+          <div class="mentor-badge">
+            <span class="num">0</span>
+            <div class="lab">Coding Required</div>
+          </div>
+        </div>
+        <div class="mentor-visit">
+          <span class="mentor-visit-label">Explore more from Magizhchi</span>
+          <div class="mentor-visit-row">
+            <a href="https://magizhchi.academy/" target="_blank" rel="noopener noreferrer" class="mentor-visit-btn">
+              <span class="mentor-visit-icon" aria-hidden="true">🎓</span>
+              <span>Visit Academy</span>
+              <svg class="ext" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <a href="https://magizhchi.software/" target="_blank" rel="noopener noreferrer" class="mentor-visit-btn">
+              <span class="mentor-visit-icon" aria-hidden="true">💻</span>
+              <span>Visit Softwares</span>
+              <svg class="ext" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MENTOR SECTION ============ -->
+  <section class="mentor-section" id="mentor">
+    <div class="container mentor-grid">
+      <div class="mentor-photo reveal">
+        <img
+          src="mentor.jpg"
+          alt="Thirumaran Karunanithi - Mentor"
+          onerror="this.style.display='none';"
+        />
+        <span class="accent"></span>
+      </div>
+
+      <div class="reveal">
+        <div class="section-tag">Meet Your Mentor</div>
+        <h2 class="section-title">Guided by an experienced <span class="gradient-text">AI Coach</span></h2>
+        <p class="section-subtitle">
+          Hi, I'm Thirumaran — an AI Coach and Website &amp; Vibe Coding expert. I've helped many beginners
+          and homemakers build their first real projects with confidence. This workshop is designed
+          carefully so anyone can follow along, learn at their own pace, and walk away with a
+          live website they built themselves.
+        </p>
+
+        <ul class="feature-list">
+          <li>
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span><strong>AI Coach</strong> with a focus on practical, real-world skills</span>
+          </li>
+          <li>
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span><strong>Website &amp; Vibe Coding Expert</strong> — modern, no-code &amp; AI-assisted methods</span>
+          </li>
+          <li>
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Helps <strong>beginners build real projects</strong> from day one</span>
+          </li>
+          <li>
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Friendly, patient &amp; welcoming — perfect for <strong>homemakers and first-timers</strong></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKSHOP DETAILS ============ -->
+  <section class="details" id="details">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Workshop Details</div>
+        <h2 class="section-title">Everything you need to <span class="gradient-text">build &amp; launch</span></h2>
+        <p class="section-subtitle">A focused 2-day journey — from your very first website idea to a live, deployed site you can share with the world.</p>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>2 Days</h3>
+          <p>A focused, action-packed weekend workshop you can complete without leaving your routine.</p>
+        </div>
+        <div class="detail-card reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Online / Offline</h3>
+          <p>Flexible mode of learning — join from the comfort of home or attend in person.</p>
+        </div>
+        <div class="detail-card reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Beginner First</h3>
+          <p>Designed especially for beginners and homemakers — simple, clear, and patient teaching.</p>
+        </div>
+        <div class="detail-card reveal">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Real Project</h3>
+          <p>Walk away with a live, deployed website built by your own hands — your first real project.</p>
+        </div>
+      </div>
+
+      <div class="curriculum reveal">
+        <h3>What You'll Learn</h3>
+        <div class="curriculum-grid">
+          <div class="curr-item">
+            <div class="curr-num">1</div>
+            <div>
+              <h4>Basics of Websites</h4>
+              <p>Understand how websites really work — explained gently and visually.</p>
+            </div>
+          </div>
+          <div class="curr-item">
+            <div class="curr-num">2</div>
+            <div>
+              <h4>Landing Page Creation</h4>
+              <p>Design and structure your very own landing page that looks beautiful.</p>
+            </div>
+          </div>
+          <div class="curr-item">
+            <div class="curr-num">3</div>
+            <div>
+              <h4>No-Code &amp; Vibe Coding</h4>
+              <p>Use modern AI-powered tools to build websites without writing code.</p>
+            </div>
+          </div>
+          <div class="curr-item">
+            <div class="curr-num">4</div>
+            <div>
+              <h4>Deploying Live</h4>
+              <p>Take your website live on the internet and share it with anyone, anywhere.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY JOIN ============ -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Why Join</div>
+        <h2 class="section-title">A workshop built for <span class="gradient-text">absolute beginners</span></h2>
+        <p class="section-subtitle">Friendly, practical, and welcoming — no prior experience needed. Just bring your curiosity.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="emoji">🌱</div>
+          <h3>Beginner Friendly</h3>
+          <p>Perfect for first-timers and homemakers. We start from zero and grow together.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="emoji">✨</div>
+          <h3>No Coding Required</h3>
+          <p>Build modern websites using simple visual tools and AI assistance — no code stress.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="emoji">🛠️</div>
+          <h3>Hands-on Learning</h3>
+          <p>Learn by doing. Every concept is paired with a practical exercise you'll complete live.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="emoji">🚀</div>
+          <h3>Real Project</h3>
+          <p>Finish the workshop with a real, live website you've built yourself — yours forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Student Stories</div>
+        <h2 class="section-title">Hear from <span class="gradient-text">our students</span></h2>
+        <p class="section-subtitle">Real voices from beginners who joined the workshop and built their own websites.</p>
+      </div>
+
+      <div class="test-swiper reveal" id="test-swiper" aria-roledescription="carousel" aria-label="Student testimonials">
+        <button type="button" class="swiper-arrow swiper-prev" id="swiper-prev" aria-label="Previous testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <div class="test-track-viewport">
+          <div class="test-track" id="test-track">
+            <article class="test-card" aria-roledescription="slide" aria-label="1 of 3">
+              <span class="test-quote-mark">&ldquo;</span>
+              <div class="test-video-wrap">
+                <video src="kousalya.mp4" controls playsinline preload="metadata">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="test-meta">
+                <div class="test-avatar">K</div>
+                <div class="test-meta-text">
+                  <div class="test-name">Kousalya</div>
+                  <div class="test-role">Homemaker</div>
+                </div>
+              </div>
+              <p class="test-site-caption">The website below was <strong>built &amp; hosted by Kousalya</strong> at the end of the workshop.</p>
+              <a class="test-site-link" href="https://kousyyy.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>Visit Kousalya's website</span>
+                <svg class="ext" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </article>
+
+            <article class="test-card" aria-roledescription="slide" aria-label="2 of 3">
+              <span class="test-quote-mark">&ldquo;</span>
+              <div class="test-video-wrap">
+                <video src="Karnishh.mp4" controls playsinline preload="metadata">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="test-meta">
+                <div class="test-avatar">K</div>
+                <div class="test-meta-text">
+                  <div class="test-name">Karnishh</div>
+                  <div class="test-role">10th Std Student</div>
+                </div>
+              </div>
+              <p class="test-site-caption">The website below was <strong>built &amp; hosted by Karnishh</strong> at the end of the workshop.</p>
+              <a class="test-site-link" href="https://cerulean-lily-b72ff9.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>Visit Karnishh's website</span>
+                <svg class="ext" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </article>
+
+            <article class="test-card" aria-roledescription="slide" aria-label="3 of 3">
+              <span class="test-quote-mark">&ldquo;</span>
+              <div class="test-video-wrap">
+                <video src="Ashwathaman.mp4" controls playsinline preload="metadata">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="test-meta">
+                <div class="test-avatar">A</div>
+                <div class="test-meta-text">
+                  <div class="test-name">Ashwathaman</div>
+                  <div class="test-role">BE CSE, 3rd Year</div>
+                </div>
+              </div>
+              <p class="test-site-caption">The website below was <strong>built &amp; hosted by Ashwathaman</strong> at the end of the workshop.</p>
+              <a class="test-site-link" href="https://artmuseumaswa.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>Visit Ashwathaman's website</span>
+                <svg class="ext" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <button type="button" class="swiper-arrow swiper-next" id="swiper-next" aria-label="Next testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div class="swiper-dots" id="swiper-dots" role="tablist" aria-label="Testimonial slides"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REGISTRATION ============ -->
+  <section class="payment" id="payment">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Secure Your Spot</div>
+        <h2 class="section-title">Complete your <span class="gradient-text">registration</span></h2>
+        <p class="section-subtitle">Limited seats available — register now to secure your spot in the workshop.</p>
+      </div>
+
+      <div class="register-cta reveal">
+        <div class="register-cta-icon">📝</div>
+        <h3 class="register-cta-title">Workshop Registration</h3>
+        <p class="register-cta-sub">A few quick questions and a one-time payment of <strong>₹2499</strong> will lock in your seat for the next batch.</p>
+        <button type="button" class="btn-primary register-cta-btn" id="open-form-btn" onclick="showForm()">
+          Open Registration Form
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="register-cta-help">Form opens in a side panel — your details are sent securely to our team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA SPLIT ============ -->
+  <section class="cta-split">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-card peach reveal">
+          <h3>Let's Build Your<br/>Future Together.</h3>
+          <p>One conversation could change your entire trajectory. Reach out to us directly — we're happy to help.</p>
+          <div class="contact-block">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-info">
+              <div class="lab">Call / WhatsApp</div>
+              <div class="val">+91 — 7904996609</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card white reveal">
+          <h3>Ready to Start<br/>Your Journey?</h3>
+          <p>Book your seat in the next workshop batch and discover how AI-assisted website building can transform what you create.</p>
+          <a href="#payment" class="btn-primary" style="width: fit-content;">
+            Register Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ SLIDE-IN REGISTRATION PANEL ============ -->
+  <div class="form-overlay" id="form-overlay" aria-hidden="true" onclick="hideForm(event)"></div>
+  <aside class="form-panel" id="form-panel" aria-hidden="true" aria-label="Workshop Registration">
+    <header class="form-panel-head">
+      <div class="form-panel-title">
+        <span class="form-panel-icon">📋</span>
+        <div>
+          <div class="form-panel-eyebrow">Final Step</div>
+          <div class="form-panel-name">Workshop Registration</div>
+        </div>
+      </div>
+      <div class="form-panel-actions">
+        <button type="button" class="panel-pay-btn" id="panel-pay-btn" onclick="payNow()" aria-label="Pay ₹2499 with GPay or UPI">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+          <span>Pay ₹2499</span>
+        </button>
+        <button type="button" class="form-panel-close" onclick="hideForm()" aria-label="Close form">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="form-panel-body">
+      <div class="form-panel-loader" id="form-panel-loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Loading registration form…</div>
+      </div>
+      <iframe
+        id="reg-iframe"
+        src="about:blank"
+        data-src="https://enquiry.magizhchi.academy/website-workshop.html"
+        title="Workshop Registration Form"
+        referrerpolicy="no-referrer-when-downgrade"
+      >Loading…</iframe>
+    </div>
+  </aside>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <img class="foot-logo" src="https://magizhchi.software/assets/logo-software-orange-BSjNedGZ.png" alt="Magizhchi logo" />
+      <div class="foot-brand">2 Days 6 Hrs Vibe Coding Website Workshop with Certificate</div>
+      <div class="foot-tag">Helping beginners build real websites — one step at a time.</div>
+
+      <div class="foot-contact">
+        <a href="mailto:thirumarankarunanithi@magizhchi.academy">📧 thirumarankarunanithi@magizhchi.academy</a>
+        <a href="#payment">💳 Register Now</a>
+        <a href="#mentor">👨‍🏫 Meet the Mentor</a>
+        <a href="https://magizhchi.academy/" target="_blank" rel="noopener noreferrer">🎓 Visit Academy</a>
+        <a href="https://magizhchi.software/" target="_blank" rel="noopener noreferrer">💻 Visit Softwares</a>
+      </div>
+
+      <div class="foot-copy">
+        © <span id="year"></span> Thirumaran Karunanithi · Magizhchi Software & Tech Academy · All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== Slide-in registration panel ======
+    function showForm() {
+      const overlay = document.getElementById('form-overlay');
+      const panel   = document.getElementById('form-panel');
+      const iframe  = document.getElementById('reg-iframe');
+      const loader  = document.getElementById('form-panel-loader');
+      if (!overlay || !panel || !iframe) return;
+
+      // Lazy-load the iframe only on the first open. The initial src is
+      // 'about:blank' so a non-blank src means we've already loaded it.
+      const isBlank = !iframe.src || iframe.src === 'about:blank' || iframe.src === window.location.href;
+      if (isBlank) {
+        if (loader) loader.classList.remove('hidden');
+        const hideLoader = () => { if (loader) loader.classList.add('hidden'); };
+        iframe.addEventListener('load', hideLoader, { once: true });
+        // Fallback in case the load event is delayed or the embedded page
+        // doesn't fire it cleanly — hide the spinner after 8s anyway.
+        setTimeout(hideLoader, 8000);
+        iframe.src = iframe.dataset.src;
+      }
+
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      panel.classList.add('active');
+      panel.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('form-panel-open');
+    }
+
+    function hideForm(event) {
+      // If invoked from overlay click, only close on direct overlay click
+      if (event && event.target && event.currentTarget && event.target !== event.currentTarget) return;
+
+      const overlay = document.getElementById('form-overlay');
+      const panel   = document.getElementById('form-panel');
+      if (!overlay || !panel) return;
+
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      panel.classList.remove('active');
+      panel.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('form-panel-open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const panel = document.getElementById('form-panel');
+        if (panel && panel.classList.contains('active')) hideForm();
+      }
+    });
+
+    // ====== Direct UPI / GPay payment (fired from top frame) ======
+    // Triggering via a programmatic anchor click is the most reliable way to
+    // launch a custom URL scheme on mobile — browsers treat it exactly like a
+    // user tapping a real <a href="upi://…"> link, so Android/iOS hand the URL
+    // straight to the UPI app picker instead of trying to navigate the page.
+    function payNow() {
+      const PAY_UPI_ID = 'tirukaruna-1@oksbi';
+      const PAY_NAME   = 'Thirumaran Karunanithi';
+      const PAY_AMOUNT = '2499';
+      const PAY_NOTE   = 'Vibe Coding Workshop Registration';
+
+      const upiLink =
+        'upi://pay?pa=' + encodeURIComponent(PAY_UPI_ID) +
+        '&pn=' + encodeURIComponent(PAY_NAME) +
+        '&am=' + PAY_AMOUNT +
+        '&cu=INR' +
+        '&tn=' + encodeURIComponent(PAY_NOTE);
+
+      const ua       = navigator.userAgent || '';
+      const isMobile = /android|iphone|ipad|ipod/i.test(ua);
+
+      if (isMobile) {
+        // Programmatic anchor click — the only consistent way to launch
+        // upi:// across Android Chrome, iOS Safari, Samsung Internet, etc.
+        const a = document.createElement('a');
+        a.href = upiLink;
+        a.rel = 'noopener noreferrer';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => a.remove(), 250);
+      } else {
+        // Desktop: UPI deep links don't work in browsers — copy the UPI ID to
+        // the clipboard and tell the user how to pay manually.
+        const message =
+          'UPI payments work only on a phone.\n\n' +
+          'Open this page on your mobile and tap Pay ₹2499, or pay manually:\n\n' +
+          '  UPI ID: ' + PAY_UPI_ID + '\n' +
+          '  Amount: ₹' + PAY_AMOUNT;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(PAY_UPI_ID).then(
+            () => alert('UPI ID "' + PAY_UPI_ID + '" copied to clipboard.\n\n' + message),
+            () => alert(message)
+          );
+        } else {
+          alert(message);
+        }
+      }
+    }
+
+    // ====== Testimonial swiper ======
+    (function () {
+      const root      = document.getElementById('test-swiper');
+      const track     = document.getElementById('test-track');
+      const prevBtn   = document.getElementById('swiper-prev');
+      const nextBtn   = document.getElementById('swiper-next');
+      const dotsWrap  = document.getElementById('swiper-dots');
+      if (!root || !track || !dotsWrap) return;
+
+      const viewport  = root.querySelector('.test-track-viewport');
+      const slides    = Array.from(track.children);
+      const count     = slides.length;
+      const AUTO_MS   = 6000;
+      let index       = 0;
+      let timerId     = null;
+      let dragDX      = 0;
+
+      // Build dots
+      slides.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dot' + (i === 0 ? ' is-active' : '');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        b.dataset.i = String(i);
+        b.addEventListener('click', () => goTo(i, true));
+        dotsWrap.appendChild(b);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      // Click on a peek card to navigate to it
+      slides.forEach((card, i) => {
+        card.addEventListener('click', () => {
+          if (card.classList.contains('is-active')) return;
+          if (Math.abs(dragDX) > 8) return; // suppress click that ended a drag
+          goTo(i, true);
+        });
+      });
+
+      function getCardSize() {
+        const cardW = slides[0].offsetWidth;
+        const gapStr = getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0';
+        const gap = parseFloat(gapStr) || 0;
+        return { cardW, gap };
+      }
+
+      function getBaseOffset(idx) {
+        const vw = viewport.clientWidth;
+        const { cardW, gap } = getCardSize();
+        return Math.round(vw / 2 - cardW / 2 - idx * (cardW + gap));
+      }
+
+      function applyTransform(extraPx) {
+        const x = getBaseOffset(index) + (extraPx || 0);
+        track.style.transform = 'translateX(' + x + 'px)';
+      }
+
+      function render() {
+        applyTransform(0);
+        slides.forEach((card, i) => card.classList.toggle('is-active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+        // Pause every video except the active one
+        slides.forEach((card, i) => {
+          const v = card.querySelector('video');
+          if (v && i !== index && !v.paused) v.pause();
+        });
+      }
+
+      function goTo(i, fromUser) {
+        index = (i + count) % count;
+        render();
+        if (fromUser) restartTimer();
+      }
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      // Recompute centering on resize/orientation change
+      window.addEventListener('resize', () => applyTransform(0));
+
+      // Auto-advance
+      function startTimer() {
+        stopTimer();
+        timerId = setInterval(next, AUTO_MS);
+      }
+      function stopTimer() {
+        if (timerId) { clearInterval(timerId); timerId = null; }
+      }
+      function restartTimer() { startTimer(); }
+
+      // Pause on hover
+      root.addEventListener('mouseenter', stopTimer);
+      root.addEventListener('mouseleave', startTimer);
+
+      // Pause when a video plays inside the swiper
+      slides.forEach(card => {
+        const v = card.querySelector('video');
+        if (!v) return;
+        v.addEventListener('play', stopTimer);
+        v.addEventListener('pause', startTimer);
+        v.addEventListener('ended', startTimer);
+      });
+
+      // Pause when tab is hidden
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopTimer(); else startTimer();
+      });
+
+      // Arrows
+      prevBtn?.addEventListener('click', () => { prev(); restartTimer(); });
+      nextBtn?.addEventListener('click', () => { next(); restartTimer(); });
+
+      // Keyboard
+      root.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft')  { prev(); restartTimer(); }
+        if (e.key === 'ArrowRight') { next(); restartTimer(); }
+      });
+
+      // Touch / drag swipe
+      let dragStartX = 0;
+      let dragging   = false;
+      const SWIPE_THRESHOLD = 60;
+
+      function onPointerDown(e) {
+        // Don't hijack drags from the active card's <video> controls
+        if (e.target.closest('video')) return;
+        dragging = true;
+        dragStartX = (e.touches ? e.touches[0].clientX : e.clientX);
+        dragDX = 0;
+        track.classList.add('is-dragging');
+        stopTimer();
+      }
+      function onPointerMove(e) {
+        if (!dragging) return;
+        const x = (e.touches ? e.touches[0].clientX : e.clientX);
+        dragDX = x - dragStartX;
+        applyTransform(dragDX);
+      }
+      function onPointerUp() {
+        if (!dragging) return;
+        dragging = false;
+        track.classList.remove('is-dragging');
+        if (dragDX <= -SWIPE_THRESHOLD)      next();
+        else if (dragDX >=  SWIPE_THRESHOLD) prev();
+        else                                 render();
+        // Reset dragDX after a tick so the click-suppression check can still see it
+        setTimeout(() => { dragDX = 0; }, 0);
+        startTimer();
+      }
+
+      track.addEventListener('mousedown',  onPointerDown);
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup',   onPointerUp);
+      track.addEventListener('touchstart', onPointerDown, { passive: true });
+      track.addEventListener('touchmove',  onPointerMove, { passive: true });
+      track.addEventListener('touchend',   onPointerUp);
+
+      render();
+      startTimer();
+    })();
+
+    // ====== Antigravity dot field ======
+    (function () {
+      if (window.matchMedia('(hover: none)').matches) return; // skip on touch devices
+
+      const canvas = document.createElement('canvas');
+      canvas.id = 'dot-field';
+      document.body.insertBefore(canvas, document.body.firstChild);
+      const ctx = canvas.getContext('2d');
+
+      const SPACING = 22;        // grid spacing (matches static fallback)
+      const RADIUS = 200;        // repulsion radius — wider for a gentler reach
+      const RADIUS_SQ = RADIUS * RADIUS;
+      const PUSH = 90;           // max displacement strength (slightly higher; balanced by softer impulse below)
+      const SPRING = 0.035;      // return-to-base easing — much lower = slow, gliding return
+      const FRICTION = 0.90;     // velocity damping — higher = dots coast longer
+      const IMPULSE_MULT = 0.09; // how strongly the cursor force is applied each frame
+      const DOT_R = 1.3;         // base dot radius (px)
+
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let dots = [];
+      let w = 0, h = 0;
+      let mx = -9999, my = -9999;
+      let active = false;
+
+      function setup() {
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        dots = [];
+        const cols = Math.ceil(w / SPACING) + 2;
+        const rows = Math.ceil(h / SPACING) + 2;
+        const offX = (w - (cols - 1) * SPACING) / 2;
+        const offY = (h - (rows - 1) * SPACING) / 2;
+        for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+            const bx = offX + i * SPACING;
+            const by = offY + j * SPACING;
+            dots.push({ bx, by, x: bx, y: by, vx: 0, vy: 0 });
+          }
+        }
+      }
+
+      function tick() {
+        ctx.clearRect(0, 0, w, h);
+
+        for (let i = 0, n = dots.length; i < n; i++) {
+          const d = dots[i];
+
+          // Repulsion from cursor
+          const dx = d.x - mx;
+          const dy = d.y - my;
+          const dist2 = dx * dx + dy * dy;
+
+          let intensity = 0;
+          if (active && dist2 < RADIUS_SQ) {
+            const dist = Math.sqrt(dist2) || 0.0001;
+            const falloff = 1 - dist / RADIUS;
+            // Smoother cubic falloff so the push tapers more gently than quadratic
+            const force = falloff * falloff * falloff * PUSH;
+            d.vx += (dx / dist) * force * IMPULSE_MULT;
+            d.vy += (dy / dist) * force * IMPULSE_MULT;
+            intensity = falloff;
+          }
+
+          // Spring back to base
+          d.vx += (d.bx - d.x) * SPRING;
+          d.vy += (d.by - d.y) * SPRING;
+          d.vx *= FRICTION;
+          d.vy *= FRICTION;
+          d.x += d.vx;
+          d.y += d.vy;
+
+          // Render — color & size shift with intensity
+          const r = DOT_R + intensity * 1.6;
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+          if (intensity > 0.04) {
+            const g = Math.round(106 - 76 * intensity);
+            const b = Math.round(26 - 26 * intensity);
+            const a = (0.30 + intensity * 0.65).toFixed(2);
+            ctx.fillStyle = `rgba(255, ${g}, ${b}, ${a})`;
+          } else {
+            ctx.fillStyle = 'rgba(255, 106, 26, 0.30)';
+          }
+          ctx.fill();
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      window.addEventListener('resize', setup, { passive: true });
+      window.addEventListener('pointermove', (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        active = true;
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => { active = false; });
+      document.addEventListener('mouseleave', () => { active = false; });
+
+      setup();
+      document.body.classList.add('canvas-ready');
+      requestAnimationFrame(tick);
+    })();
+
+    // Reveal-on-scroll with a small stagger between siblings so a section's
+    // contents glide in one after another rather than all at once.
+    const observer = new IntersectionObserver((entries) => {
+      // Sort by their actual position so stagger order matches reading order
+      const incoming = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      incoming.forEach((entry, i) => {
+        entry.target.style.transitionDelay = (i * 90) + 'ms';
+        // Clear the delay after the animation runs so future re-renders don't compound it
+        entry.target.addEventListener('transitionend', () => {
+          entry.target.style.transitionDelay = '';
+        }, { once: true });
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ====== Slow, smooth section-to-section scroll ======
+    // Replaces the browser's snappy scroll-behavior:smooth with a longer,
+    // ease-in-out animation. Honours prefers-reduced-motion.
+    (function () {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      // Disable native smooth scroll so our JS controls the easing and duration
+      document.documentElement.style.scrollBehavior = 'auto';
+
+      const SCROLL_MS = 1300;
+      const easeInOutCubic = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      function smoothScrollTo(targetY, duration = SCROLL_MS) {
+        const startY = window.scrollY || window.pageYOffset;
+        const distance = targetY - startY;
+        if (Math.abs(distance) < 2) return;
+        const startTime = performance.now();
+        let cancelled = false;
+
+        // Cancel mid-animation if the user starts scrolling manually
+        const cancel = () => { cancelled = true; cleanup(); };
+        const cleanup = () => {
+          window.removeEventListener('wheel', cancel, { passive: true });
+          window.removeEventListener('touchstart', cancel, { passive: true });
+          window.removeEventListener('keydown', cancel);
+        };
+        window.addEventListener('wheel', cancel, { passive: true });
+        window.addEventListener('touchstart', cancel, { passive: true });
+        window.addEventListener('keydown', cancel);
+
+        function step(now) {
+          if (cancelled) return;
+          const t = Math.min((now - startTime) / duration, 1);
+          window.scrollTo(0, startY + distance * easeInOutCubic(t));
+          if (t < 1) requestAnimationFrame(step);
+          else cleanup();
+        }
+        requestAnimationFrame(step);
+      }
+
+      // Hijack in-page anchor clicks
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const hash = a.getAttribute('href');
+        if (!hash || hash === '#') return;
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        e.preventDefault();
+        const nav = document.querySelector('.nav');
+        const navH = nav ? nav.offsetHeight : 0;
+        const targetY = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+        smoothScrollTo(targetY);
+
+        // Update the hash without jumping
+        if (history.pushState) history.pushState(null, '', hash);
+      });
+    })();
+  </script>
+</body>
+</html>

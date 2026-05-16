@@ -4,7 +4,7 @@ import logoMagizhchi from '../assets/logo-magizhchi-orange.png';
 import visionImage from '../assets/vision_future.png';
 
 export default function Vision() {
-  const [ref, inView] = useInView(0.2);
+  const [ref, inView] = useInView(0.02);
 
   return (
     <section

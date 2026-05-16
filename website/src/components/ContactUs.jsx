@@ -3,7 +3,7 @@ import { useInView } from '../hooks/useInView';
 import TiltCard from './TiltCard';
 
 export default function ContactUs() {
-  const [ref, inView] = useInView(0.1);
+  const [ref, inView] = useInView(0.02);
 
   return (
     <section id="contact" ref={ref} style={{
@@ -102,7 +102,7 @@ export default function ContactUs() {
                   }}>✉️</div>
                   <div>
                     <div style={{ fontSize: 12, color: '#0F172A', fontWeight: 700, letterSpacing: 1, opacity: 0.8, marginBottom: 4, textTransform: 'uppercase' }}>Email</div>
-                    <div style={{ fontSize: 16, fontWeight: 800, color: '#000000', wordBreak: 'break-word' }}>thirumarankarunanithi@<br/>magizhchi.academy</div>
+                    <div style={{ fontSize: 16, fontWeight: 800, color: '#000000', wordBreak: 'break-word' }}>thirumarankarunanithi@<br/>magizhchi.software</div>
                   </div>
                 </div>
 

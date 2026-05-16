@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/Magizhchi SOftware/Source/landing pages/**)",
+      "Read(//d/Magizhchi SOftware/Source/website/**)",
+      "WebFetch(domain:docs.google.com)",
+      "Bash(awk 'NR==2159{flag=1} /^  <\\\\/aside>$/ && flag{flag=0; next} !flag' \"D:/Magizhchi SOftware/Source/landing pages/vibe coding websites/index.html\")",
+      "WebFetch(domain:script.google.com)",
+      "Bash(awk -F: '$2>2019 && $2<2400')",
+      "Bash(awk 'NR>=2455 && /^    \\\\}\\\\\\)\\\\\\(\\\\\\);$/ { print NR; exit }' \"D:/Magizhchi SOftware/Source/landing pages/vibe coding websites/index.html\")",
+      "Bash(awk 'NR==2027{flag=1} NR==2270{print; flag=0; next} flag{next} 1' \"D:/Magizhchi SOftware/Source/landing pages/vibe coding websites/index.html\")",
+      "Bash(awk 'NR==2332{flag=1} NR==2802{flag=0; next} flag{next} 1' \"D:/Magizhchi SOftware/Source/landing pages/vibe coding websites/index.html\")",
+      "Bash(curl -sI \"https://enquiry.magizhchi.academy/website-workshop.html\" --max-time 15)",
+      "WebFetch(domain:enquiry.magizhchi.academy)",
+      "WebFetch(domain:magizhchi.software)",
+      "Bash(curl -s \"https://magizhchi.software/\" --max-time 15)",
+      "Bash(curl -s \"https://magizhchi.academy/\" --max-time 15)"
+    ]
+  }
+}
