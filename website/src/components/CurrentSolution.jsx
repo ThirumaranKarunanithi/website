@@ -463,6 +463,17 @@ export default function CurrentSolution() {
                   <a
                     href="/downloads/MagizhchiDBCommunicator-Setup-0.1.0.exe"
                     download="MagizhchiDBCommunicator-Setup-0.1.0.exe"
+                    onClick={() => {
+                      // GA4 event — shows up under: Reports → Engagement → Events → "download"
+                      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                        window.gtag('event', 'download', {
+                          item_name: 'magizhchi_db_communicator',
+                          item_version: '0.1.0',
+                          file_name: 'MagizhchiDBCommunicator-Setup-0.1.0.exe',
+                          platform: 'windows',
+                        });
+                      }
+                    }}
                     style={{
                       background: 'linear-gradient(90deg, #EE5A2C, #F8B739)',
                       color: '#0A0E1C',
