@@ -1,0 +1,41 @@
+spring:
+  main:
+    web-application-type: none
+    banner-mode: off
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+      # MongoEngine manages its own MongoClient — disable the framework's eager auto-bean.
+      - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+      - org.springframework.boot.autoconfigure.mongo.MongoReactiveAutoConfiguration
+
+logging:
+  level:
+    root: INFO
+    com.magizhchi: DEBUG
+
+magizhchi:
+  ollama:
+    base-url: http://localhost:11434
+    model: llama3
+    timeout-seconds: 120
+  query:
+    max-rows: 500
+    timeout-seconds: 30
+  # Shared Magizhchi auth service (SSO across Magizhchi apps).
+  # Set enabled=false to skip the sign-in screen entirely (dev / offline use).
+  auth:
+    enabled: true
+    base-url: https://box.magizhchi.software
+    timeout-seconds: 15
+
+  # Pre-filled into the connection form on startup. Users can change each field in the UI.
+  connection:
+    db-type: postgresql      # postgresql | mysql | sqlserver | oracle | sqlite
+    host: localhost
+    port: "5432"
+    database: postgres
+    username: postgres
+    password: ""

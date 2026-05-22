@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.magizhchi</groupId>
+    <artifactId>magizhchi-db-communicator</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>Magizhchi DB Communicator</name>
+    <description>AI-powered desktop database assistant</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <javafx.version>17.0.13</javafx.version>
+        <main.class>com.magizhchi.dbcommunicator.MagizhchiDbCommunicatorApp</main.class>
+        <!-- jpackage rejects -SNAPSHOT; bump this when cutting a release. -->
+        <app.version>0.1.0</app.version>
+        <app.name>Magizhchi DB Communicator</app.name>
+        <app.vendor>Magizhchi Software</app.vendor>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- JDBC drivers. Spring Boot's BOM manages versions for postgresql/mysql/mssql/h2.
+             Oracle and SQLite versions pinned explicitly. -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+            <version>23.5.0.24.07</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.46.1.3</version>
+        </dependency>
+
+        <!-- NoSQL drivers. Mongo version omitted so Spring Boot's BOM picks
+             matching sync+core artifacts. -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <!-- CouchDB: just HTTP + JSON; uses java.net.http.HttpClient (built-in JDK) + Jackson (already on classpath). -->
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!--
+          Activate with: mvn -P installer package
+          Produces a native installer in target/installer/ using jpackage.
+          Runs on the host OS only:
+            * Windows host  -> .exe / .msi (requires WiX Toolset on PATH for .msi)
+            * macOS host    -> .dmg / .pkg
+            * Linux host    -> .deb / .rpm
+        -->
+        <profile>
+            <id>installer</id>
+            <build>
+                <plugins>
+                    <!-- Stage just the fat jar in a clean directory so jpackage doesn't
+                         bundle unrelated build artefacts (classes/, generated-sources/, etc.). -->
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>stage-jar-for-jpackage</id>
+                                <phase>package</phase>
+                                <goals><goal>copy-resources</goal></goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/installer-input</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.build.directory}</directory>
+                                            <includes>
+                                                <include>${project.build.finalName}.jar</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.panteleyev</groupId>
+                        <artifactId>jpackage-maven-plugin</artifactId>
+                        <version>1.6.5</version>
+                        <executions>
+                            <execution>
+                                <id>build-installer</id>
+                                <phase>package</phase>
+                                <goals><goal>jpackage</goal></goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <name>${app.name}</name>
+                            <appVersion>${app.version}</appVersion>
+                            <vendor>${app.vendor}</vendor>
+                            <copyright>Copyright (c) Magizhchi Software</copyright>
+                            <description>AI-powered desktop database assistant</description>
+
+                            <input>${project.build.directory}/installer-input</input>
+                            <mainJar>${project.build.finalName}.jar</mainJar>
+                            <destination>${project.build.directory}/installer</destination>
+
+                            <javaOptions>
+                                <option>-Xmx768m</option>
+                                <option>-Dfile.encoding=UTF-8</option>
+                            </javaOptions>
+
+                            <!-- Windows-specific switches (ignored on other platforms). -->
+                            <winMenu>true</winMenu>
+                            <winShortcut>true</winShortcut>
+                            <winDirChooser>true</winDirChooser>
+                            <winPerUserInstall>true</winPerUserInstall>
+                            <winMenuGroup>Magizhchi</winMenuGroup>
+
+                            <!-- macOS-specific switches (ignored on other platforms). -->
+                            <macPackageName>${app.name}</macPackageName>
+
+                            <!--
+                              Icon must be platform-specific and the file MUST exist:
+                                Windows: src/main/installer/icon.ico
+                                macOS:   src/main/installer/icon.icns
+                                Linux:   src/main/installer/icon.png
+                            -->
+                            <icon>${project.basedir}/src/main/installer/icon.ico</icon>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!--
+          Activate with: mvn -P exe clean package
+          Produces a portable Windows app folder in target/exe/ — no installer.
+          Output: target/exe/<app.name>/<app.name>.exe (double-click to run).
+          The whole folder can be zipped and shipped.
+        -->
+        <profile>
+            <id>exe</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>stage-jar-for-exe</id>
+                                <phase>package</phase>
+                                <goals><goal>copy-resources</goal></goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/installer-input</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.build.directory}</directory>
+                                            <includes>
+                                                <include>${project.build.finalName}.jar</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.panteleyev</groupId>
+                        <artifactId>jpackage-maven-plugin</artifactId>
+                        <version>1.6.5</version>
+                        <executions>
+                            <execution>
+                                <id>build-exe</id>
+                                <phase>package</phase>
+                                <goals><goal>jpackage</goal></goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <type>APP_IMAGE</type>
+                            <name>${app.name}</name>
+                            <appVersion>${app.version}</appVersion>
+                            <vendor>${app.vendor}</vendor>
+                            <copyright>Copyright (c) Magizhchi Software</copyright>
+                            <description>AI-powered desktop database assistant</description>
+
+                            <input>${project.build.directory}/installer-input</input>
+                            <mainJar>${project.build.finalName}.jar</mainJar>
+                            <destination>${project.build.directory}/exe</destination>
+                            <icon>${project.basedir}/src/main/installer/icon.ico</icon>
+
+                            <javaOptions>
+                                <option>-Xmx768m</option>
+                                <option>-Dfile.encoding=UTF-8</option>
+                            </javaOptions>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!--
+          Activate with: mvn -P winsetup clean package
+          Produces a real Windows installer (Setup.exe wizard) using Inno Setup 5.
+          Requires Inno Setup's ISCC.exe on PATH (default install:
+              C:\Program Files (x86)\Inno Setup 5\ISCC.exe ).
+
+          Steps:
+            1. Stage the Spring Boot fat jar.
+            2. Run jpackage to produce the app-image (folder with .exe + JRE).
+            3. Run ISCC to wrap that folder into MagizhchiDBCommunicator-Setup-X.Y.Z.exe.
+
+          Output: target/installer-output/MagizhchiDBCommunicator-Setup-${app.version}.exe
+        -->
+        <profile>
+            <id>winsetup</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>stage-jar-for-winsetup</id>
+                                <phase>package</phase>
+                                <goals><goal>copy-resources</goal></goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/installer-input</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.build.directory}</directory>
+                                            <includes>
+                                                <include>${project.build.finalName}.jar</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.panteleyev</groupId>
+                        <artifactId>jpackage-maven-plugin</artifactId>
+                        <version>1.6.5</version>
+                        <executions>
+                            <execution>
+                                <id>build-app-image-for-winsetup</id>
+                                <phase>package</phase>
+                                <goals><goal>jpackage</goal></goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <type>APP_IMAGE</type>
+                            <name>${app.name}</name>
+                            <appVersion>${app.version}</appVersion>
+                            <vendor>${app.vendor}</vendor>
+                            <copyright>Copyright (c) Magizhchi Software</copyright>
+                            <description>AI-powered desktop database assistant</description>
+
+                            <input>${project.build.directory}/installer-input</input>
+                            <mainJar>${project.build.finalName}.jar</mainJar>
+                            <destination>${project.build.directory}/exe</destination>
+                            <icon>${project.basedir}/src/main/installer/icon.ico</icon>
+
+                            <javaOptions>
+                                <option>-Xmx768m</option>
+                                <option>-Dfile.encoding=UTF-8</option>
+                            </javaOptions>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <id>run-inno-setup</id>
+                                <phase>package</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>ISCC.exe</executable>
+                                    <workingDirectory>${project.basedir}/src/main/installer</workingDirectory>
+                                    <arguments>
+                                        <argument>setup.iss</argument>
+                                    </arguments>
+                                    <successCodes>
+                                        <successCode>0</successCode>
+                                    </successCodes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
