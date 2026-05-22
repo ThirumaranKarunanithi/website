@@ -461,8 +461,9 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="/downloads/MagizhchiDBCommunicator-Setup-0.1.0.exe"
-                    download="MagizhchiDBCommunicator-Setup-0.1.0.exe"
+                    href="https://github.com/ThirumaranKarunanithi/website/releases/download/db-communicator-v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => {
                       // GA4 event — shows up under: Reports → Engagement → Events → "download"
                       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
