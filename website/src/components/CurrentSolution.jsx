@@ -461,7 +461,7 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://github.com/ThirumaranKarunanithi/website/releases/download/db-communicator-v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe"
+                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {

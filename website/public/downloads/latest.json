@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "releaseDate": "2026-05-22",
-  "installerUrl": "https://github.com/ThirumaranKarunanithi/website/releases/download/db-communicator-v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe",
+  "installerUrl": "https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe",
   "fileName": "MagizhchiDBCommunicator-Setup-0.1.0.exe",
   "releaseNotes": "AI JOIN fix, PDF multi-column layout, row detail form, create/drop database, timezone fix, Ollama OOM diagnostics.",
   "minVersion": "0.1.0"
