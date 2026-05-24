@@ -1,8 +1,8 @@
 ﻿{
-  "version": "0.1.0",
-  "releaseDate": "2026-05-22",
-  "installerUrl": "https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe",
-  "fileName": "MagizhchiDBCommunicator-Setup-0.1.0.exe",
-  "releaseNotes": "Initial release — AI-powered database assistant with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, MongoDB, Redis and CouchDB support.",
+  "version": "0.1.9",
+  "releaseDate": "2026-05-24",
+  "installerUrl": "https://github.com/ThirumaranKarunanithi/dbcomm-exe/releases/download/v0.1.9/MagizhchiDBCommunicator-Setup-0.1.9.exe",
+  "fileName": "MagizhchiDBCommunicator-Setup-0.1.9.exe",
+  "releaseNotes": "Sidebar schema tabs (Tables, Views, Functions, Enums, Procedures, Triggers), DDL script export, Insert/Update/Delete row buttons, OTP auth fix, packaging fixes.",
   "minVersion": "0.1.0"
 }
