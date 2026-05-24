@@ -461,7 +461,7 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.1.0/MagizhchiDBCommunicator-Setup-0.1.0.exe"
+                    href="https://github.com/ThirumaranKarunanithi/dbcomm-exe/releases/download/v0.1.9/MagizhchiDBCommunicator-Setup-0.1.9.exe"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
@@ -469,8 +469,8 @@ export default function CurrentSolution() {
                       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
                         window.gtag('event', 'download', {
                           item_name: 'magizhchi_db_communicator',
-                          item_version: '0.1.0',
-                          file_name: 'MagizhchiDBCommunicator-Setup-0.1.0.exe',
+                          item_version: '0.1.9',
+                          file_name: 'MagizhchiDBCommunicator-Setup-0.1.9.exe',
                           platform: 'windows',
                         });
                       }
