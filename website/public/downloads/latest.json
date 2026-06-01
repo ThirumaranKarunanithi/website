@@ -1,8 +1,8 @@
 ﻿{
   "version": "0.1.9",
   "releaseDate": "2026-05-24",
-  "installerUrl": "https://github.com/ThirumaranKarunanithi/dbcomm-exe/releases/download/v0.1.9/MagizhchiDBCommunicator-Setup-0.1.9.exe",
+  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.1.9.exe",
   "fileName": "MagizhchiDBCommunicator-Setup-0.1.9.exe",
-  "releaseNotes": "Sidebar schema tabs (Tables, Views, Functions, Enums, Procedures, Triggers), DDL script export, Insert/Update/Delete row buttons, OTP auth fix, packaging fixes.",
+  "releaseNotes": "MongoDB & CouchDB collections now show in sidebar. DB type dropdown grouped into SQL / NoSQL. NoSQL mode: prompt and button rename to No-SQL, AI generates MongoDB queries directly. OTP sign-in fix. Sidebar schema tabs, DDL script export, Insert/Update/Delete row buttons.",
   "minVersion": "0.1.0"
 }
