@@ -2,5 +2,4 @@
 Magizhchi-DB-Communicator/
 Magizhchi-Box/
 Magizhchi-Share/
-
-# Magizhchi-CRM is tracked in this repo (its own .gitignore handles excludes)
+Magizhchi-CRM/
