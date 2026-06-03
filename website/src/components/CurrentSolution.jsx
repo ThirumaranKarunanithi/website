@@ -6,7 +6,7 @@ import boxLogo from '../assets/logo-magizhchi-box.png';
 import cloudProfessionals from '../assets/hero_professionals.png';
 import dbCommunicatorLogo from '../assets/logo-db-communicator.png';
 import dashboardImage from '../assets/business_dashboard.png';
-import crmLogo from '../assets/logo-magizhchi-orange.png';
+import crmLogo from '../assets/logo-crm.png';
 import crmImage from '../assets/img_crm.png';
 
 const features = [
