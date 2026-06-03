@@ -1205,6 +1205,32 @@ export default function CurrentSolution() {
             margin-left: auto;
           }
         }
+
+        /* ---- Responsive: tablet / iPad / iPad mini ---- */
+        @media (max-width: 1024px) {
+          #solutions { padding: 56px 0 !important; }
+          #solutions div[style*="min-height: 400px"] { min-height: 300px !important; }
+          #solutions .cs-button-container a { width: 100%; text-align: center; }
+        }
+        /* ---- Responsive: large phones / small tablets ---- */
+        @media (max-width: 640px) {
+          #solutions { padding: 40px 0 !important; }
+          #solutions .cs-logo-container { width: 80px !important; height: 80px !important; }
+          #solutions div[style*="min-height: 400px"] { min-height: 220px !important; }
+          #solutions h3 { font-size: 22px !important; }
+          #solutions h4 { font-size: 20px !important; }
+          #solutions h5 { font-size: 15px !important; }
+        }
+        /* ---- Responsive: small phones ---- */
+        @media (max-width: 380px) {
+          #solutions .cs-logo-container { width: 68px !important; height: 68px !important; }
+          #solutions div[style*="min-height: 400px"] { min-height: 180px !important; }
+        }
+        /* Smooth, jank-free animations on touch devices */
+        #solutions * { -webkit-tap-highlight-color: transparent; }
+        @media (prefers-reduced-motion: reduce) {
+          #solutions * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
       `}</style>
     </section>
   );
