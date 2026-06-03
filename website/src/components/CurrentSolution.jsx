@@ -329,6 +329,64 @@ export default function CurrentSolution() {
                 </div>
               </div>
 
+              {/* Simple Pricing */}
+              <div>
+                <h4 style={{ fontSize: 24, fontWeight: 800, color: '#E8B84B', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  💸 Simple Pricing
+                </h4>
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(232, 184, 75, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                  border: '1px solid rgba(232, 184, 75, 0.30)',
+                  borderRadius: 16, padding: 22,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+                }}>
+                  <p style={{ fontSize: 14, color: '#C7D0E8', margin: '0 0 16px', fontWeight: 500 }}>
+                    Priced by leads received per month — <strong style={{ color: '#FFFFFF' }}>every feature & unlimited users included</strong> on all plans. Pay by UPI.
+                  </p>
+                  {[
+                    { name: 'Free', leads: 'up to 100 / mo', price: '₹0', tag: '' },
+                    { name: 'Starter', leads: 'up to 500 / mo', price: '₹499/mo', tag: '' },
+                    { name: 'Growth', leads: 'up to 2,000 / mo', price: '₹999/mo', tag: 'Popular' },
+                    { name: 'Pro', leads: 'up to 5,000 / mo', price: '₹1,999/mo', tag: '' },
+                    { name: 'Scale', leads: 'up to 15,000 / mo', price: '₹3,499/mo', tag: '' },
+                  ].map((p, i) => (
+                    <div key={`crm-price-${i}`} style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
+                      padding: '10px 0',
+                      borderTop: i === 0 ? 'none' : '1px solid rgba(232, 184, 75, 0.12)'
+                    }}>
+                      <div style={{ minWidth: 0 }}>
+                        <span style={{ fontSize: 15, fontWeight: 800, color: '#FFFFFF' }}>{p.name}</span>
+                        {p.tag && <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 800, color: '#0A1228', background: 'linear-gradient(90deg, #E8B84B, #F4D27A)', padding: '2px 8px', borderRadius: 999 }}>{p.tag}</span>}
+                        <span style={{ display: 'block', fontSize: 12, color: '#9FB0D6', fontWeight: 500 }}>{p.leads}</span>
+                      </div>
+                      <span style={{ fontSize: 15, fontWeight: 800, color: '#E8B84B', whiteSpace: 'nowrap' }}>{p.price}</span>
+                    </div>
+                  ))}
+                  <p style={{ fontSize: 12, color: '#9FB0D6', margin: '14px 0 16px', fontWeight: 500 }}>
+                    Save ~33% on yearly billing · ₹49 per extra 100 leads · no card needed to start.
+                  </p>
+                  <a
+                    href="https://crmapp.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block', textAlign: 'center',
+                      background: 'linear-gradient(90deg, #E8B84B, #F4D27A)',
+                      color: '#0A1228', textDecoration: 'none',
+                      padding: '12px 20px', borderRadius: 12,
+                      fontSize: 14, fontWeight: 800,
+                      boxShadow: '0 4px 20px rgba(232, 184, 75, 0.4)',
+                      transition: 'all 0.2s',
+                    }}
+                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
+                  >
+                    Start free →
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
         </motion.div>
