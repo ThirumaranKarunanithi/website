@@ -6,6 +6,8 @@ import boxLogo from '../assets/logo-magizhchi-box.png';
 import cloudProfessionals from '../assets/hero_professionals.png';
 import dbCommunicatorLogo from '../assets/logo-db-communicator.png';
 import dashboardImage from '../assets/business_dashboard.png';
+import crmLogo from '../assets/logo-magizhchi-orange.png';
+import crmImage from '../assets/img_crm.png';
 
 const features = [
   { icon: '📋', title: 'Form Management', desc: 'Smart form creation and management with drag-and-drop builder' },
@@ -64,6 +66,271 @@ export default function CurrentSolution() {
           <p className="section-subtitle" style={{ margin: '0 auto', color: '#1E293B', fontWeight: 500 }}>
             Discover our suite of software solutions designed to simplify and empower your operations.
           </p>
+        </motion.div>
+
+        {/* Main card 0: Magizhchi CRM */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.15, duration: 1, ease: "easeOut" }}
+          style={{
+            backgroundColor: '#0F1B3D',
+            backgroundImage: 'radial-gradient(rgba(232, 184, 75, 0.18) 2px, transparent 2px), linear-gradient(135deg, #18294F 0%, #0A1228 100%)',
+            backgroundSize: '24px 24px, 100% 100%',
+            color: '#ECF0FA',
+            borderRadius: 24,
+            padding: 'clamp(20px, 4vw, 40px)',
+            marginBottom: 40,
+            boxShadow: '0 20px 60px -10px rgba(232, 184, 75, 0.22), 0 8px 24px -4px rgba(10, 18, 40, 0.5)',
+            border: '1px solid rgba(232, 184, 75, 0.18)',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
+
+            {/* Left side content */}
+            <div style={{ minWidth: 0 }}>
+              <div className="current-solution-header" style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 32, flexWrap: 'wrap' }}>
+                <div className="cs-logo-container" style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%)',
+                  border: '1px solid rgba(232, 184, 75, 0.4)',
+                  borderRadius: 16,
+                  padding: '14px',
+                  boxShadow: '0 6px 24px rgba(232, 184, 75, 0.25)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: 100, height: 100, flexShrink: 0, boxSizing: 'border-box'
+                }}>
+                  <img src={crmLogo} alt="Magizhchi CRM Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#FFFFFF', wordBreak: 'break-word' }}>
+                    Magizhchi CRM
+                  </h3>
+                  <p style={{ background: 'linear-gradient(90deg, #E8B84B, #F4D27A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: 16, fontWeight: 700 }}>
+                    Connect · Manage · Grow — leads to collections, all in one place
+                  </p>
+                </div>
+                <div className="cs-button-container" style={{ marginTop: 8 }}>
+                  <a
+                    href="https://crmapp.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: 'linear-gradient(90deg, #E8B84B, #F4D27A)',
+                      color: '#0A1228',
+                      textDecoration: 'none',
+                      padding: '12px 28px',
+                      borderRadius: 12,
+                      fontSize: 14,
+                      fontWeight: 800,
+                      boxShadow: '0 4px 20px rgba(232, 184, 75, 0.4)',
+                      display: 'inline-block',
+                      whiteSpace: 'nowrap',
+                      transition: 'all 0.2s',
+                    }}
+                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
+                  >
+                    Open Magizhchi CRM →
+                  </a>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  willChange: 'transform, opacity',
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                  border: '1px solid rgba(232, 184, 75, 0.20)',
+                  borderRadius: 16, padding: 24,
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)', marginBottom: 30
+                }}
+              >
+                <p style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.7, fontWeight: 700, marginBottom: 16 }}>
+                  Capture every enquiry, auto-assign it to your team, never miss a follow-up, and carry the
+                  customer all the way through onboarding and payments — with live reports for Sales,
+                  Operations, and Accounts.
+                </p>
+                <p style={{ fontSize: 15, color: '#C7D0E8', lineHeight: 1.7, fontWeight: 500 }}>
+                  Magizhchi CRM is a multi-tenant CRM built for coaching institutes, academies, and growing
+                  businesses. From web-form / API / Excel lead capture and a smart sales pipeline to post-sale
+                  Operations &amp; Accounts with batches, installments and collections — it runs your whole
+                  customer journey. Unlimited users on every plan, India-first pricing with UPI, and a loud
+                  follow-up alarm so no lead ever slips.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right side image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                willChange: 'transform, opacity', position: 'relative',
+                borderRadius: 20, overflow: 'hidden',
+                border: '2px solid rgba(232, 184, 75, 0.35)',
+                boxShadow: '0 30px 60px rgba(0, 0, 0, 0.4)',
+                height: '100%', minHeight: 400
+              }}
+            >
+              <img src={crmImage} alt="Magizhchi CRM dashboard" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(232, 184, 75, 0.18) 0%, rgba(15, 27, 61, 0.55) 100%)', pointerEvents: 'none' }} />
+            </motion.div>
+
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(232, 184, 75, 0.15)', margin: '40px 0' }} />
+
+          {/* Detailed Content Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 500px), 1fr))', gap: '40px' }}>
+
+            {/* Left Column: Key Features */}
+            <div>
+              <h4 style={{ fontSize: 24, fontWeight: 800, color: '#E8B84B', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                🎯 Key Features
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+                {[
+                  { icon: '🎯', title: 'Lead Capture & Pipeline', points: ['Web form, API, Excel & Instagram', 'New → Working → Follow-up → Won/Lost', 'Labels, categories & campaigns'] },
+                  { icon: '⚡', title: 'Smart Auto-Assign', points: ['Load-balanced to your team', 'Caps, pause & manager roles', 'Bulk assign / reassign'] },
+                  { icon: '⏰', title: 'Follow-ups & Alarms', points: ['Loud, high reminder ring', 'Custom & notification sounds', 'Never miss a callback'] },
+                  { icon: '🛠️', title: 'Operations & Accounts', points: ['Post-sale onboarding & batches', 'Installments & collections', 'Per-student activity log'] },
+                  { icon: '📊', title: 'Live Dashboards', points: ['Sales, Operations & Accounts reports', 'Filter by member, campaign, label', 'Revenue & conversion at a glance'] },
+                  { icon: '👥', title: 'Teams & Departments', points: ['Unlimited users on all plans', 'Multi-department access', 'Permissions & deal approvals'] },
+                ].map((feat, i) => (
+                  <motion.div
+                    key={`crm-kf-${i}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "0px" }}
+                    transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                    whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(232, 184, 75, 0.25)' }}
+                    style={{
+                      willChange: 'transform, opacity',
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                      border: '1px solid rgba(232, 184, 75, 0.20)',
+                      borderRadius: 16, padding: 20,
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                      display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer'
+                    }}>
+                    <div style={{ fontSize: 24, marginBottom: 8 }}>{feat.icon}</div>
+                    <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 8 }}>{feat.title}</h5>
+                    <ul style={{ margin: 0, paddingLeft: 20, color: '#C7D0E8', fontSize: 14, lineHeight: 1.6, fontWeight: 500, flex: 1 }}>
+                      {feat.points.map((p, idx) => <li key={idx} style={{ marginBottom: 4 }}>{p}</li>)}
+                    </ul>
+                  </motion.div>
+                ))}
+
+                {/* Why Choose */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(232, 184, 75, 0.25)' }}
+                  style={{
+                    willChange: 'transform, opacity',
+                    background: 'linear-gradient(135deg, rgba(232, 184, 75, 0.15) 0%, rgba(244, 210, 122, 0.08) 100%)',
+                    border: '1px solid rgba(232, 184, 75, 0.35)',
+                    borderRadius: 16, padding: 20,
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                    display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer'
+                  }}>
+                  <h5 style={{ fontSize: 18, fontWeight: 800, color: '#E8B84B', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+                    ⭐ Why Choose Magizhchi CRM?
+                  </h5>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: '#ECF0FA', fontSize: 14, lineHeight: 1.6, fontWeight: 500, flex: 1 }}>
+                    <li style={{ marginBottom: 4 }}>Unlimited users on every plan</li>
+                    <li style={{ marginBottom: 4 }}>India-first pricing — pay by UPI</li>
+                    <li style={{ marginBottom: 4 }}>Post-sale Operations &amp; Accounts built-in</li>
+                    <li style={{ marginBottom: 4 }}>Free plan to get started — no card</li>
+                    <li style={{ marginBottom: 4 }}>Backed by <strong>Magizhchi Software</strong></li>
+                  </ul>
+                </motion.div>
+
+              </div>
+            </div>
+
+            {/* Right Column: How it Works, Who is it for */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
+
+              {/* How It Works */}
+              <div>
+                <h4 style={{ fontSize: 24, fontWeight: 800, color: '#E8B84B', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  ⚙️ How It Works
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  {[
+                    { step: '1', title: 'Capture leads', desc: 'From your website form, API, Excel, or add them manually' },
+                    { step: '2', title: 'Assign & work the pipeline', desc: 'Auto-assign to the team, call/WhatsApp, set follow-ups' },
+                    { step: '3', title: 'Win & hand off', desc: 'Won deals flow to Operations & Accounts for onboarding' },
+                    { step: '4', title: 'Track collections & growth', desc: 'Installments, activity logs, and live department reports' }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={`crm-hiw-${i}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "0px" }}
+                      transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                      whileHover={{ scale: 1.02, x: 5, boxShadow: '0 10px 30px rgba(232, 184, 75, 0.25)' }}
+                      style={{
+                        willChange: 'transform, opacity',
+                        display: 'flex', gap: 16, alignItems: 'flex-start',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                        border: '1px solid rgba(232, 184, 75, 0.20)',
+                        padding: 16, borderRadius: 16,
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)', cursor: 'pointer'
+                      }}>
+                      <div style={{ background: 'linear-gradient(135deg, #E8B84B, #F4D27A)', color: '#0A1228', width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 14, flexShrink: 0 }}>{item.step}</div>
+                      <div>
+                        <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 4 }}>{item.title}</h5>
+                        <p style={{ fontSize: 14, color: '#C7D0E8', margin: 0, fontWeight: 500 }}>{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Who Is It For */}
+              <div>
+                <h4 style={{ fontSize: 24, fontWeight: 800, color: '#E8B84B', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  👥 Who Is It For?
+                </h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
+                  {[
+                    { icon: '🎓', title: 'Academies & Institutes', desc: 'Admissions, batches, fee installments & collections' },
+                    { icon: '🏢', title: 'Local Businesses', desc: 'Capture enquiries and convert them into customers' },
+                    { icon: '📈', title: 'Sales Teams', desc: 'A shared pipeline with auto-assign and follow-ups' }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={`crm-who-${i}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "0px" }}
+                      transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                      whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(232, 184, 75, 0.25)' }}
+                      style={{
+                        willChange: 'transform, opacity',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                        border: '1px solid rgba(232, 184, 75, 0.20)',
+                        borderRadius: 16, padding: 16,
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                        display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer'
+                      }}>
+                      <div style={{ fontSize: 24, marginBottom: 8 }}>{item.icon}</div>
+                      <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 6 }}>{item.title}</h5>
+                      <p style={{ fontSize: 14, color: '#C7D0E8', margin: 0, lineHeight: 1.5, fontWeight: 500, flex: 1 }}>{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
         </motion.div>
 
         {/* Main card 2: Magizhchi Box */}
@@ -461,7 +728,7 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.1.9.exe"
+                    href="https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.1.exe"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
@@ -469,8 +736,8 @@ export default function CurrentSolution() {
                       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
                         window.gtag('event', 'download', {
                           item_name: 'magizhchi_db_communicator',
-                          item_version: '0.1.9',
-                          file_name: 'MagizhchiDBCommunicator-Setup-0.1.9.exe',
+                          item_version: '0.2.1',
+                          file_name: 'MagizhchiDBCommunicator-Setup-0.2.1.exe',
                           platform: 'windows',
                         });
                       }
