@@ -4,7 +4,6 @@ import TiltCard from './TiltCard';
 import dashboardImage from '../assets/business_dashboard.png';
 import imgDental from '../assets/img_dental.png';
 import imgForms from '../assets/img_forms.png';
-import imgCrm from '../assets/img_crm.png';
 import imgAccounting from '../assets/img_accounting.png';
 import imgHrms from '../assets/img_hrms.png';
 
@@ -42,23 +41,6 @@ const products = [
     ],
     badge: 'Data Collection',
     img: imgForms,
-  },
-  {
-    id: 3,
-    name: 'Magizhchi Virpanai',
-    subtitle: 'CRM',
-    tagline: 'Smart Sales Management Made Simple',
-    icon: '🎯',
-    color: '#F59E0B',
-    colorGlow: 'rgba(245, 158, 11, 0.15)',
-    features: [
-      'Lead management and tracking',
-      'Team & individual lead assignment',
-      'Integrated digital SIM calling',
-      'Call recording and history',
-    ],
-    badge: 'Sales & CRM',
-    img: imgCrm,
   },
   {
     id: 4,
