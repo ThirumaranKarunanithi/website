@@ -102,6 +102,7 @@ export default function Footer() {
               { label: 'Solutions', href: '#solutions' },
               { label: 'Why Choose Us', href: '#why' },
               { label: 'Academy', href: 'https://magizhchi.academy/' },
+              { label: 'Magizhchi Data', href: 'https://datas.magizhchi.software' },
             ].map(item => (
               <a key={item.label} href={item.href} style={{
                 display: 'block',
