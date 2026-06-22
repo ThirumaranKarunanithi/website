@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
-import logoAcademy from '../assets/logo-academy-orange.png';
-import mentorImage from '../assets/academy_mentor.png';
 import boxLogo from '../assets/logo-magizhchi-box.png';
 import cloudProfessionals from '../assets/hero_professionals.png';
 import dbCommunicatorLogo from '../assets/logo-db-communicator.png';
@@ -11,14 +9,6 @@ import crmImage from '../assets/img_crm.png';
 import dataLogo from '../assets/logo-magizhchi-data.png';
 import dataImage from '../assets/img_forms.png';
 
-const features = [
-  { icon: '📋', title: 'Form Management', desc: 'Smart form creation and management with drag-and-drop builder' },
-  { icon: '🎯', title: 'Advanced CRM', desc: 'Lead tracking, conversion funnels, and sales pipeline management' },
-  { icon: '👥', title: 'HRMS', desc: 'Complete human resource management from hiring to payroll' },
-  { icon: '💰', title: 'Accounting', desc: 'Integrated financial management with GST compliance' },
-  { icon: '📚', title: 'Batch Management', desc: 'Efficient batch creation and complete lifecycle management' },
-  { icon: '⚙️', title: 'Workflow Automation', desc: 'End-to-end operational workflow automation and reporting' },
-];
 
 export default function CurrentSolution() {
   const [ref] = useInView(0.02);   // ref keeps the section anchor; cards animate via whileInView
@@ -1040,11 +1030,11 @@ export default function CurrentSolution() {
           </div>
         </motion.div>
 
-        {/* Main card 1: Tech Academy Management Software */}
+        {/* Main card 4: Magizhchi Data */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
+          transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
           style={{
             backgroundColor: '#FB923C',
             backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px), linear-gradient(135deg, #FDBA74 0%, #F97316 100%)',
@@ -1052,158 +1042,8 @@ export default function CurrentSolution() {
             color: '#020617',
             borderRadius: 24,
             padding: 'clamp(20px, 4vw, 40px)',
-            marginBottom: 0,
-            boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.3), 0 8px 24px -4px rgba(249, 115, 22, 0.1)',
-            width: '100%',
-            boxSizing: 'border-box'
-          }}
-        >
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
-            {/* Left side content */}
-            <div style={{ minWidth: 0 }}>
-              <div className="current-solution-header" style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 20,
-                marginBottom: 32,
-                flexWrap: 'wrap',
-              }}>
-                <div className="cs-logo-container" style={{
-                  background: 'rgba(255, 255, 255, 0.5)',
-                  border: '1px solid rgba(255, 255, 255, 0.8)',
-                  borderRadius: 16,
-                  padding: '16px',
-                  boxShadow: '0 4px 12px rgba(15, 23, 42, 0.05)',
-                  maxWidth: '100%',
-                  boxSizing: 'border-box'
-                }}>
-                  <img src={logoAcademy} alt="Tech Academy" style={{ height: 'auto', maxHeight: 80, maxWidth: '100%', objectFit: 'contain' }} />
-                </div>
-                <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
-                  <h3 style={{
-                    fontFamily: 'Poppins, sans-serif',
-                    fontSize: 'clamp(22px, 3vw, 30px)',
-                    fontWeight: 800,
-                    marginBottom: 8,
-                    color: '#000000',
-                    wordBreak: 'break-word'
-                  }}>
-                    Magizhchi Tech Academy Platform
-                  </h3>
-                  <p style={{ color: '#0F172A', fontSize: 16, fontWeight: 600 }}>
-                    Powering training institutes with end-to-end management
-                  </p>
-                </div>
-                <div className="cs-button-container" style={{ marginTop: 8 }}>
-                  <a
-                    href="https://magizhchi.academy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      background: '#0F172A',
-                      color: '#FFFFFF',
-                      textDecoration: 'none',
-                      padding: '12px 28px',
-                      borderRadius: 12,
-                      fontSize: 14,
-                      fontWeight: 700,
-                      boxShadow: '0 4px 20px rgba(15,23,42,0.2)',
-                      display: 'inline-block',
-                      whiteSpace: 'nowrap',
-                      transition: 'all 0.2s',
-                    }}
-                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
-                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
-                  >
-                    Visit Academy →
-                  </a>
-                </div>
-              </div>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
-                gap: 20,
-              }}>
-                {features.map((feat, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
-                    transition={{ delay: 0.3 + i * 0.07, duration: 0.5 }}
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%)',
-                      backdropFilter: 'blur(16px)',
-                      WebkitBackdropFilter: 'blur(16px)',
-                      border: '1px solid rgba(255, 255, 255, 0.6)',
-                      borderTop: '1px solid #FFFFFF',
-                      borderLeft: '1px solid #FFFFFF',
-                      borderRadius: 14,
-                      padding: '20px 22px',
-                      transition: 'all 0.3s',
-                      cursor: 'default',
-                      boxShadow: '0 12px 32px rgba(15, 23, 42, 0.15)',
-                    }}
-                    whileHover={{
-                      borderColor: '#FFFFFF',
-                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 100%)',
-                      y: -6,
-                      boxShadow: '0 20px 48px rgba(15, 23, 42, 0.2), inset 0 0 10px rgba(255,255,255,0.7)',
-                    }}
-                  >
-                    <div style={{ fontSize: 28, marginBottom: 10 }}>{feat.icon}</div>
-                    <h4 style={{ fontSize: 15, fontWeight: 800, marginBottom: 6, color: '#000000' }}>
-                      {feat.title}
-                    </h4>
-                    <p style={{ fontSize: 13, color: '#0F172A', lineHeight: 1.6, fontWeight: 600 }}>
-                      {feat.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right side image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
-              style={{
-                position: 'relative',
-                borderRadius: 20,
-                overflow: 'hidden',
-                border: '2px solid rgba(255,255,255,0.6)',
-                boxShadow: '0 30px 60px rgba(0, 0, 0, 0.1)',
-                height: '100%',
-                minHeight: 400
-              }}
-            >
-              <img src={mentorImage} alt="Academy Mentor" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%)',
-                pointerEvents: 'none'
-              }} />
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Main card 4: Magizhchi Data */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
-          transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
-          style={{
-            backgroundColor: '#0F1426',
-            backgroundImage: 'radial-gradient(rgba(249, 115, 22, 0.18) 2px, transparent 2px), linear-gradient(135deg, #1B2236 0%, #0A0E1C 100%)',
-            backgroundSize: '24px 24px, 100% 100%',
-            color: '#ECEEF5',
-            borderRadius: 24,
-            padding: 'clamp(20px, 4vw, 40px)',
             marginBottom: 40,
-            boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.25), 0 8px 24px -4px rgba(15, 20, 38, 0.4)',
-            border: '1px solid rgba(249, 115, 22, 0.18)',
+            boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.3), 0 8px 24px -4px rgba(249, 115, 22, 0.1)',
             width: '100%', boxSizing: 'border-box'
           }}
         >
@@ -1220,16 +1060,16 @@ export default function CurrentSolution() {
                   <img src={dataLogo} alt="Magizhchi Data Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
-                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#FFFFFF', wordBreak: 'break-word' }}>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#000000', wordBreak: 'break-word' }}>
                     Magizhchi Data
                   </h3>
-                  <p style={{ background: 'linear-gradient(90deg, #F97316, #FDBA74)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: 16, fontWeight: 700 }}>
+                  <p style={{ color: '#0F172A', fontSize: 16, fontWeight: 700 }}>
                     Any file in. Any format out. Edited &amp; designed by AI.
                   </p>
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a href="https://datas.magizhchi.software" target="_blank" rel="noopener noreferrer"
-                    style={{ background: 'linear-gradient(90deg, #F97316, #FDBA74)', color: '#0A0E1C', textDecoration: 'none', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 800, boxShadow: '0 4px 20px rgba(249, 115, 22, 0.4)', display: 'inline-block', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
+                    style={{ background: '#0F172A', color: '#FFFFFF', textDecoration: 'none', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, boxShadow: '0 4px 20px rgba(15,23,42,0.2)', display: 'inline-block', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
                     onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
                     onMouseLeave={e => e.target.style.transform = 'translateY(0)'}>
                     Open Magizhchi Data →
@@ -1241,13 +1081,13 @@ export default function CurrentSolution() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)', border: '1px solid rgba(249, 115, 22, 0.20)', borderRadius: 16, padding: 24, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)', marginBottom: 30 }}
+                style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%)', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: 16, padding: 24, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', marginBottom: 30 }}
               >
-                <p style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.7, fontWeight: 700, marginBottom: 16 }}>
+                <p style={{ fontSize: 16, color: '#000000', lineHeight: 1.7, fontWeight: 800, marginBottom: 16 }}>
                   Paste or upload any document — image, PDF, Word, Excel, PowerPoint — and AI reads it
                   (handwriting included), then edit and export it to any format, all on one page.
                 </p>
-                <p style={{ fontSize: 15, color: '#C7C9DD', lineHeight: 1.7, fontWeight: 500 }}>
+                <p style={{ fontSize: 15, color: '#111827', lineHeight: 1.7, fontWeight: 600 }}>
                   Magizhchi Data is an AI document studio. Smart OCR auto-detects tables, forms, bills,
                   prescriptions, ID cards, contacts and code; edit anything by prompting — translate, fix
                   totals, restyle, generate images &amp; charts — and design ready-to-share posters from
@@ -1262,18 +1102,18 @@ export default function CurrentSolution() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              style={{ willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden', border: '2px solid rgba(249, 115, 22, 0.35)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.4)', height: '100%', minHeight: 400 }}
+              style={{ willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden', border: '2px solid rgba(255, 255, 255, 0.6)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.1)', height: '100%', minHeight: 400 }}
             >
               <img src={dataImage} alt="Magizhchi Data document studio" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.22) 0%, rgba(15, 20, 38, 0.55) 100%)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%)', pointerEvents: 'none' }} />
             </motion.div>
           </div>
 
-          <div style={{ borderTop: '1px solid rgba(249, 115, 22, 0.15)', margin: '40px 0' }} />
+          <div style={{ borderTop: '1px solid rgba(15, 23, 42, 0.12)', margin: '40px 0' }} />
 
           {/* Key Features */}
           <div>
-            <h4 style={{ fontSize: 24, fontWeight: 800, color: '#F97316', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>✨ Key Features</h4>
+            <h4 style={{ fontSize: 24, fontWeight: 800, color: '#0F172A', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>✨ Key Features</h4>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
               {[
                 { icon: '🧠', title: 'Smart OCR — any layout', points: ['Tables, forms, bills, ID cards, code', 'Handwriting & Tamil supported', 'Paste/upload image, PDF, Office'] },
@@ -1289,11 +1129,11 @@ export default function CurrentSolution() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "0px" }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(249, 115, 22, 0.25)' }}
-                  style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)', border: '1px solid rgba(249, 115, 22, 0.20)', borderRadius: 16, padding: 20, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer' }}>
+                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)' }}
+                  style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%)', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: 16, padding: 20, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer' }}>
                   <div style={{ fontSize: 24, marginBottom: 8 }}>{feat.icon}</div>
-                  <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 8 }}>{feat.title}</h5>
-                  <ul style={{ margin: 0, paddingLeft: 20, color: '#C7C9DD', fontSize: 14, lineHeight: 1.6, fontWeight: 500, flex: 1 }}>
+                  <h5 style={{ fontSize: 16, fontWeight: 800, color: '#000000', marginBottom: 8 }}>{feat.title}</h5>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: '#111827', fontSize: 14, lineHeight: 1.6, fontWeight: 600, flex: 1 }}>
                     {feat.points.map((p, idx) => <li key={idx} style={{ marginBottom: 4 }}>{p}</li>)}
                   </ul>
                 </motion.div>
