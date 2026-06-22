@@ -21,7 +21,7 @@ const features = [
 ];
 
 export default function CurrentSolution() {
-  const [ref, inView] = useInView(0.02);
+  const [ref] = useInView(0.02);   // ref keeps the section anchor; cards animate via whileInView
 
   return (
     <section
@@ -57,7 +57,7 @@ export default function CurrentSolution() {
       <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: 40 }}
         >
@@ -73,7 +73,7 @@ export default function CurrentSolution() {
         {/* Main card 0: Magizhchi CRM */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.15, duration: 1, ease: "easeOut" }}
           style={{
             backgroundColor: '#0F1B3D',
@@ -141,7 +141,7 @@ export default function CurrentSolution() {
 
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
                 transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   willChange: 'transform, opacity',
@@ -169,7 +169,7 @@ export default function CurrentSolution() {
             {/* Right side image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
               transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 willChange: 'transform, opacity', position: 'relative',
@@ -388,7 +388,7 @@ export default function CurrentSolution() {
         {/* Main card 2: Magizhchi Box */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
           style={{
             backgroundColor: '#0EA5E9',
@@ -474,7 +474,7 @@ export default function CurrentSolution() {
 
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   willChange: 'transform, opacity',
@@ -501,7 +501,7 @@ export default function CurrentSolution() {
             {/* Right side image / illustration */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 willChange: 'transform, opacity',
@@ -698,7 +698,7 @@ export default function CurrentSolution() {
         {/* Main card 3: Magizhchi DB Communicator */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
           style={{
             backgroundColor: '#0F1426',
@@ -817,7 +817,7 @@ export default function CurrentSolution() {
 
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   willChange: 'transform, opacity',
@@ -845,7 +845,7 @@ export default function CurrentSolution() {
             {/* Right side image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 willChange: 'transform, opacity',
@@ -1043,7 +1043,7 @@ export default function CurrentSolution() {
         {/* Main card 4: Magizhchi Data */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
           style={{
             backgroundColor: '#0F1426',
@@ -1090,7 +1090,7 @@ export default function CurrentSolution() {
 
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)', border: '1px solid rgba(249, 115, 22, 0.20)', borderRadius: 16, padding: 24, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)', marginBottom: 30 }}
               >
@@ -1111,7 +1111,7 @@ export default function CurrentSolution() {
             {/* Right side image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               style={{ willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden', border: '2px solid rgba(249, 115, 22, 0.35)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.4)', height: '100%', minHeight: 400 }}
             >
@@ -1156,7 +1156,7 @@ export default function CurrentSolution() {
         {/* Main card 1: Tech Academy Management Software */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
           style={{
             backgroundColor: '#FB923C',
@@ -1242,7 +1242,7 @@ export default function CurrentSolution() {
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
                     transition={{ delay: 0.3 + i * 0.07, duration: 0.5 }}
                     style={{
                       background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%)',
@@ -1279,7 +1279,7 @@ export default function CurrentSolution() {
             {/* Right side image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
               transition={{ delay: 0.4, duration: 0.7 }}
               style={{
                 position: 'relative',
