@@ -375,6 +375,118 @@ export default function CurrentSolution() {
           </div>
         </motion.div>
 
+        {/* Main card 4: Magizhchi Data */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
+          transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
+          style={{
+            backgroundColor: '#FB923C',
+            backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px), linear-gradient(135deg, #FDBA74 0%, #F97316 100%)',
+            backgroundSize: '24px 24px, 100% 100%',
+            color: '#020617',
+            borderRadius: 24,
+            padding: 'clamp(20px, 4vw, 40px)',
+            marginBottom: 40,
+            boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.3), 0 8px 24px -4px rgba(249, 115, 22, 0.1)',
+            width: '100%', boxSizing: 'border-box'
+          }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
+            {/* Left side content */}
+            <div style={{ minWidth: 0 }}>
+              <div className="current-solution-header" style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 32, flexWrap: 'wrap' }}>
+                <div className="cs-logo-container" style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%)',
+                  border: '1px solid rgba(249, 115, 22, 0.4)', borderRadius: 16, padding: '14px',
+                  boxShadow: '0 6px 24px rgba(249, 115, 22, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: 100, height: 100, flexShrink: 0, boxSizing: 'border-box'
+                }}>
+                  <img src={dataLogo} alt="Magizhchi Data Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#000000', wordBreak: 'break-word' }}>
+                    Magizhchi Data
+                  </h3>
+                  <p style={{ color: '#0F172A', fontSize: 16, fontWeight: 700 }}>
+                    Any file in. Any format out. Edited &amp; designed by AI.
+                  </p>
+                </div>
+                <div className="cs-button-container" style={{ marginTop: 8 }}>
+                  <a href="https://datas.magizhchi.software" target="_blank" rel="noopener noreferrer"
+                    style={{ background: '#0F172A', color: '#FFFFFF', textDecoration: 'none', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, boxShadow: '0 4px 20px rgba(15,23,42,0.2)', display: 'inline-block', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
+                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}>
+                    Open Magizhchi Data →
+                  </a>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
+                transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%)', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: 16, padding: 24, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', marginBottom: 30 }}
+              >
+                <p style={{ fontSize: 16, color: '#000000', lineHeight: 1.7, fontWeight: 800, marginBottom: 16 }}>
+                  Paste or upload any document — image, PDF, Word, Excel, PowerPoint — and AI reads it
+                  (handwriting included), then edit and export it to any format, all on one page.
+                </p>
+                <p style={{ fontSize: 15, color: '#111827', lineHeight: 1.7, fontWeight: 600 }}>
+                  Magizhchi Data is an AI document studio. Smart OCR auto-detects tables, forms, bills,
+                  prescriptions, ID cards, contacts and code; edit anything by prompting — translate, fix
+                  totals, restyle, generate images &amp; charts — and design ready-to-share posters from
+                  built-in business templates. Export to Excel, CSV, PDF, Word, PowerPoint, image or a
+                  handwritten note, with one Magizhchi ID and secure Box storage across the suite.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right side image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
+              transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              style={{ willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden', border: '2px solid rgba(255, 255, 255, 0.6)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.1)', height: '100%', minHeight: 400 }}
+            >
+              <img src={dataImage} alt="Magizhchi Data document studio" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%)', pointerEvents: 'none' }} />
+            </motion.div>
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(15, 23, 42, 0.12)', margin: '40px 0' }} />
+
+          {/* Key Features */}
+          <div>
+            <h4 style={{ fontSize: 24, fontWeight: 800, color: '#0F172A', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>✨ Key Features</h4>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+              {[
+                { icon: '🧠', title: 'Smart OCR — any layout', points: ['Tables, forms, bills, ID cards, code', 'Handwriting & Tamil supported', 'Paste/upload image, PDF, Office'] },
+                { icon: '✨', title: 'Edit by prompting', points: ['Translate, fix totals, clean tables', 'Across one or all pages', 'Generate images, charts, backgrounds'] },
+                { icon: '🖼️', title: 'AI image studio', points: ['Generate & edit images', 'Replace a region, remove background', 'Charts straight from your tables'] },
+                { icon: '🎨', title: 'Business templates', points: ['Posters, offers, price lists, cards', 'Themeable, crisp editable text', 'Export Story / Post / Wide / A4'] },
+                { icon: '📤', title: 'Export anywhere', points: ['Excel, CSV, PDF, Word, PowerPoint', 'Image or handwritten note', 'Exactly as shown — Unicode-safe'] },
+                { icon: '🪪', title: 'One ID & Box', points: ['Single secure Magizhchi sign-in', 'Cloud storage across the suite', 'Made in India 🇮🇳'] },
+              ].map((feat, i) => (
+                <motion.div
+                  key={`data-kf-${i}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)' }}
+                  style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%)', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: 16, padding: 20, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer' }}>
+                  <div style={{ fontSize: 24, marginBottom: 8 }}>{feat.icon}</div>
+                  <h5 style={{ fontSize: 16, fontWeight: 800, color: '#000000', marginBottom: 8 }}>{feat.title}</h5>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: '#111827', fontSize: 14, lineHeight: 1.6, fontWeight: 600, flex: 1 }}>
+                    {feat.points.map((p, idx) => <li key={idx} style={{ marginBottom: 4 }}>{p}</li>)}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Main card 2: Magizhchi Box */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -1026,118 +1138,6 @@ export default function CurrentSolution() {
                 </div>
               </div>
 
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Main card 4: Magizhchi Data */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
-          transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
-          style={{
-            backgroundColor: '#FB923C',
-            backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px), linear-gradient(135deg, #FDBA74 0%, #F97316 100%)',
-            backgroundSize: '24px 24px, 100% 100%',
-            color: '#020617',
-            borderRadius: 24,
-            padding: 'clamp(20px, 4vw, 40px)',
-            marginBottom: 40,
-            boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.3), 0 8px 24px -4px rgba(249, 115, 22, 0.1)',
-            width: '100%', boxSizing: 'border-box'
-          }}
-        >
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
-            {/* Left side content */}
-            <div style={{ minWidth: 0 }}>
-              <div className="current-solution-header" style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 32, flexWrap: 'wrap' }}>
-                <div className="cs-logo-container" style={{
-                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%)',
-                  border: '1px solid rgba(249, 115, 22, 0.4)', borderRadius: 16, padding: '14px',
-                  boxShadow: '0 6px 24px rgba(249, 115, 22, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  width: 100, height: 100, flexShrink: 0, boxSizing: 'border-box'
-                }}>
-                  <img src={dataLogo} alt="Magizhchi Data Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                </div>
-                <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
-                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#000000', wordBreak: 'break-word' }}>
-                    Magizhchi Data
-                  </h3>
-                  <p style={{ color: '#0F172A', fontSize: 16, fontWeight: 700 }}>
-                    Any file in. Any format out. Edited &amp; designed by AI.
-                  </p>
-                </div>
-                <div className="cs-button-container" style={{ marginTop: 8 }}>
-                  <a href="https://datas.magizhchi.software" target="_blank" rel="noopener noreferrer"
-                    style={{ background: '#0F172A', color: '#FFFFFF', textDecoration: 'none', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, boxShadow: '0 4px 20px rgba(15,23,42,0.2)', display: 'inline-block', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
-                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
-                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}>
-                    Open Magizhchi Data →
-                  </a>
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
-                transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%)', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: 16, padding: 24, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', marginBottom: 30 }}
-              >
-                <p style={{ fontSize: 16, color: '#000000', lineHeight: 1.7, fontWeight: 800, marginBottom: 16 }}>
-                  Paste or upload any document — image, PDF, Word, Excel, PowerPoint — and AI reads it
-                  (handwriting included), then edit and export it to any format, all on one page.
-                </p>
-                <p style={{ fontSize: 15, color: '#111827', lineHeight: 1.7, fontWeight: 600 }}>
-                  Magizhchi Data is an AI document studio. Smart OCR auto-detects tables, forms, bills,
-                  prescriptions, ID cards, contacts and code; edit anything by prompting — translate, fix
-                  totals, restyle, generate images &amp; charts — and design ready-to-share posters from
-                  built-in business templates. Export to Excel, CSV, PDF, Word, PowerPoint, image or a
-                  handwritten note, with one Magizhchi ID and secure Box storage across the suite.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Right side image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
-              transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              style={{ willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden', border: '2px solid rgba(255, 255, 255, 0.6)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.1)', height: '100%', minHeight: 400 }}
-            >
-              <img src={dataImage} alt="Magizhchi Data document studio" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%)', pointerEvents: 'none' }} />
-            </motion.div>
-          </div>
-
-          <div style={{ borderTop: '1px solid rgba(15, 23, 42, 0.12)', margin: '40px 0' }} />
-
-          {/* Key Features */}
-          <div>
-            <h4 style={{ fontSize: 24, fontWeight: 800, color: '#0F172A', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>✨ Key Features</h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
-              {[
-                { icon: '🧠', title: 'Smart OCR — any layout', points: ['Tables, forms, bills, ID cards, code', 'Handwriting & Tamil supported', 'Paste/upload image, PDF, Office'] },
-                { icon: '✨', title: 'Edit by prompting', points: ['Translate, fix totals, clean tables', 'Across one or all pages', 'Generate images, charts, backgrounds'] },
-                { icon: '🖼️', title: 'AI image studio', points: ['Generate & edit images', 'Replace a region, remove background', 'Charts straight from your tables'] },
-                { icon: '🎨', title: 'Business templates', points: ['Posters, offers, price lists, cards', 'Themeable, crisp editable text', 'Export Story / Post / Wide / A4'] },
-                { icon: '📤', title: 'Export anywhere', points: ['Excel, CSV, PDF, Word, PowerPoint', 'Image or handwritten note', 'Exactly as shown — Unicode-safe'] },
-                { icon: '🪪', title: 'One ID & Box', points: ['Single secure Magizhchi sign-in', 'Cloud storage across the suite', 'Made in India 🇮🇳'] },
-              ].map((feat, i) => (
-                <motion.div
-                  key={`data-kf-${i}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "0px" }}
-                  transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)' }}
-                  style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%)', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: 16, padding: 20, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer' }}>
-                  <div style={{ fontSize: 24, marginBottom: 8 }}>{feat.icon}</div>
-                  <h5 style={{ fontSize: 16, fontWeight: 800, color: '#000000', marginBottom: 8 }}>{feat.title}</h5>
-                  <ul style={{ margin: 0, paddingLeft: 20, color: '#111827', fontSize: 14, lineHeight: 1.6, fontWeight: 600, flex: 1 }}>
-                    {feat.points.map((p, idx) => <li key={idx} style={{ marginBottom: 4 }}>{p}</li>)}
-                  </ul>
-                </motion.div>
-              ))}
             </div>
           </div>
         </motion.div>
