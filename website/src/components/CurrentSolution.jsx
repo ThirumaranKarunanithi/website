@@ -882,7 +882,7 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.1.exe"
+                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.2.1/MagizhchiDBCommunicator-Setup-0.2.1.exe"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
