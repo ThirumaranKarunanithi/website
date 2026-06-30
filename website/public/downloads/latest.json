@@ -1,8 +1,8 @@
-﻿{
-  "version": "0.1.9",
-  "releaseDate": "2026-05-24",
-  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.1.9.exe",
-  "fileName": "MagizhchiDBCommunicator-Setup-0.1.9.exe",
-  "releaseNotes": "MongoDB & CouchDB collections now show in sidebar. DB type dropdown grouped into SQL / NoSQL. NoSQL mode: prompt and button rename to No-SQL, AI generates MongoDB queries directly. OTP sign-in fix. Sidebar schema tabs, DDL script export, Insert/Update/Delete row buttons.",
+{
+  "version": "0.2.1",
+  "releaseDate": "2026-06-27",
+  "installerUrl": "https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.2.1/MagizhchiDBCommunicator-Setup-0.2.1.exe",
+  "fileName": "MagizhchiDBCommunicator-Setup-0.2.1.exe",
+  "releaseNotes": "v0.2.1: Cloud Storage API key, Rerun button, MIS Report, WhatsApp export, multi-query, saved queries.",
   "minVersion": "0.1.0"
 }
