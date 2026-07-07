@@ -8,6 +8,8 @@ import crmLogo from '../assets/logo-crm.png';
 import crmImage from '../assets/img_crm.png';
 import dataLogo from '../assets/logo-magizhchi-data.png';
 import dataImage from '../assets/img_forms.png';
+import meetLogo from '../assets/logo-magizhchi-meet.png';
+import meetImage from '../assets/academy_mentor.png';
 
 
 export default function CurrentSolution() {
@@ -367,6 +369,323 @@ export default function CurrentSolution() {
                     onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
                   >
                     Start free →
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Main card 1: Magizhchi Meet */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
+          transition={{ delay: 0.15, duration: 1, ease: "easeOut" }}
+          style={{
+            backgroundColor: '#1A0E05',
+            backgroundImage: 'radial-gradient(rgba(249, 90, 2, 0.16) 2px, transparent 2px), linear-gradient(135deg, #2A1608 0%, #140A03 100%)',
+            backgroundSize: '24px 24px, 100% 100%',
+            color: '#FDF3EC',
+            borderRadius: 24,
+            padding: 'clamp(20px, 4vw, 40px)',
+            marginBottom: 40,
+            boxShadow: '0 20px 60px -10px rgba(249, 90, 2, 0.25), 0 8px 24px -4px rgba(20, 10, 3, 0.5)',
+            border: '1px solid rgba(249, 90, 2, 0.22)',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
+
+            {/* Left side content */}
+            <div style={{ minWidth: 0 }}>
+              <div className="current-solution-header" style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 32, flexWrap: 'wrap' }}>
+                <div className="cs-logo-container" style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 100%)',
+                  border: '1px solid rgba(249, 90, 2, 0.45)',
+                  borderRadius: 16,
+                  padding: '14px',
+                  boxShadow: '0 6px 24px rgba(249, 90, 2, 0.3)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: 100, height: 100, flexShrink: 0, boxSizing: 'border-box'
+                }}>
+                  <img src={meetLogo} alt="Magizhchi Meet Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#FFFFFF', wordBreak: 'break-word' }}>
+                    Magizhchi Meet
+                  </h3>
+                  <p style={{ background: 'linear-gradient(90deg, #FF7A1A, #FFB26B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: 16, fontWeight: 700 }}>
+                    Meet · Teach · Proctor — secure video rooms that run your classes, standups &amp; teams
+                  </p>
+                </div>
+                <div className="cs-button-container" style={{ marginTop: 8 }}>
+                  <a
+                    href="https://meet.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: 'linear-gradient(90deg, #FF7A1A, #FFB26B)',
+                      color: '#1A0E05',
+                      textDecoration: 'none',
+                      padding: '12px 28px',
+                      borderRadius: 12,
+                      fontSize: 14,
+                      fontWeight: 800,
+                      boxShadow: '0 4px 20px rgba(249, 90, 2, 0.4)',
+                      display: 'inline-block',
+                      whiteSpace: 'nowrap',
+                      transition: 'all 0.2s',
+                    }}
+                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
+                  >
+                    Open Magizhchi Meet →
+                  </a>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
+                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  willChange: 'transform, opacity',
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                  border: '1px solid rgba(249, 90, 2, 0.22)',
+                  borderRadius: 16, padding: 24,
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)', marginBottom: 30
+                }}
+              >
+                <p style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.7, fontWeight: 700, marginBottom: 16 }}>
+                  Video meetings that do the real work: classrooms with homework, grades and attendance;
+                  scrum rooms with standups and blockers; department rooms wired to your CRM — all with
+                  AI exam proctoring and a desktop app that blocks screen recording.
+                </p>
+                <p style={{ fontSize: 15, color: '#EBD5C4', lineHeight: 1.7, fontWeight: 500 }}>
+                  Magizhchi Meet is the suite&apos;s secure meeting platform. Build your virtual office floor of
+                  rooms — Class, Exam, Scrum, Sales, HR, Accounts and more — each with its own hub: an
+                  append-only record of announcements, documents, minutes and decisions that is never erased.
+                  Calls ring members like a real phone (app, browser, Android and email), attendance is proved
+                  with a camera + GPS check-in and checked out with work-hours, teachers get a shared
+                  multi-page whiteboard with PDF import, and parents can follow their child through a private
+                  guardian link. One Magizhchi ID signs into everything; every file lives in Magizhchi Box.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right side image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
+              transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                willChange: 'transform, opacity', position: 'relative',
+                borderRadius: 20, overflow: 'hidden',
+                border: '2px solid rgba(249, 90, 2, 0.4)',
+                boxShadow: '0 30px 60px rgba(0, 0, 0, 0.4)',
+                height: '100%', minHeight: 400
+              }}
+            >
+              <img src={meetImage} alt="Magizhchi Meet — live online class" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(249, 90, 2, 0.2) 0%, rgba(26, 14, 5, 0.55) 100%)', pointerEvents: 'none' }} />
+            </motion.div>
+
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(249, 90, 2, 0.18)', margin: '40px 0' }} />
+
+          {/* Detailed Content Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 500px), 1fr))', gap: '40px' }}>
+
+            {/* Left Column: Key Features */}
+            <div>
+              <h4 style={{ fontSize: 24, fontWeight: 800, color: '#FF9A3C', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                🎯 Key Features
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+                {[
+                  { icon: '🔒', title: 'Truly Secure Rooms', points: ['Desktop app blocks screen recording', 'Identity watermark on every video', 'Waiting room, lock & member blocking'] },
+                  { icon: '🛡️', title: 'AI Exam Proctoring', points: ['Face-match ID badge verification', 'Tab-switch, phone & extra-person alerts', 'Live risk score per candidate'] },
+                  { icon: '📚', title: 'Classroom Hub', points: ['Homework with GitHub submissions', 'Grades, leaderboard & certificates', 'Parent/guardian read-only link'] },
+                  { icon: '🖊️', title: 'Teaching Whiteboard', points: ['Multi-page, shapes & PDF import', 'Teacher grants the pen per student', 'Auto-saved to the class record'] },
+                  { icon: '📞', title: 'Rings Like a Phone', points: ['Call one person or the whole team', 'Rings app, browser, Android & email', 'Standup bell for scrum rooms'] },
+                  { icon: '🕒', title: 'Attendance 2.0', points: ['Camera + GPS check-in / check-out', 'Leave & apology approval workflow', 'One-click Excel / PDF registers'] },
+                ].map((feat, i) => (
+                  <motion.div
+                    key={`meet-kf-${i}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "0px" }}
+                    transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                    whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(249, 90, 2, 0.25)' }}
+                    style={{
+                      willChange: 'transform, opacity',
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                      border: '1px solid rgba(249, 90, 2, 0.22)',
+                      borderRadius: 16, padding: 20,
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                      display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer'
+                    }}>
+                    <div style={{ fontSize: 24, marginBottom: 8 }}>{feat.icon}</div>
+                    <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 8 }}>{feat.title}</h5>
+                    <ul style={{ margin: 0, paddingLeft: 20, color: '#EBD5C4', fontSize: 14, lineHeight: 1.6, fontWeight: 500, flex: 1 }}>
+                      {feat.points.map((p, idx) => <li key={idx} style={{ marginBottom: 4 }}>{p}</li>)}
+                    </ul>
+                  </motion.div>
+                ))}
+
+                {/* Why Choose */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(249, 90, 2, 0.25)' }}
+                  style={{
+                    willChange: 'transform, opacity',
+                    background: 'linear-gradient(135deg, rgba(249, 90, 2, 0.16) 0%, rgba(255, 178, 107, 0.08) 100%)',
+                    border: '1px solid rgba(249, 90, 2, 0.38)',
+                    borderRadius: 16, padding: 20,
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                    display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer'
+                  }}>
+                  <h5 style={{ fontSize: 18, fontWeight: 800, color: '#FF9A3C', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+                    ⭐ Why Choose Magizhchi Meet?
+                  </h5>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: '#FDF3EC', fontSize: 14, lineHeight: 1.6, fontWeight: 500, flex: 1 }}>
+                    <li style={{ marginBottom: 4 }}>One Magizhchi ID — same login as CRM, Box &amp; Data</li>
+                    <li style={{ marginBottom: 4 }}>Live CRM sales dashboard inside sales rooms</li>
+                    <li style={{ marginBottom: 4 }}>Every file stored safely in Magizhchi Box</li>
+                    <li style={{ marginBottom: 4 }}>Web, Windows desktop &amp; Android app</li>
+                    <li style={{ marginBottom: 4 }}>Backed by <strong>Magizhchi Software</strong></li>
+                  </ul>
+                </motion.div>
+
+              </div>
+            </div>
+
+            {/* Right Column: How it Works, Who is it for */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
+
+              {/* How It Works */}
+              <div>
+                <h4 style={{ fontSize: 24, fontWeight: 800, color: '#FF9A3C', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  ⚙️ How It Works
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  {[
+                    { step: '1', title: 'Construct your rooms', desc: 'Class, Exam, Scrum, Sales, HR, Accounts… each room gets the right hub automatically' },
+                    { step: '2', title: 'Add your people', desc: 'Members join with one Magizhchi ID; ring anyone — or the whole team — like a phone call' },
+                    { step: '3', title: 'Meet with real tools', desc: 'Whiteboard, screen share, remote control, polls, captions, proctoring & attendance' },
+                    { step: '4', title: 'Everything is archived', desc: 'Homework, grades, minutes, decisions & recordings live forever in the hub and your Box' }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={`meet-hiw-${i}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "0px" }}
+                      transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                      whileHover={{ scale: 1.02, x: 5, boxShadow: '0 10px 30px rgba(249, 90, 2, 0.25)' }}
+                      style={{
+                        willChange: 'transform, opacity',
+                        display: 'flex', gap: 16, alignItems: 'flex-start',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                        border: '1px solid rgba(249, 90, 2, 0.22)',
+                        padding: 16, borderRadius: 16,
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)', cursor: 'pointer'
+                      }}>
+                      <div style={{ background: 'linear-gradient(135deg, #FF7A1A, #FFB26B)', color: '#1A0E05', width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 14, flexShrink: 0 }}>{item.step}</div>
+                      <div>
+                        <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 4 }}>{item.title}</h5>
+                        <p style={{ fontSize: 14, color: '#EBD5C4', margin: 0, fontWeight: 500 }}>{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Who Is It For */}
+              <div>
+                <h4 style={{ fontSize: 24, fontWeight: 800, color: '#FF9A3C', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  👥 Who Is It For?
+                </h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
+                  {[
+                    { icon: '🎓', title: 'Academies & Schools', desc: 'Live classes with attendance, homework, grades, certificates & guardian visibility' },
+                    { icon: '🧑‍💻', title: 'Exam & Training Centres', desc: 'Proctored online exams with face-match, alerts & desktop-only secure rooms' },
+                    { icon: '🏢', title: 'Business Teams', desc: 'Scrum standups, sales rooms with live CRM numbers, HR, accounts & ops hubs' }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={`meet-who-${i}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "0px" }}
+                      transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                      whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(249, 90, 2, 0.25)' }}
+                      style={{
+                        willChange: 'transform, opacity',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                        border: '1px solid rgba(249, 90, 2, 0.22)',
+                        borderRadius: 16, padding: 16,
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                        display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box', cursor: 'pointer'
+                      }}>
+                      <div style={{ fontSize: 24, marginBottom: 8 }}>{item.icon}</div>
+                      <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 6 }}>{item.title}</h5>
+                      <p style={{ fontSize: 14, color: '#EBD5C4', margin: 0, lineHeight: 1.5, fontWeight: 500, flex: 1 }}>{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Get Started */}
+              <div>
+                <h4 style={{ fontSize: 24, fontWeight: 800, color: '#FF9A3C', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  🚀 Get Started
+                </h4>
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(249, 90, 2, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                  border: '1px solid rgba(249, 90, 2, 0.32)',
+                  borderRadius: 16, padding: 24,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+                }}>
+                  <p style={{ fontSize: 15, color: '#FFFFFF', margin: '0 0 18px', fontWeight: 700, lineHeight: 1.6 }}>
+                    Sign in with your Magizhchi ID, construct your first room, and ring your team — you&apos;ll be
+                    meeting in under a minute.
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 18 }}>
+                    {[
+                      'Works in the browser — nothing to install',
+                      'Windows desktop app for secure (no-recording) rooms',
+                      'Android app with real call ringing',
+                      'One login across the whole Magizhchi suite',
+                      'Made in India 🇮🇳 — fast, friendly support',
+                    ].map((t, i) => (
+                      <div key={`meet-gs-${i}`} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                        <span style={{ color: '#FF9A3C', fontSize: 16, fontWeight: 800, lineHeight: 1.4 }}>✓</span>
+                        <span style={{ fontSize: 14, color: '#FDF3EC', fontWeight: 600, lineHeight: 1.5 }}>{t}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <a
+                    href="https://meet.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block', textAlign: 'center',
+                      background: 'linear-gradient(90deg, #FF7A1A, #FFB26B)',
+                      color: '#1A0E05', textDecoration: 'none',
+                      padding: '14px 20px', borderRadius: 12,
+                      fontSize: 15, fontWeight: 800,
+                      boxShadow: '0 4px 20px rgba(249, 90, 2, 0.4)',
+                      transition: 'all 0.2s',
+                    }}
+                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
+                  >
+                    Start meeting →
                   </a>
                 </div>
               </div>
