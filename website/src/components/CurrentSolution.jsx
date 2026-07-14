@@ -882,16 +882,14 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.2.1/MagizhchiDBCommunicator-Setup-0.2.1.exe"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.2.2/MagizhchiDBCommunicator-Setup-0.2.2.exe"
                     onClick={() => {
                       // GA4 event — shows up under: Reports → Engagement → Events → "download"
                       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
                         window.gtag('event', 'download', {
                           item_name: 'magizhchi_db_communicator',
-                          item_version: '0.2.1',
-                          file_name: 'MagizhchiDBCommunicator-Setup-0.2.1.exe',
+                          item_version: '0.2.2',
+                          file_name: 'MagizhchiDBCommunicator-Setup-0.2.2.exe',
                           platform: 'windows',
                         });
                       }
