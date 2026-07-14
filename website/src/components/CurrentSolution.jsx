@@ -106,6 +106,8 @@ export default function CurrentSolution() {
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
                     href="https://crmapp.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       background: 'linear-gradient(90deg, #E8B84B, #F4D27A)',
                       color: '#0A1228',
@@ -350,6 +352,8 @@ export default function CurrentSolution() {
                   </div>
                   <a
                     href="https://crmapp.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       display: 'block', textAlign: 'center',
                       background: 'linear-gradient(90deg, #E8B84B, #F4D27A)',
@@ -409,6 +413,7 @@ export default function CurrentSolution() {
                   </p>
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
+                  <a href="https://datas.magizhchi.software" target="_blank" rel="noopener noreferrer"
                     style={{ background: '#0F172A', color: '#FFFFFF', textDecoration: 'none', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 700, boxShadow: '0 4px 20px rgba(15,23,42,0.2)', display: 'inline-block', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
                     onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
                     onMouseLeave={e => e.target.style.transform = 'translateY(0)'}>
@@ -546,6 +551,8 @@ export default function CurrentSolution() {
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
                     href="https://boxapp.magizhchi.software"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       background: '#0F172A',
                       color: '#FFFFFF',
@@ -875,14 +882,16 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.2.2/MagizhchiDBCommunicator-Setup-0.2.2.exe"
+                    href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/releases/download/v0.2.1/MagizhchiDBCommunicator-Setup-0.2.1.exe"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => {
                       // GA4 event — shows up under: Reports → Engagement → Events → "download"
                       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
                         window.gtag('event', 'download', {
                           item_name: 'magizhchi_db_communicator',
-                          item_version: '0.2.2',
-                          file_name: 'MagizhchiDBCommunicator-Setup-0.2.2.exe',
+                          item_version: '0.2.1',
+                          file_name: 'MagizhchiDBCommunicator-Setup-0.2.1.exe',
                           platform: 'windows',
                         });
                       }
