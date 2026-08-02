@@ -11,6 +11,16 @@ import dataImage from '../assets/img_forms.png';
 import meetLogo from '../assets/logo-magizhchi-meet.png';
 import meetImage from '../assets/academy_mentor.png';
 
+// ─────────────────────────────────────────────────────────────────────
+//  Magizhchi DB Communicator — desktop installer download
+//  Bump ONLY this version when a new installer is published, then
+//  upload the matching .exe to  public_html/downloads/  on Hostinger.
+//  The filename below must match the uploaded file EXACTLY.
+// ─────────────────────────────────────────────────────────────────────
+const DB_COMMUNICATOR_VERSION = '0.2.0';
+const DB_COMMUNICATOR_FILE    = `MagizhchiDBCommunicator-Setup-${DB_COMMUNICATOR_VERSION}.exe`;
+const DB_COMMUNICATOR_DOWNLOAD_URL = `/downloads/${DB_COMMUNICATOR_FILE}`;
+
 
 export default function CurrentSolution() {
   const [ref] = useInView(0.02);   // ref keeps the section anchor; cards animate via whileInView
@@ -1201,16 +1211,16 @@ export default function CurrentSolution() {
                 </div>
                 <div className="cs-button-container" style={{ marginTop: 8 }}>
                   <a
-                    href="https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.1.exe"
-                    target="_blank"
+                    href={DB_COMMUNICATOR_DOWNLOAD_URL}
+                    download={DB_COMMUNICATOR_FILE}
                     rel="noopener noreferrer"
                     onClick={() => {
                       // GA4 event — shows up under: Reports → Engagement → Events → "download"
                       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
                         window.gtag('event', 'download', {
                           item_name: 'magizhchi_db_communicator',
-                          item_version: '0.2.1',
-                          file_name: 'MagizhchiDBCommunicator-Setup-0.2.1.exe',
+                          item_version: DB_COMMUNICATOR_VERSION,
+                          file_name: DB_COMMUNICATOR_FILE,
                           platform: 'windows',
                         });
                       }
