@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Setup Guide — Magizhchi DB Communicator</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1117;
+      --surface:  #1a1e2e;
+      --border:   #2a3050;
+      --accent:   #3b82f6;
+      --accent2:  #7c3aed;
+      --green:    #22c55e;
+      --yellow:   #f59e0b;
+      --red:      #ef4444;
+      --text:     #e2e8f0;
+      --muted:    #94a3b8;
+      --code-bg:  #141824;
+      --radius:   10px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1a1e2e 0%, #0f1117 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .btn:hover { opacity: .85; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Progress tracker ── */
+    .steps-nav {
+      display: flex;
+      gap: 0;
+      margin: 40px 0 48px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .steps-nav a {
+      flex: 1;
+      text-align: center;
+      padding: 12px 6px;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+      transition: background .15s, color .15s;
+    }
+    .steps-nav a:last-child { border-right: none; }
+    .steps-nav a:hover { background: var(--border); color: var(--text); }
+    .steps-nav .num {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 2px;
+    }
+
+    /* ── Section cards ── */
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      margin-bottom: 28px;
+    }
+    .step-card .step-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .step-card .step-label .circle {
+      width: 24px; height: 24px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem;
+    }
+    .step-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -.01em;
+    }
+    .step-card p { color: var(--muted); margin-bottom: 12px; }
+    .step-card p:last-child { margin-bottom: 0; }
+
+    /* ── Ordered steps ── */
+    ol.guide {
+      counter-reset: guide;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    ol.guide li {
+      counter-increment: guide;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    ol.guide li::before {
+      content: counter(guide);
+      min-width: 28px; height: 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .8rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    ol.guide li span { color: var(--text); }
+    ol.guide li .sub { color: var(--muted); font-size: .9rem; margin-top: 3px; }
+
+    /* ── Code blocks ── */
+    pre, code {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      font-size: .87rem;
+      margin: 14px 0;
+      position: relative;
+    }
+    code {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: .85em;
+      color: #93c5fd;
+    }
+    .comment { color: #64748b; }
+    .cmd     { color: #34d399; }
+    .str     { color: #fbbf24; }
+
+    /* ── Info / warning boxes ── */
+    .callout {
+      display: flex;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 14px 0;
+      font-size: .92rem;
+    }
+    .callout.info    { background: rgba(59,130,246,.1);  border-left: 3px solid var(--accent); }
+    .callout.warn    { background: rgba(245,158,11,.1);  border-left: 3px solid var(--yellow); }
+    .callout.success { background: rgba(34,197,94,.1);   border-left: 3px solid var(--green);  }
+    .callout .icon   { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Trouble table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+      margin: 14px 0;
+    }
+    th, td { padding: 10px 14px; border: 1px solid var(--border); text-align: left; }
+    th { background: rgba(59,130,246,.1); color: var(--text); font-weight: 600; }
+    td { color: var(--muted); }
+    td:first-child { color: var(--text); font-family: monospace; font-size: .85rem; }
+
+    /* ── Feature pills ── */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .pill {
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(59,130,246,.3);
+      color: #93c5fd;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .step-card { padding: 22px 20px; }
+      .steps-nav a { font-size: .7rem; padding: 10px 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════ HERO ════════════════════════════ -->
+<div class="hero">
+  <div class="badge">✦ Setup Guide — v0.2.2</div>
+  <h1>Get started with<br><span>Magizhchi DB Communicator</span></h1>
+  <p>AI-powered desktop database assistant. Ask your database anything in plain English.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary"
+       href="/downloads/MagizhchiDBCommunicator-Setup-0.2.2.exe"
+       download>
+      ⬇ Download v0.2.2
+    </a>
+    <a class="btn btn-ghost" href="https://box.magizhchi.software">
+      Sign up for Magizhchi Box ↗
+    </a>
+  </div>
+</div>
+
+<!-- ════════════════════════════ BODY ════════════════════════════ -->
+<div class="container">
+
+  <!-- Step navigator -->
+  <nav class="steps-nav">
+    <a href="#step1"><span class="num">1</span>Install Ollama</a>
+    <a href="#step2"><span class="num">2</span>Install App</a>
+    <a href="#step3"><span class="num">3</span>Sign in</a>
+    <a href="#step4"><span class="num">4</span>Connect DB</a>
+    <a href="#step5"><span class="num">5</span>Start asking</a>
+    <a href="#step6"><span class="num">⚠</span>Troubleshoot</a>
+  </nav>
+
+  <!-- ─── STEP 1 ─── -->
+  <div class="step-card" id="step1">
+    <div class="step-label"><div class="circle">1</div> Required for AI</div>
+    <h2>Install Ollama</h2>
+    <p>
+      Ollama runs AI language models <strong>locally on your PC</strong>. The app uses it to
+      understand your plain-English questions and generate SQL — your data never leaves your machine.
+    </p>
+
+    <div class="callout info">
+      <div class="icon">ℹ</div>
+      <div>
+        Ollama requires <strong>8 GB RAM</strong> minimum. A dedicated GPU (NVIDIA with CUDA) gives
+        faster responses but is not required — it also runs on CPU.
+      </div>
+    </div>
+
+    <ol class="guide">
+      <li>
+        <div>
+          <span>Go to <a href="https://ollama.ai/download" style="color:var(--accent)">ollama.ai/download</a> and download the Windows installer.</span>
+          <div class="sub">Look for "Download for Windows (Preview)" — it's a straightforward .exe installer.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Run the installer. Ollama installs as a background service and starts automatically.</span>
+          <div class="sub">You'll see the Ollama icon in the system tray when it's running.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Open <strong>Command Prompt</strong> or <strong>PowerShell</strong> and pull the AI model:</span>
+<pre><span class="cmd">ollama pull llama3</span>
+<span class="comment"># Downloads ~4.7 GB — may take several minutes on first run</span></pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Verify the model downloaded successfully:</span>
+<pre><span class="cmd">ollama list</span>
+<span class="comment"># Should show something like:
+# NAME            ID            SIZE    MODIFIED
+# llama3:latest   365c0bd3c000  4.7 GB  2 minutes ago</span></pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Keep Ollama running in the background. The app connects to it at <code>http://localhost:11434</code>.</span>
+          <div class="sub">On Windows, Ollama starts automatically on login. To start it manually: <code>ollama serve</code></div>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout success">
+      <div class="icon">✅</div>
+      <div>
+        Test Ollama is working: open your browser and visit
+        <code>http://localhost:11434</code> — you should see <strong>"Ollama is running"</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 2 ─── -->
+  <div class="step-card" id="step2">
+    <div class="step-label"><div class="circle">2</div> Install</div>
+    <h2>Install Magizhchi DB Communicator</h2>
+
+    <ol class="guide">
+      <li>
+        <div>
+          <span>Download the latest installer below:</span>
+          <div style="margin-top:10px">
+            <a class="btn btn-primary"
+               href="/downloads/MagizhchiDBCommunicator-Setup-0.2.2.exe"
+               download style="display:inline-flex">
+              ⬇ MagizhchiDBCommunicator-Setup-0.2.2.exe
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span>Run the installer. <strong>No administrator rights needed</strong> — it installs into your user profile (<code>%LocalAppData%\Programs</code>).</span>
+      </li>
+      <li>
+        <span>Follow the setup wizard. Optionally tick <em>"Create a desktop shortcut"</em> on the last page.</span>
+      </li>
+      <li>
+        <span>Launch from the <strong>Start Menu</strong> (search "Magizhchi") or the desktop shortcut.</span>
+      </li>
+    </ol>
+
+    <div class="callout warn">
+      <div class="icon">⚠</div>
+      <div>
+        Windows SmartScreen may show a warning on first run because the app is not yet code-signed.
+        Click <strong>More info → Run anyway</strong> to proceed.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 3 ─── -->
+  <div class="step-card" id="step3">
+    <div class="step-label"><div class="circle">3</div> Account</div>
+    <h2>Sign in with Magizhchi Box</h2>
+    <p>
+      The app uses your <strong>Magizhchi Box account</strong> for authentication
+      (the same account used across all Magizhchi apps). Sign-in is via a one-time code
+      sent to your email — no password to remember.
+    </p>
+
+    <ol class="guide">
+      <li><span>On the sign-in screen enter your email address and click <strong>Send OTP</strong>.</span></li>
+      <li><span>Check your inbox for a 6-digit code and enter it in the app.</span></li>
+      <li><span>Click <strong>Verify</strong> — you're signed in. The session persists across restarts.</span></li>
+    </ol>
+
+    <div class="callout info">
+      <div class="icon">ℹ</div>
+      <div>
+        No Magizhchi Box account yet?
+        <a href="https://box.magizhchi.software" style="color:var(--accent)">
+          Sign up free at box.magizhchi.software ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 4 ─── -->
+  <div class="step-card" id="step4">
+    <div class="step-label"><div class="circle">4</div> Connect</div>
+    <h2>Connect to your database</h2>
+    <p>The app supports PostgreSQL, MySQL, SQL Server, Oracle, SQLite, MongoDB, Redis, and CouchDB.</p>
+
+    <ol class="guide">
+      <li><span>Pick your database type from the <strong>TYPE</strong> dropdown in the top bar.</span></li>
+      <li><span>Fill in <strong>HOST</strong>, <strong>PORT</strong>, <strong>DATABASE</strong>, <strong>USERNAME</strong>, and <strong>PASSWORD</strong>.</span></li>
+      <li><span>Click <strong>Connect</strong>. The status pill turns green and the left sidebar fills with your tables.</span></li>
+      <li>
+        <div>
+          <span>Optionally save the connection for later: click <strong>💾 Save</strong>, type a name, and press Enter.</span>
+          <div class="sub">Saved connections appear in the SAVED dropdown. You can switch with a click or by typing "load saved connection &lt;name&gt;" in the chat.</div>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout info">
+      <div class="icon">ℹ</div>
+      <div>
+        <strong>Railway / cloud databases:</strong> paste the full connection URL into the HOST field —
+        the app will parse it automatically. Make sure your IP is whitelisted in the cloud provider's firewall.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 5 ─── -->
+  <div class="step-card" id="step5">
+    <div class="step-label"><div class="circle">5</div> Use it</div>
+    <h2>Start asking your database</h2>
+    <p>Make sure Ollama is running (system tray icon visible), then type in the chat box:</p>
+
+    <table>
+      <tr><th>You type…</th><th>What happens</th></tr>
+      <tr><td>show all customers joined after 2024</td><td>Generates and runs a SELECT query, shows results</td></tr>
+      <tr><td>show monthly revenue as a bar chart</td><td>Runs the query, switches result to bar chart view</td></tr>
+      <tr><td>list tables starting with order</td><td>Filters the sidebar — no AI needed</td></tr>
+      <tr><td>load saved connection Railway</td><td>Switches connection profile instantly</td></tr>
+      <tr><td>create er diagram for this database</td><td>Generates an interactive ER diagram</td></tr>
+      <tr><td>send to whatsapp</td><td>Formats last result as a WhatsApp message</td></tr>
+      <tr><td>run saved query Monthly Report</td><td>Runs a previously saved query or prompt</td></tr>
+    </table>
+
+    <p style="margin-top:16px">Switch to <strong>SQL mode</strong> to type raw SQL directly. You can paste multiple statements separated by <code>;</code> — each result appears as a separate card in the chat.</p>
+
+    <div class="features">
+      <span class="pill">📊 Charts</span>
+      <span class="pill">⬇ Export (Excel · PDF · WhatsApp)</span>
+      <span class="pill">📂 Saved Queries</span>
+      <span class="pill">🗺 ER Diagram</span>
+      <span class="pill">📋 Copy cells</span>
+      <span class="pill">🔄 Multi-query</span>
+      <span class="pill">☁ Magizhchi Box upload</span>
+      <span class="pill">↺ Auto-update</span>
+    </div>
+  </div>
+
+  <!-- ─── STEP 6 ─── -->
+  <div class="step-card" id="step6">
+    <div class="step-label" style="color:var(--yellow)"><div class="circle" style="background:var(--yellow)">⚠</div> Help</div>
+    <h2>Troubleshooting</h2>
+
+    <table>
+      <tr><th>Problem</th><th>Solution</th></tr>
+      <tr>
+        <td>Ollama returned 500 / CUDA error</td>
+        <td>GPU ran out of memory. Ollama will retry on CPU automatically. If it keeps failing, restart Ollama: open Task Manager → find "ollama" → End task → run <code>ollama serve</code> again.</td>
+      </tr>
+      <tr>
+        <td>Connection failed: invalid TimeZone "Asia/Calcutta"</td>
+        <td>Fixed in v0.1.4+. Use the Relaunch button to update.</td>
+      </tr>
+      <tr>
+        <td>App shows "Disconnected" after PC sleep</td>
+        <td>Click <strong>Connect</strong> again — idle cloud connections time out. Use local databases for always-on access.</td>
+      </tr>
+      <tr>
+        <td>Tables sidebar is empty after connect</td>
+        <td>Click the <strong>⟳</strong> Refresh Schema button in the top bar.</td>
+      </tr>
+      <tr>
+        <td>SmartScreen warning on install</td>
+        <td>Click <strong>More info → Run anyway</strong>. The app is safe; it's simply not yet code-signed.</td>
+      </tr>
+      <tr>
+        <td>AI answers are wrong or slow</td>
+        <td>Make sure <code>llama3</code> is pulled (<code>ollama list</code>). Larger models give better answers — try <code>ollama pull llama3:70b</code> if you have 32 GB+ RAM.</td>
+      </tr>
+      <tr>
+        <td>Update available — how to update</td>
+        <td>Click the <strong>↺ Relaunch</strong> button. If a newer version is found you'll be offered "Update &amp; Relaunch".</td>
+      </tr>
+    </table>
+
+    <div class="callout info" style="margin-top:20px">
+      <div class="icon">💬</div>
+      <div>
+        Still stuck? Email <a href="mailto:support@magizhchi.software" style="color:var(--accent)">support@magizhchi.software</a>
+        or open an issue on
+        <a href="https://github.com/ThirumaranKarunanithi/Magizhchi-DB-Communicator/issues" style="color:var(--accent)">GitHub ↗</a>.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>
