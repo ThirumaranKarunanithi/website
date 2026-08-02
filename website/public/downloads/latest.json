@@ -1,8 +1,8 @@
 {
-  "version": "0.2.2",
+  "version": "0.2.3",
   "releaseDate": "2026-05-31",
-  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.2.exe",
-  "fileName": "MagizhchiDBCommunicator-Setup-0.2.2.exe",
-  "releaseNotes": "v0.2.2: WhatsApp export, multi-query results, saved query library, single Export menu, copy from result table, row detail form, ER schema export/apply/sync, Railway timezone fix, chat-driven table filter and connection switcher, in-app setup guide links.",
+  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.3.exe",
+  "fileName": "MagizhchiDBCommunicator-Setup-0.2.3.exe",
+  "releaseNotes": "v0.2.3: Fixes multi-statement SQL scripts containing DO blocks or function bodies — dollar-quoted ($$) sections are no longer split at internal semicolons.",
   "minVersion": "0.1.0"
 }
