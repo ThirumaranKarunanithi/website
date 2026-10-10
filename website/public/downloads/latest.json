@@ -1,8 +1,8 @@
 {
-  "version": "0.2.3",
-  "releaseDate": "2026-05-31",
-  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.3.exe",
-  "fileName": "MagizhchiDBCommunicator-Setup-0.2.3.exe",
-  "releaseNotes": "v0.2.3: Fixes multi-statement SQL scripts containing DO blocks or function bodies — dollar-quoted ($$) sections are no longer split at internal semicolons.",
+  "version": "0.2.4",
+  "releaseDate": "2026-10-10",
+  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.4.exe",
+  "fileName": "MagizhchiDBCommunicator-Setup-0.2.4.exe",
+  "releaseNotes": "v0.2.4: Sign in with your Magizhchi ID - the same email and password as CRM, Box, Data and Meet. The app now shows under your apps on the Magizhchi ID dashboard. Forgot password and sign up now open Magizhchi ID.",
   "minVersion": "0.1.0"
 }
