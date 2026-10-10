@@ -1,8 +1,8 @@
 {
-  "version": "0.2.4",
+  "version": "0.2.5",
   "releaseDate": "2026-10-10",
-  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.4.exe",
-  "fileName": "MagizhchiDBCommunicator-Setup-0.2.4.exe",
-  "releaseNotes": "v0.2.4: Sign in with your Magizhchi ID - the same email and password as CRM, Box, Data and Meet. The app now shows under your apps on the Magizhchi ID dashboard. Forgot password and sign up now open Magizhchi ID.",
+  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.5.exe",
+  "fileName": "MagizhchiDBCommunicator-Setup-0.2.5.exe",
+  "releaseNotes": "v0.2.5: Your computer's name now shows in the Magizhchi ID dashboard under DB-Communicator's signed-in machines. Includes v0.2.4: sign in with your Magizhchi ID.",
   "minVersion": "0.1.0"
 }

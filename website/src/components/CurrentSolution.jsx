@@ -18,7 +18,7 @@ import meetImage from '../assets/academy_mentor.png';
 //  upload the matching .exe to  public_html/downloads/  on Hostinger.
 //  The filename below must match the uploaded file EXACTLY.
 // ─────────────────────────────────────────────────────────────────────
-const DB_COMMUNICATOR_VERSION = '0.2.4';
+const DB_COMMUNICATOR_VERSION = '0.2.5';
 const DB_COMMUNICATOR_FILE    = `MagizhchiDBCommunicator-Setup-${DB_COMMUNICATOR_VERSION}.exe`;
 const DB_COMMUNICATOR_DOWNLOAD_URL = `/downloads/${DB_COMMUNICATOR_FILE}`;
 
