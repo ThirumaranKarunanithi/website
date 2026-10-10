@@ -9,6 +9,7 @@ import crmImage from '../assets/img_crm.png';
 import dataLogo from '../assets/logo-magizhchi-data.png';
 import dataImage from '../assets/img_forms.png';
 import meetLogo from '../assets/logo-magizhchi-meet.png';
+import idLogo from '../assets/logo-magizhchi-id.png';
 import meetImage from '../assets/academy_mentor.png';
 
 // ─────────────────────────────────────────────────────────────────────
@@ -1468,6 +1469,116 @@ export default function CurrentSolution() {
               </div>
 
             </div>
+          </div>
+        </motion.div>
+
+        {/* Main card 5: Magizhchi ID (the one account behind every product) */}
+        <motion.div
+          id="product-id"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
+          transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
+          style={{
+            backgroundColor: '#101827',
+            backgroundImage: 'radial-gradient(rgba(249, 115, 22, 0.16) 2px, transparent 2px), linear-gradient(135deg, #172033 0%, #0B1220 100%)',
+            backgroundSize: '24px 24px, 100% 100%',
+            color: '#ECEFF6',
+            borderRadius: 24,
+            padding: 'clamp(20px, 4vw, 40px)',
+            marginBottom: 40,
+            boxShadow: '0 20px 60px -10px rgba(249, 115, 22, 0.25), 0 8px 24px -4px rgba(11, 18, 32, 0.5)',
+            border: '1px solid rgba(249, 115, 22, 0.22)',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}
+        >
+          <div className="current-solution-header" style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 28, flexWrap: 'wrap' }}>
+            <div className="cs-logo-container" style={{
+              background: '#FFFFFF',
+              border: '1px solid rgba(249, 115, 22, 0.45)',
+              borderRadius: 16,
+              padding: 8,
+              boxShadow: '0 6px 24px rgba(249, 115, 22, 0.3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: 120, height: 120, flexShrink: 0, boxSizing: 'border-box'
+            }}>
+              <img src={idLogo} alt="Magizhchi ID Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            </div>
+            <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#FFFFFF', wordBreak: 'break-word' }}>
+                Magizhchi ID
+              </h3>
+              <p style={{ background: 'linear-gradient(90deg, #FF7A1A, #FFB26B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: 16, fontWeight: 700 }}>
+                One account. One password. Every Magizhchi product.
+              </p>
+            </div>
+            <div className="cs-button-container" style={{ marginTop: 8 }}>
+              <a
+                href="https://accounts.magizhchi.software"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'linear-gradient(90deg, #FF7A1A, #FFB26B)',
+                  color: '#101827',
+                  textDecoration: 'none',
+                  padding: '12px 28px',
+                  borderRadius: 12,
+                  fontSize: 14,
+                  fontWeight: 800,
+                  boxShadow: '0 4px 20px rgba(249, 115, 22, 0.4)',
+                  display: 'inline-block',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                onMouseLeave={e => e.target.style.transform = 'translateY(0)'}
+              >
+                Open Magizhchi ID →
+              </a>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.7, fontWeight: 600, marginBottom: 24, maxWidth: 900 }}>
+            Create your Magizhchi ID once and use it everywhere — CRM, Box, Data, Meet and DB Communicator all sign you in with the
+            same email and the same password. Change or reset it in one place and it works across the whole suite.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 16, marginBottom: 28 }}>
+            {[
+              { icon: '🔑', title: 'One sign-in', desc: 'The same email and password open every Magizhchi product — no separate accounts to remember.' },
+              { icon: '🧩', title: 'Your apps in one place', desc: 'See which products you use and open any of them in one click, already signed in.' },
+              { icon: '🛡️', title: 'Security checkup', desc: 'A simple security score, plus the option to sign out of your other devices instantly.' },
+              { icon: '🕘', title: 'Activity you can see', desc: 'Every sign-in and password change is listed with the device used, so nothing happens unseen.' },
+              { icon: '🔒', title: 'Passwords kept safe', desc: 'Stored only as strong one-way hashes — never in readable form — with limits on repeated guesses.' },
+              { icon: '✉️', title: 'Easy recovery', desc: 'Forgot your password? Reset it with a code sent to your email, from any Magizhchi app.' },
+            ].map(item => (
+              <div key={item.title} style={{
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.025) 100%)',
+                border: '1px solid rgba(249, 115, 22, 0.2)',
+                borderRadius: 16, padding: 20, display: 'flex', flexDirection: 'column', boxSizing: 'border-box'
+              }}>
+                <div style={{ fontSize: 28, marginBottom: 10 }}>{item.icon}</div>
+                <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 6 }}>{item.title}</h5>
+                <p style={{ fontSize: 14, color: '#C9CEE0', margin: 0, lineHeight: 1.5, fontWeight: 500, flex: 1 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{
+            background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.3)', borderRadius: 16, padding: '18px 22px',
+            display: 'flex', flexWrap: 'wrap', gap: 14, alignItems: 'center', justifyContent: 'space-between'
+          }}>
+            <div style={{ fontSize: 15, fontWeight: 700, color: '#FFFFFF' }}>
+              🚀 Already use a Magizhchi product? You already have a Magizhchi ID — sign in with the same email.
+            </div>
+            <a
+              href="https://accounts.magizhchi.software"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#FFB26B', fontWeight: 800, fontSize: 14, textDecoration: 'none', whiteSpace: 'nowrap' }}
+            >
+              Manage my account →
+            </a>
           </div>
         </motion.div>
 
