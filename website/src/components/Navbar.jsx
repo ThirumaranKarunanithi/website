@@ -4,9 +4,9 @@ import logoOrange from '../assets/logo-software-orange.png';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'Vision', href: '#vision' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Products', href: '#products' },
+  { label: '🔥 Magizhchi Meet', href: '#product-meet', highlight: true },
+  { label: 'Products', href: '#solutions' },
+  { label: 'Ecosystem', href: '#products' },
   { label: 'Why Us', href: '#why' },
   { label: 'Contact Us', href: '#contact' },
 ];
@@ -61,21 +61,23 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               style={{
-                color: '#0F172A',
+                color: link.highlight ? '#FF6B1A' : '#0F172A',
                 textDecoration: 'none',
                 fontSize: 14,
-                fontWeight: 600,
+                fontWeight: link.highlight ? 800 : 600,
                 padding: '8px 16px',
-                borderRadius: 8,
+                borderRadius: link.highlight ? 20 : 8,
+                background: link.highlight ? 'rgba(255, 107, 26, 0.1)' : 'transparent',
+                border: link.highlight ? '1px solid rgba(255, 107, 26, 0.3)' : '1px solid transparent',
                 transition: 'all 0.2s',
               }}
               onMouseEnter={e => {
                 e.target.style.color = '#FF6B1A';
-                e.target.style.background = 'rgba(255,107,26,0.08)';
+                e.target.style.background = 'rgba(255,107,26,0.15)';
               }}
               onMouseLeave={e => {
-                e.target.style.color = '#0F172A';
-                e.target.style.background = 'transparent';
+                e.target.style.color = link.highlight ? '#FF6B1A' : '#0F172A';
+                e.target.style.background = link.highlight ? 'rgba(255, 107, 26, 0.1)' : 'transparent';
               }}
             >
               {link.label}

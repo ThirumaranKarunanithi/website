@@ -3,7 +3,6 @@ import { useInView } from '../hooks/useInView';
 import TiltCard from './TiltCard';
 import dashboardImage from '../assets/business_dashboard.png';
 import imgDental from '../assets/img_dental.png';
-import imgForms from '../assets/img_forms.png';
 import imgAccounting from '../assets/img_accounting.png';
 import imgHrms from '../assets/img_hrms.png';
 
@@ -24,23 +23,6 @@ const products = [
     ],
     badge: 'Healthcare',
     img: imgDental,
-  },
-  {
-    id: 2,
-    name: 'Magizhchi Vadivangal',
-    subtitle: 'Forms',
-    tagline: 'Create. Customize. Collect. Analyze.',
-    icon: '📝',
-    color: '#EA580C',
-    colorGlow: 'rgba(234, 88, 12, 0.15)',
-    features: [
-      'Drag-and-drop form builder',
-      'Custom branding (colors, fonts, layout)',
-      'Multiple field types (text, dropdowns, combos)',
-      'Auto data collection to spreadsheets',
-    ],
-    badge: 'Data Collection',
-    img: imgForms,
   },
   {
     id: 4,
@@ -297,7 +279,7 @@ export default function UpcomingProducts() {
             }}>Business Ecosystem</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', color: '#0F172A', fontWeight: 600 }}>
-            Five powerful products, one unified vision — covering every aspect of your business operations.
+            More products on the way, one unified vision — covering every aspect of your business operations.
           </p>
         </motion.div>
 

@@ -85,11 +85,14 @@ export default function Hero() {
       id="hero"
       style={{
         position: 'relative',
-        minHeight: '100vh',
+        height: '100vh',
+        maxHeight: '100vh',
+        minHeight: '620px',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
         padding: 0,
+        boxSizing: 'border-box',
         backgroundImage: `linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 58%, rgba(255, 255, 255, 0.4) 80%, transparent 100%), url(${heroImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center right',
@@ -109,7 +112,7 @@ export default function Hero() {
         style={{
           position: 'absolute',
           top: '20%', left: '10%',
-          width: 500, height: 500,
+          width: 450, height: 450,
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(255,107,26,0.06) 0%, transparent 70%)',
           filter: 'blur(60px)',
@@ -127,7 +130,7 @@ export default function Hero() {
         style={{
           position: 'absolute',
           bottom: '10%', right: '5%',
-          width: 600, height: 600,
+          width: 500, height: 500,
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(255,140,66,0.05) 0%, transparent 70%)',
           filter: 'blur(80px)',
@@ -140,69 +143,68 @@ export default function Hero() {
         .hero-layout-grid {
           display: flex;
           flex-direction: column;
-          gap: 40px;
+          gap: 24px;
           align-items: center;
         }
         /* Desktop View Enforced */
         @media (min-width: 1024px) {
           .hero-layout-grid {
             display: grid;
-            grid-template-columns: 280px 1.5fr 1.2fr;
-            gap: 50px;
+            grid-template-columns: 240px 1.5fr 1fr;
+            gap: 40px;
             align-items: center;
           }
         }
         @media (min-width: 1400px) {
           .hero-layout-grid {
-            grid-template-columns: 320px 1.5fr 1.2fr;
-            gap: 60px;
+            grid-template-columns: 280px 1.5fr 1fr;
+            gap: 50px;
           }
         }
       `}</style>
-      <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: 80, paddingBottom: 40 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: 72, paddingBottom: 16, width: '100%' }}>
         <div className="hero-layout-grid">
           {/* Section 1: Branding Column */}
           <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+              animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
               transition={{ duration: 0.6, y: { duration: 5, repeat: Infinity, ease: 'easeInOut' } }}
-              style={{ marginBottom: 20 }}
+              style={{ marginBottom: 12 }}
             >
               <img
                 src={logoOrange}
                 alt="Magizhchi Software"
                 style={{
-                  height: 140,
+                  height: 'clamp(90px, 9vw, 115px)',
                   width: 'auto',
-                  filter: 'drop-shadow(0 10px 40px rgba(255,107,26,0.3))',
+                  filter: 'drop-shadow(0 10px 30px rgba(255,107,26,0.25))',
                 }}
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               style={{
                 fontFamily: 'Poppins, sans-serif',
-                fontSize: 18,
+                fontSize: 15,
                 fontWeight: 800,
                 color: '#FF6B1A',
-                lineHeight: 1.4,
-                background: 'rgba(255, 255, 255, 0.45)',
+                lineHeight: 1.3,
+                background: 'rgba(255, 255, 255, 0.6)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255, 255, 255, 0.8)',
-                borderRadius: 20,
-                padding: '12px 28px',
-                boxShadow: '0 8px 30px rgba(255, 107, 26, 0.12)',
+                border: '1px solid rgba(255, 255, 255, 0.9)',
+                borderRadius: 16,
+                padding: '10px 22px',
+                boxShadow: '0 6px 24px rgba(255, 107, 26, 0.12)',
                 display: 'inline-block',
-                marginTop: 4,
               }}
             >
               Magizhchi Software
-              <span style={{ fontSize: '0.85em', color: '#0F172A', fontWeight: 700, display: 'block', marginTop: 4 }}>
+              <span style={{ fontSize: '0.85em', color: '#0F172A', fontWeight: 700, display: 'block', marginTop: 2 }}>
                 (OPC) Pvt Ltd.
               </span>
             </motion.div>
@@ -211,112 +213,163 @@ export default function Hero() {
           {/* Section 2: Text Content Column */}
           <div style={{ textAlign: 'left' }}>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
+              transition={{ delay: 0.25, duration: 0.7 }}
               style={{
                 fontFamily: 'Poppins, sans-serif',
-                fontSize: 'clamp(28px, 3.5vw, 48px)',
+                fontSize: 'clamp(24px, 3vw, 40px)',
                 fontWeight: 800,
                 lineHeight: 1.15,
-                marginBottom: 16,
+                marginBottom: 12,
                 letterSpacing: '-0.5px',
               }}
             >
-              Making Business{' '}
-              <span className="gradient-text">Simple,</span>
+              Power Your Team with{' '}
+              <span className="gradient-text">Magizhchi Meet,</span>
               <br />
-              Smart &amp; Scalable
+              &amp; Unified Cloud Suite
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.6 }}
+              transition={{ delay: 0.35, duration: 0.6 }}
               style={{
-                fontSize: 'clamp(15px, 1.6vw, 17px)',
+                fontSize: 'clamp(14px, 1.3vw, 15px)',
                 color: '#0F172A',
                 fontWeight: 600,
-                lineHeight: 1.6,
-                maxWidth: 480,
-                marginBottom: 24,
+                lineHeight: 1.5,
+                maxWidth: 500,
+                marginBottom: 18,
               }}
             >
-              We bring all your business operations into one seamless ecosystem —
-              manage, automate, and grow <strong style={{ color: '#000000', fontWeight: 800 }}>effortlessly</strong>.
-              From customer acquisition to accounting, from HR to operations.
+              Meet, teach, proctor, and collaborate in real-time with <strong style={{ color: '#FF6B1A', fontWeight: 800 }}>Magizhchi Meet</strong>. Connected seamlessly with CRM, Cloud Storage, AI Data &amp; Desktop sync solutions.{' '}
+              Sign in once with your <strong style={{ color: '#FF6B1A', fontWeight: 800 }}>Magizhchi ID</strong> — one account, one password for every product.
             </motion.p>
 
+            {/* Main Action Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}
+              transition={{ delay: 0.45, duration: 0.5 }}
+              style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}
             >
               <a
-                href="#solutions"
+                href="https://meet.magizhchi.software"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   background: 'linear-gradient(135deg, #FF6B1A, #FF8C42)',
-                  color: 'var(--text-primary)',
+                  color: '#FFFFFF',
                   textDecoration: 'none',
-                  padding: '14px 28px',
-                  borderRadius: 14,
-                  fontSize: 15,
-                  fontWeight: 700,
-                  boxShadow: '0 8px 32px rgba(255,107,26,0.4)',
+                  padding: '12px 24px',
+                  borderRadius: 12,
+                  fontSize: 14,
+                  fontWeight: 800,
+                  boxShadow: '0 6px 24px rgba(255,107,26,0.35)',
                   transition: 'all 0.3s',
                   display: 'inline-block',
-                  minWidth: 190,
                   textAlign: 'center',
                 }}
                 onMouseEnter={e => {
-                  e.target.style.transform = 'translateY(-3px)';
-                  e.target.style.boxShadow = '0 12px 40px rgba(255,107,26,0.55)';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 10px 32px rgba(255,107,26,0.5)';
                 }}
                 onMouseLeave={e => {
                   e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = '0 8px 32px rgba(255,107,26,0.4)';
+                  e.target.style.boxShadow = '0 6px 24px rgba(255,107,26,0.35)';
                 }}
               >
-                Explore Solutions
+                Open Magizhchi Meet →
               </a>
               <a
                 href="https://magizhchi.academy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  background: 'rgba(255,107,26,0.05)',
+                  background: 'rgba(255, 107, 26, 0.08)',
                   backdropFilter: 'blur(10px)',
-                  color: 'var(--text-primary)',
+                  color: '#FF6B1A',
                   textDecoration: 'none',
-                  padding: '14px 28px',
-                  borderRadius: 14,
-                  fontSize: 15,
-                  fontWeight: 600,
-                  border: '1px solid rgba(255,107,26,0.15)',
+                  padding: '12px 24px',
+                  borderRadius: 12,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  border: '1px solid rgba(255, 107, 26, 0.25)',
                   transition: 'all 0.3s',
                   display: 'inline-block',
-                  minWidth: 190,
                   textAlign: 'center',
                 }}
                 onMouseEnter={e => {
-                  e.target.style.transform = 'translateY(-3px)';
-                  e.target.style.borderColor = 'rgba(255,107,26,0.3)';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.background = 'rgba(255, 107, 26, 0.15)';
+                  e.target.style.borderColor = '#FF6B1A';
                 }}
                 onMouseLeave={e => {
                   e.target.style.transform = 'translateY(0)';
-                  e.target.style.borderColor = 'rgba(255,107,26,0.15)';
+                  e.target.style.background = 'rgba(255, 107, 26, 0.08)';
+                  e.target.style.borderColor = 'rgba(255, 107, 26, 0.25)';
                 }}
               >
-                Visit Academy
+                Visit Academy ↗
               </a>
+              <a
+                href="#solutions"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  color: '#0F172A',
+                  textDecoration: 'none',
+                  padding: '12px 24px',
+                  borderRadius: 12,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  border: '1px solid rgba(15, 23, 42, 0.15)',
+                  transition: 'all 0.3s',
+                  display: 'inline-block',
+                  textAlign: 'center',
+                }}
+                onMouseEnter={e => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.borderColor = 'rgba(255,107,26,0.5)';
+                }}
+                onMouseLeave={e => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.borderColor = 'rgba(15, 23, 42, 0.15)';
+                }}
+              >
+                Explore All Products ↓
+              </a>
+            </motion.div>
+
+            {/* Subtle Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.65, duration: 0.5 }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                flexWrap: 'wrap',
+                fontSize: 12,
+                color: '#475569',
+                fontWeight: 600,
+              }}
+            >
+              <span>🔒 Bank-grade Security</span>
+              <span>•</span>
+              <a href="#product-id" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px dashed #FF6B1A' }} title="One account and one password for every Magizhchi product">🔑 One Magizhchi ID — one login for everything</a>
+              <span>•</span>
+              <span>🇮🇳 Made in India</span>
             </motion.div>
 
 
           </div>
 
-            {/* Empty Right Column: Leaving space to let the background photograph shine through! */}
-            <div style={{ pointerEvents: 'none' }}></div>
+          {/* Empty Right Column: Leaving space to let the background photograph shine through! */}
+          <div style={{ pointerEvents: 'none' }}></div>
 
         </div>
       </div>
