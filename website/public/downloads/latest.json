@@ -1,8 +1,8 @@
 {
-  "version": "0.2.6",
-  "releaseDate": "2026-10-16",
-  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.6.exe",
-  "fileName": "MagizhchiDBCommunicator-Setup-0.2.6.exe",
-  "releaseNotes": "v0.2.6: Your computer is listed once, by name, in the Magizhchi ID dashboard (My apps). Includes v0.2.4: sign in with your Magizhchi ID, and v0.2.5: computer name in the signed-in devices list.",
+  "version": "0.2.7",
+  "releaseDate": "2026-11-06",
+  "installerUrl": "https://magizhchi.software/downloads/MagizhchiDBCommunicator-Setup-0.2.7.exe",
+  "fileName": "MagizhchiDBCommunicator-Setup-0.2.7.exe",
+  "releaseNotes": "v0.2.7: When Magizhchi Box refuses an upload because storage is full or your plan has ended, you now get a clear message, and database backups are kept on your computer instead of being lost. Includes v0.2.6 (your computer is listed once in the Magizhchi ID dashboard), v0.2.5 and v0.2.4 (sign in with your Magizhchi ID).",
   "minVersion": "0.1.0"
 }
