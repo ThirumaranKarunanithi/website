@@ -13,6 +13,8 @@ import idLogo from '../assets/logo-magizhchi-id.png';
 import formsLogo from '../assets/logo-magizhchi-forms.png';
 import formsImage from '../assets/img_magizhchi_forms.png';
 import meetImage from '../assets/academy_mentor.png';
+import maillookLogo from '../assets/logo-magizhchi-maillook.png';
+import maillookImage from '../assets/img_magizhchi_maillook.jpg';
 
 // ─────────────────────────────────────────────────────────────────────
 //  Magizhchi DB Communicator — desktop installer download
@@ -102,6 +104,7 @@ export default function CurrentSolution() {
             { id: 'product-meet', label: '🔥 Magizhchi Meet', tag: 'Flagship', activeColor: '#FF6B1A' },
             { id: 'product-crm', label: '🎯 Magizhchi CRM', tag: 'Sales', activeColor: '#E8B84B' },
             { id: 'product-forms', label: '📝 Magizhchi Forms', tag: 'Collect', activeColor: '#9A3412' },
+            { id: 'product-maillook', label: '✉️ Magizhchi MailLook', tag: 'New · Email', activeColor: '#0D6A75' },
             { id: 'product-box', label: '☁️ Magizhchi Box', tag: 'Cloud', activeColor: '#0EA5E9' },
             { id: 'product-data', label: '⚡ Magizhchi Data', tag: 'AI Files', activeColor: '#F97316' },
             { id: 'product-db', label: '🖥️ DB Communicator', tag: 'Desktop', activeColor: '#10B981' },
@@ -908,6 +911,155 @@ export default function CurrentSolution() {
                   </ul>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Main card: Magizhchi MailLook (new) */}
+        <motion.div
+          id="product-maillook"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0 }}
+          transition={{ delay: 0.25, duration: 1, ease: "easeOut" }}
+          style={{
+            backgroundColor: '#06343A',
+            backgroundImage: 'radial-gradient(rgba(255, 179, 71, 0.14) 2px, transparent 2px), linear-gradient(135deg, #0B5560 0%, #042328 100%)',
+            backgroundSize: '24px 24px, 100% 100%',
+            color: '#EAFBF9',
+            borderRadius: 24,
+            padding: 'clamp(20px, 4vw, 40px)',
+            marginBottom: 40,
+            boxShadow: '0 20px 60px -10px rgba(13, 106, 117, 0.45), 0 8px 24px -4px rgba(4, 35, 40, 0.4)',
+            border: '1px solid rgba(255, 179, 71, 0.35)',
+            width: '100%', boxSizing: 'border-box', scrollMarginTop: 90,
+            position: 'relative', overflow: 'hidden'
+          }}
+        >
+          {/* New badge */}
+          <div style={{
+            position: 'absolute', top: 0, right: 30,
+            background: 'linear-gradient(90deg, #FF9F2E, #FFC46B)', color: '#042328',
+            fontWeight: 800, fontSize: 11, letterSpacing: '1px', textTransform: 'uppercase',
+            padding: '6px 18px', borderRadius: '0 0 12px 12px',
+            boxShadow: '0 4px 15px rgba(255, 159, 46, 0.35)', zIndex: 2,
+          }}>
+            ✨ Just launched
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: 'clamp(20px, 4vw, 40px)', alignItems: 'center' }}>
+            {/* Left side content */}
+            <div style={{ minWidth: 0 }}>
+              <div className="current-solution-header" style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 32, flexWrap: 'wrap' }}>
+                <div className="cs-logo-container" style={{
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(255, 179, 71, 0.6)', borderRadius: 16, padding: '12px',
+                  boxShadow: '0 6px 24px rgba(255, 179, 71, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: 100, height: 100, flexShrink: 0, boxSizing: 'border-box'
+                }}>
+                  <img src={maillookLogo} alt="Magizhchi MailLook Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div className="cs-text-container" style={{ flex: '1 1 min-content', minWidth: '200px' }}>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 800, marginBottom: 8, color: '#FFFFFF', wordBreak: 'break-word' }}>
+                    Magizhchi MailLook
+                  </h3>
+                  <p style={{ color: '#FFB347', fontSize: 16, fontWeight: 700 }}>
+                    Email that makes you happy again. One calm inbox for every mailbox you have.
+                  </p>
+                </div>
+                <div className="cs-button-container" style={{ marginTop: 8 }}>
+                  <a href="https://maillook.magizhchi.software" target="_blank" rel="noopener noreferrer"
+                    style={{ background: 'linear-gradient(90deg, #FF9F2E, #FFC46B)', color: '#042328', textDecoration: 'none', padding: '12px 28px', borderRadius: 12, fontSize: 14, fontWeight: 800, boxShadow: '0 4px 20px rgba(255, 159, 46, 0.35)', display: 'inline-block', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
+                    onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={e => e.target.style.transform = 'translateY(0)'}>
+                    Open Magizhchi MailLook →
+                  </a>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }}
+                transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)', border: '1px solid rgba(255, 179, 71, 0.25)', borderRadius: 16, padding: 24 }}
+              >
+                <p style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.7, fontWeight: 700, marginBottom: 16 }}>
+                  Bring your company mailboxes, Gmail, Outlook and any other mail into one inbox, already
+                  sorted into three lanes: Needs me, For my info and Can wait.
+                </p>
+                <p style={{ fontSize: 15, color: '#C9E9E6', lineHeight: 1.7, fontWeight: 500 }}>
+                  AI reads each thread, suggests one-tap replies in your own tone and translates between
+                  Tamil and English. Drafts save as you type, every send has a 10-second undo, and mail can
+                  go out later at the right time. Every attachment lands in one Files page, saved to
+                  Magizhchi Box, and you sign in with the same Magizhchi ID as the rest of the suite.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right side image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0 }}
+              transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              style={{ willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden', border: '2px solid rgba(255, 179, 71, 0.5)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)', height: '100%', minHeight: 400 }}
+            >
+              <img src={maillookImage} alt="The Magizhchi MailLook inbox, sorted into Needs me, For my info and Can wait" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'left top', display: 'block', position: 'absolute', inset: 0 }} />
+            </motion.div>
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(255, 179, 71, 0.22)', margin: '40px 0' }} />
+
+          {/* Key Features */}
+          <div>
+            <h4 style={{ fontSize: 24, fontWeight: 800, color: '#FFFFFF', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10 }}>✨ Key Features</h4>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 16 }}>
+              {[
+                { icon: '🧭', title: 'Sorted for you', points: ['Needs me, For my info and Can wait', 'A happiness score and a Today briefing', 'Archive all of Can wait in one tap'] },
+                { icon: '🤖', title: 'AI that writes like you', points: ['One-tap reply suggestions', 'Write and rewrite with AI', 'Short summaries of long threads'] },
+                { icon: '🌐', title: 'Tamil ↔ English', points: ['Translate any mail you receive', 'Write or rewrite in either language', 'Show the original with one tap'] },
+                { icon: '🛟', title: 'Never lose a mail', points: ['Drafts save as you type', '10 seconds to undo every send', 'Warns when you forgot the attachment'] },
+                { icon: '⏰', title: 'The right time', points: ['Send later, or change the time', 'Snooze mail until you need it', 'A reminder when no one replies'] },
+                { icon: '📎', title: 'Works with the suite', points: ['Every attachment in one Files page', 'Saved to Magizhchi Box', 'Tasks in PA, calls in Magizhchi Meet'] },
+              ].map((feat, i) => (
+                <motion.div
+                  key={`maillook-kf-${i}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                  whileHover={{ scale: 1.03, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)' }}
+                  style={{ willChange: 'transform, opacity', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)', border: '1px solid rgba(255, 179, 71, 0.25)', borderRadius: 16, padding: 20, display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
+                  <div style={{ fontSize: 24, marginBottom: 8 }}>{feat.icon}</div>
+                  <h5 style={{ fontSize: 16, fontWeight: 800, color: '#FFFFFF', marginBottom: 8 }}>{feat.title}</h5>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: '#C9E9E6', fontSize: 14, lineHeight: 1.6, fontWeight: 500, flex: 1 }}>
+                    {feat.points.map((p, idx) => <li key={idx} style={{ marginBottom: 4 }}>{p}</li>)}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Get started strip */}
+            <div style={{
+              marginTop: 24, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 16,
+              background: 'linear-gradient(135deg, rgba(255, 159, 46, 0.16) 0%, rgba(255, 255, 255, 0.03) 100%)',
+              border: '1px solid rgba(255, 179, 71, 0.35)', borderRadius: 16, padding: '20px 24px'
+            }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px' }}>
+                {[
+                  'Gmail, Outlook, Hostinger, Zoho and any IMAP mail',
+                  'Install it on your phone or computer',
+                  'Alerts only for mail that needs you',
+                ].map((t, i) => (
+                  <span key={`maillook-gs-${i}`} style={{ display: 'inline-flex', alignItems: 'flex-start', gap: 8, fontSize: 14, color: '#EAFBF9', fontWeight: 600, lineHeight: 1.5 }}>
+                    <span style={{ color: '#FFB347', fontWeight: 800 }}>✓</span>{t}
+                  </span>
+                ))}
+              </div>
+              <a href="https://maillook.magizhchi.software" target="_blank" rel="noopener noreferrer"
+                style={{ background: 'linear-gradient(90deg, #FF9F2E, #FFC46B)', color: '#042328', textDecoration: 'none', padding: '12px 24px', borderRadius: 12, fontSize: 15, fontWeight: 800, boxShadow: '0 4px 20px rgba(255, 159, 46, 0.35)', whiteSpace: 'nowrap', transition: 'all 0.2s' }}
+                onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
+                onMouseLeave={e => e.target.style.transform = 'translateY(0)'}>
+                Sign in with Magizhchi ID →
+              </a>
             </div>
           </div>
         </motion.div>
