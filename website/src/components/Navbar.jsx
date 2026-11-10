@@ -5,6 +5,7 @@ import logoOrange from '../assets/logo-software-orange.png';
 const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: '🔥 Magizhchi Meet', href: '#product-meet', highlight: true },
+  { label: '🧞 Magizhchi PA', href: '#product-pa' },
   { label: 'Products', href: '#solutions' },
   { label: 'Ecosystem', href: '#products' },
   { label: 'Why Us', href: '#why' },

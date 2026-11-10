@@ -15,6 +15,7 @@ import formsImage from '../assets/img_magizhchi_forms.png';
 import meetImage from '../assets/academy_mentor.png';
 import maillookLogo from '../assets/logo-magizhchi-maillook.png';
 import maillookImage from '../assets/img_magizhchi_maillook.jpg';
+import PaProduct from './PaProduct';
 
 // ─────────────────────────────────────────────────────────────────────
 //  Magizhchi DB Communicator — desktop installer download
@@ -102,6 +103,7 @@ export default function CurrentSolution() {
         >
           {[
             { id: 'product-meet', label: '🔥 Magizhchi Meet', tag: 'Flagship', activeColor: '#FF6B1A' },
+            { id: 'product-pa', label: '🧞 Magizhchi PA', tag: 'Your wish, done', activeColor: '#F58A07' },
             { id: 'product-crm', label: '🎯 Magizhchi CRM', tag: 'Sales', activeColor: '#E8B84B' },
             { id: 'product-forms', label: '📝 Magizhchi Forms', tag: 'Collect', activeColor: '#9A3412' },
             { id: 'product-maillook', label: '✉️ Magizhchi MailLook', tag: 'New · Email', activeColor: '#0D6A75' },
@@ -485,6 +487,9 @@ export default function CurrentSolution() {
             </div>
           </div>
         </motion.div>
+
+        {/* Magizhchi PA: the personal assistant, slogan "Your wish, done." */}
+        <PaProduct />
 
         {/* Main card 1: Magizhchi CRM */}
         <motion.div
