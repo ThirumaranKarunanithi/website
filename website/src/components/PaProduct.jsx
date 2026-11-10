@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import paLogo from '../assets/logo-magizhchi-pa.webp';
-import paHero from '../assets/pa-hero.webp';
+import PaStage from './PaStage';
 
 // Magizhchi PA: the owner's personal assistant. The logo is the lamp and genie; the slogan is "Your wish, done."
 const FEATURES = [
@@ -122,19 +122,9 @@ export default function PaProduct() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            willChange: 'transform, opacity', position: 'relative', borderRadius: 20, overflow: 'hidden',
-            border: '2px solid rgba(255, 176, 74, 0.4)', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.5)',
-            minHeight: 400, display: 'grid', placeItems: 'center',
-            background: 'radial-gradient(closest-side, rgba(255, 150, 40, 0.42), rgba(245, 138, 7, 0.1) 62%, transparent 78%), linear-gradient(160deg, #241007 0%, #0B0504 100%)',
-          }}
+          style={{ willChange: 'transform, opacity', minWidth: 0 }}
         >
-          <img
-            src={paHero}
-            alt="The Magizhchi PA lamp and smiling genie"
-            style={{ width: 'min(86%, 380px)', height: 'auto', borderRadius: '22%', display: 'block', filter: 'drop-shadow(0 24px 50px rgba(245, 138, 7, 0.55))' }}
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.55) 100%)', pointerEvents: 'none' }} />
+          <PaStage />
         </motion.div>
       </div>
 
